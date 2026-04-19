@@ -87,6 +87,7 @@ export default function InvdSite() {
               <div className="relative rounded-[1.5rem] border border-white/10 bg-[#0E0E0E] p-8">
                 <img
                   src="/mnt/data/invd cru final.png"
+                  src="/mnt/data/logo.png"
                   alt="Logo INVD"
                   className="h-20 w-auto object-contain"
                 />
