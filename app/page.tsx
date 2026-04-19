@@ -1,8 +1,8 @@
-export default function InvdSite() {
+export default function Home() {
   const services = [
     {
       title: "Tráfego Pago",
-      text: "Campanhas de alta performance em Google, Meta e plataformas estratégicas com otimização contínua e foco em ROAS.",
+      text: "Campanhas de alta performance em Google, Meta e plataformas estratégicas com otimização contínua e foco em resultado.",
     },
     {
       title: "Social Media",
@@ -10,222 +10,476 @@ export default function InvdSite() {
     },
     {
       title: "Branding",
-      text: "Construção e fortalecimento de marca com identidade visual, tom de voz e narrativa que diferencia no mercado.",
+      text: "Construção e fortalecimento de marca com identidade visual, narrativa e presença que diferenciam no mercado.",
     },
     {
       title: "Consultoria Comercial",
-      text: "Diagnóstico de funil, estruturação de processos de venda e alinhamento entre marketing e time comercial.",
+      text: "Diagnóstico de funil, estruturação de processos e alinhamento entre marketing e time comercial.",
     },
     {
       title: "Presença Digital",
-      text: "Estruturação completa de ecossistema digital: sites, landing pages, automações e integração de canais.",
+      text: "Estruturação de ecossistema digital com sites, páginas, automações e integração entre canais.",
     },
   ];
 
+  const pillars = [
+    {
+      title: "Inteligência",
+      text: "Decisões orientadas por dados e análise profunda do mercado.",
+      letter: "I",
+    },
+    {
+      title: "Negócios",
+      text: "Visão estratégica que conecta marketing com crescimento real.",
+      letter: "N",
+    },
+    {
+      title: "Vendas",
+      text: "Processos e estrutura que transformam presença em receita.",
+      letter: "V",
+    },
+    {
+      title: "Digital",
+      text: "Domínio dos canais que definem o mercado contemporâneo.",
+      letter: "D",
+    },
+  ];
+
+  const differentials = [
+    {
+      title: "Pensamento estratégico, não operacional",
+      text: "Antes de executar, diagnosticamos. Cada passo nasce de uma leitura profunda do negócio, mercado e público.",
+    },
+    {
+      title: "Marketing orientado a vendas",
+      text: "Não medimos vaidade. Nosso indicador são metas, custo de aquisição e retorno sobre investimento.",
+    },
+    {
+      title: "Parceria, não fornecimento",
+      text: "Atuamos como extensão do seu time, com proximidade, transparência e alinhamento constante.",
+    },
+    {
+      title: "Integração completa de canais",
+      text: "Conectamos tráfego, conteúdo, branding e vendas em um ecossistema que multiplica resultado.",
+    },
+  ];
+
+  const cases = [
+    {
+      title: "Select Fit",
+      subtitle: "Fábrica de equipamentos fitness",
+      text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
+    },
+    {
+      title: "Escola Cense",
+      subtitle: "Posicionamento educacional",
+      text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
+    },
+    {
+      title: "Rede Cade",
+      subtitle: "Saúde e clínicas",
+      text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
+    },
+  ];
+
+  const whatsappLink =
+    "https://api.whatsapp.com/send/?phone=+15559008723&text&type=phone_number&app_absent=0";
+  const instagramLink = "https://www.instagram.com/somos_invd/";
+
   return (
-    <div className="min-h-screen bg-[#000000] text-white selection:bg-[#7C003E] selection:text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-          <div className="flex items-center gap-3">
+    <main className="min-h-screen bg-black text-white selection:bg-[#7C003E] selection:text-white">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          <a href="#" className="flex items-center gap-3">
             <img
-              src="/mnt/data/invd cru final.png"
+              src="/logo.png"
               alt="INVD"
-              className="h-10 w-auto rounded-md object-contain"
+              className="h-7 w-auto object-contain"
             />
-          </div>
-          <nav className="hidden items-center gap-8 text-sm text-white/80 md:flex">
-            <a href="#servicos" className="transition hover:text-white">Serviços</a>
-            <a href="#sobre" className="transition hover:text-white">Posicionamento</a>
-            <a href="#contato" className="transition hover:text-white">Contato</a>
+          </a>
+
+          <nav className="hidden items-center gap-8 text-[11px] text-white/70 md:flex">
+            <a href="#sobre" className="transition hover:text-white">
+              Sobre
+            </a>
+            <a href="#servicos" className="transition hover:text-white">
+              Serviços
+            </a>
+            <a href="#diferenciais" className="transition hover:text-white">
+              Diferenciais
+            </a>
+            <a href="#resultados" className="transition hover:text-white">
+              Resultados
+            </a>
+            <a href="#cases" className="transition hover:text-white">
+              Cases
+            </a>
           </nav>
+
           <a
-            href="https://wa.me/15559008723"
-            className="rounded-full border border-[#7C003E] bg-[#7C003E] px-5 py-2 text-sm font-semibold transition hover:bg-[#5C0030]"
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full bg-[#C0005A] px-5 py-2 text-[11px] font-semibold text-white transition hover:bg-[#970047]"
           >
-            Falar com a INVD
+            Fale com a INVD
           </a>
         </div>
       </header>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(124,0,62,0.35),_transparent_35%),radial-gradient(circle_at_left,_rgba(92,0,48,0.24),_transparent_28%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:px-10 lg:py-28">
-          <div className="flex flex-col justify-center">
-            <span className="mb-5 inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/70">
-              Inteligência em Negócios, Vendas e Digital
-            </span>
-            <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">
-              Soluções que conectam,
-              <span className="block bg-gradient-to-r from-[#FFFFFF] via-[#FF2E96] to-[#7C003E] bg-clip-text text-transparent">
-                estratégia a resultado.
+      <section className="relative overflow-hidden bg-black">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(124,0,62,0.22),_transparent_30%),radial-gradient(circle_at_left,_rgba(92,0,48,0.16),_transparent_24%),linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.82)_100%)]" />
+        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(120deg,transparent_0%,transparent_35%,rgba(192,0,90,0.08)_50%,transparent_65%,transparent_100%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-28 lg:px-10 lg:pb-28 lg:pt-32">
+          <div className="max-w-3xl">
+            <div className="mb-8 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[9px] uppercase tracking-[0.38em] text-white/45">
+                Inteligência em Negócios, Vendas e Digital
+              </span>
+            </div>
+
+            <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
+              Estratégia que
+              <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
+                posiciona e
+              </span>
+              <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
+                acelera.
               </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
-              A INVD estrutura marcas e operações para crescer com direção.
-              Mais que marketing, entregamos posicionamento, performance e clareza comercial.
+
+            <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
+              Unimos marketing inteligente, presença digital e visão comercial
+              para construir marcas que vendem mais e dominam seus mercados.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://wa.me/15559008723"
-                className="rounded-full bg-[#7C003E] px-7 py-4 text-center text-sm font-semibold transition hover:bg-[#5C0030]"
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
               >
-                Chamar no WhatsApp
+                Fale com a INVD
+                <span className="ml-2">→</span>
               </a>
+
               <a
                 href="#servicos"
-                className="rounded-full border border-white/15 px-7 py-4 text-center text-sm font-semibold text-white/85 transition hover:border-white/30 hover:text-white"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
               >
-                Ver serviços
+                Conheça nossos serviços
               </a>
             </div>
           </div>
-
-          <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 shadow-2xl shadow-black/40">
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#7C003E]/30 blur-3xl" />
-              <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-[#5C0030]/40 blur-3xl" />
-              <div className="relative rounded-[1.5rem] border border-white/10 bg-[#0E0E0E] p-8">
-                <img
-                  src="/mnt/data/logo.png"
-                  alt="Logo INVD"
-                  className="h-20 w-auto object-contain"
-                />
-                <div className="mt-8 grid gap-4">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-white/50">Posicionamento</p>
-                    <p className="mt-2 text-xl font-semibold">Marca com autoridade</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-white/50">Performance</p>
-                    <p className="mt-2 text-xl font-semibold">Campanhas orientadas a resultado</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-white/50">Estrutura</p>
-                    <p className="mt-2 text-xl font-semibold">Marketing alinhado ao comercial</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+
+        <div className="h-14 bg-[linear-gradient(180deg,transparent_0%,rgba(255,255,255,0.35)_100%)] blur-xl opacity-70" />
       </section>
 
-      <section id="sobre" className="border-y border-white/10 bg-[#070707]">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF2E96]">
-                Posicionamento
-              </p>
-              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">
-                Marketing sem direção gera vaidade. Estratégia bem aplicada gera crescimento.
-              </h2>
-            </div>
-            <div className="flex items-end">
-              <p className="text-base leading-8 text-white/70 md:text-lg">
-                A INVD atua na conexão entre presença digital, processo comercial e construção de marca.
-                O foco não é apenas aparecer. É criar uma estrutura capaz de sustentar resultado de verdade.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="servicos" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section id="sobre" className="bg-[#F4F1F3] text-black">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF2E96]">
-              Serviços
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
+                Sobre a INVD
+              </span>
+            </div>
+
+            <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Não somos apenas uma agência de marketing
+              <span className="text-[#C0005A]">.</span>
+            </h2>
+
+            <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
+              A INVD nasceu da convergência entre inteligência comercial,
+              marketing estratégico e domínio digital. Atuamos como parceiros
+              de crescimento de empresas que exigem mais do que presença —
+              exigem posicionamento, performance e resultados mensuráveis.
             </p>
-            <h2 className="mt-3 text-3xl font-black md:text-5xl">Estrutura completa para posicionar, vender e escalar.</h2>
-          </div>
-          <p className="max-w-xl text-white/65">
-            Soluções pensadas para empresas que querem sair da improvisação e construir presença com força de marca e foco comercial.
-          </p>
-        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-7 transition hover:-translate-y-1 hover:border-[#7C003E]/60 hover:bg-white/[0.06]"
+            <p className="mt-5 max-w-xl text-sm leading-7 text-black/45 md:text-base">
+              Saímos da lógica de fornecedor e operamos de forma mais próxima da
+              decisão. Nossa forma de atuar reestrutura o que você comunica,
+              vende e escala no mercado.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {pillars.map((item) => (
+              <div
+                key={item.title}
+                className="relative rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+              >
+                <span className="absolute right-4 top-3 text-4xl font-black text-[#EAD7DF]">
+                  {item.letter}
+                </span>
+                <h3 className="text-sm font-bold text-black">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-black/55">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" className="bg-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-white/45">
+                O que fazemos
+              </span>
+              <span className="h-px w-10 bg-[#C0005A]" />
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Soluções que conectam
+              <br />
+              estratégia a resultado
+              <span className="text-[#C0005A]">.</span>
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:-translate-y-1 hover:border-[#C0005A]/50"
+              >
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610] text-[#C0005A]">
+                  ●
+                </div>
+                <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/50">
+                  {service.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="diferenciais" className="bg-[#F4F1F3] text-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mb-12 max-w-2xl">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
+                Por que a INVD
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              O que nos separa do
+              <br />
+              marketing convencional
+              <span className="text-[#C0005A]">.</span>
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {differentials.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+              >
+                <h3 className="text-sm font-bold text-black">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-black/55">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" className="bg-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-white/45">
+                Cases e resultados
+              </span>
+              <span className="h-px w-10 bg-[#C0005A]" />
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Clientes reais,
+              <br />
+              resultados reais
+              <span className="text-[#C0005A]">.</span>
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {cases.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7"
+              >
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610] text-[#C0005A]">
+                  ▣
+                </div>
+                <h3 className="text-lg font-bold">{item.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/35">
+                  {item.subtitle}
+                </p>
+                <p className="mt-5 text-sm leading-7 text-white/50">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="resultados"
+        className="relative overflow-hidden border-t border-white/5 bg-black"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(124,0,62,0.18),_transparent_40%)]" />
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">
+              Pronto para
+              <br />
+              crescer de verdade
+              <span className="text-[#C0005A]">?</span>
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/55 md:text-base">
+              Converse com nosso time e descubra como a INVD pode transformar a
+              presença digital e o desempenho comercial da sua empresa.
+            </p>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-10 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
             >
-              <div className="mb-5 h-1.5 w-14 rounded-full bg-gradient-to-r from-[#5C0030] to-[#FF2E96]" />
-              <h3 className="text-2xl font-bold">{service.title}</h3>
-              <p className="mt-4 text-base leading-8 text-white/70">{service.text}</p>
+              Fale com a INVD
+              <span className="ml-2">→</span>
+            </a>
+          </div>
+
+          <div className="mt-24 text-center">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-white/35">
+              Parceiros certificados
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs text-white/75">
+                Google Partner
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs text-white/75">
+                Kommo Partner
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs text-white/75">
+                Meta Blueprint Partner
+              </span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
-        <div className="grid gap-6 rounded-[2rem] border border-white/10 bg-gradient-to-r from-[#5C0030] via-[#7C003E] to-[#000000] p-8 md:grid-cols-3 md:p-10">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-white/60">Contato</p>
-            <p className="mt-3 text-lg font-semibold">+1 (555) 900-8723</p>
-          </div>
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-white/60">E-mail</p>
-            <p className="mt-3 break-all text-lg font-semibold">contato@invdgroup.com</p>
-          </div>
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-white/60">Instagram</p>
-            <p className="mt-3 text-lg font-semibold">@somos_invd</p>
           </div>
         </div>
       </section>
 
-      <section id="contato" className="border-t border-white/10 bg-[#050505]">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+      <footer className="border-t border-white/5 bg-black">
+        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+          <div className="grid gap-12 md:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF2E96]">
-                Vamos conversar
-              </p>
-              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">
-                Sua empresa não precisa de mais volume. Precisa de direção.
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                Fale com a INVD e entenda como alinhar posicionamento, tráfego, presença digital e processo comercial para crescer com mais clareza.
+              <a href="#" className="inline-flex items-center">
+                <img
+                  src="/logo.png"
+                  alt="INVD"
+                  className="h-7 w-auto object-contain"
+                />
+              </a>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-white/45">
+                Inteligência em Negócios, Vendas e Digital. Estratégia que
+                posiciona e acelera.
               </p>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-white/45">WhatsApp</p>
-                  <a href="https://wa.me/15559008723" className="mt-2 block text-xl font-semibold hover:text-[#FF2E96]">
-                    +1 (555) 900-8723
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-white/45">E-mail</p>
-                  <a href="mailto:contato@invdgroup.com" className="mt-2 block text-xl font-semibold hover:text-[#FF2E96]">
-                    contato@invdgroup.com
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-white/45">Instagram</p>
-                  <a href="https://instagram.com/somos_invd" className="mt-2 block text-xl font-semibold hover:text-[#FF2E96]">
-                    @somos_invd
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-white/45">Endereço</p>
-                  <p className="mt-2 text-xl font-semibold">Sem endereço físico</p>
-                </div>
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                Navegação
+              </p>
+              <div className="mt-5 space-y-3 text-sm text-white/65">
+                <a href="#sobre" className="block transition hover:text-white">
+                  Sobre
+                </a>
+                <a
+                  href="#servicos"
+                  className="block transition hover:text-white"
+                >
+                  Serviços
+                </a>
+                <a
+                  href="#diferenciais"
+                  className="block transition hover:text-white"
+                >
+                  Diferenciais
+                </a>
+                <a
+                  href="#resultados"
+                  className="block transition hover:text-white"
+                >
+                  Resultados
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                Serviços
+              </p>
+              <div className="mt-5 space-y-3 text-sm text-white/65">
+                <span className="block">Tráfego Pago</span>
+                <span className="block">Social Media</span>
+                <span className="block">Branding</span>
+                <span className="block">Consultoria</span>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
+                Rede social
+              </p>
+              <div className="mt-5">
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-white/75 transition hover:border-[#C0005A] hover:text-white"
+                >
+                  Instagram
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <footer className="border-t border-white/10 bg-black">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-white/45 md:flex-row md:items-center md:justify-between lg:px-10">
-          <p>© 2026 INVD Group. Todos os direitos reservados.</p>
-          <p>Soluções que conectam, estratégia a resultado.</p>
+          <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
+            <p>© 2026 INVD — Todos os direitos reservados.</p>
+            <p>Inteligência em Negócios, Vendas e Digital</p>
+          </div>
         </div>
       </footer>
-    </div>
+
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(192,0,90,0.35)] transition hover:bg-[#970047]"
+      >
+        WhatsApp
+      </a>
+    </main>
   );
 }
