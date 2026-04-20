@@ -1,3 +1,4 @@
+"use client";
 export default function Home() {
   const services = [
     {
@@ -87,14 +88,15 @@ export default function Home() {
   const instagramLink = "https://www.instagram.com/somos_invd/";
 
   const trackWhatsAppClick = (location: string) => {
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "whatsapp_click",
-        button_location: location,
-        link_url: whatsappLink,
-      });
-    }
+  if (typeof window === "undefined") return;
+
+  window.dataLayer = window.dataLayer || [];
+
+  window.dataLayer.push({
+    event: "whatsapp_click",
+    button_location: location,
+    link_url: whatsappLink,
+  });
   };
 
   return (
