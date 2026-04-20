@@ -83,7 +83,7 @@ export default function Home() {
   ];
 
   const whatsappLink =
-    "https://api.whatsapp.com/send/?phone=+15559008723&text&type=phone_number&app_absent=0";
+    "https://api.whatsapp.com/send/?phone=15559008723&text&type=phone_number&app_absent=0";
   const instagramLink = "https://www.instagram.com/somos_invd/";
 
   const trackWhatsAppClick = (location: string) => {
