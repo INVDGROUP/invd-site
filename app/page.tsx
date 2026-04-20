@@ -86,6 +86,17 @@ export default function Home() {
     "https://api.whatsapp.com/send/?phone=+15559008723&text&type=phone_number&app_absent=0";
   const instagramLink = "https://www.instagram.com/somos_invd/";
 
+  const trackWhatsAppClick = (location: string) => {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "whatsapp_click",
+        button_location: location,
+        link_url: whatsappLink,
+      });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-[#7C003E] selection:text-white">
       <header className="sticky top-0 z-50 border-b border-white/5 bg-black/70 backdrop-blur-xl">
@@ -120,6 +131,7 @@ export default function Home() {
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackWhatsAppClick("header")}
             className="rounded-full bg-[#C0005A] px-5 py-2 text-[11px] font-semibold text-white transition hover:bg-[#970047]"
           >
             Fale com a INVD
@@ -160,6 +172,7 @@ export default function Home() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackWhatsAppClick("hero")}
                 className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
               >
                 Fale com a INVD
@@ -363,6 +376,7 @@ export default function Home() {
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackWhatsAppClick("cta_resultados")}
               className="mt-10 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
             >
               Fale com a INVD
@@ -476,6 +490,7 @@ export default function Home() {
         href={whatsappLink}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackWhatsAppClick("botao_fixo")}
         className="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(192,0,90,0.35)] transition hover:bg-[#970047]"
       >
         WhatsApp
