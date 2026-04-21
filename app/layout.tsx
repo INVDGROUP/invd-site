@@ -3,8 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "INVD",
-  description: "Inteligência em Negócios, Vendas e Digital",
+  title: "INVD | Agência de Marketing em Brasília",
+  description:
+    "Agência de marketing em Brasília especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
 };
 
 export default function RootLayout({
