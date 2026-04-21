@@ -106,7 +106,7 @@ export default function Home() {
           <a href="#" className="flex items-center gap-3">
             <img
               src="/logo.png"
-              alt="INVD"
+              alt="Logo da INVD"
               className="h-7 w-auto object-contain"
             />
           </a>
@@ -166,7 +166,7 @@ export default function Home() {
 
             <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
               Unimos marketing inteligente, presença digital e visão comercial
-              para construir marcas que vendem mais e dominam seus mercados.
+              para impulsionar empresas em Brasília que querem vender mais e dominar seus mercados.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -205,7 +205,7 @@ export default function Home() {
             </div>
 
             <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Não somos apenas uma agência de marketing
+              Serviços de marketing digital, vendas e crescimento para empresas
               <span className="text-[#C0005A]">.</span>
             </h2>
 
@@ -254,9 +254,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Soluções que conectam
+              Estratégia, tráfego e posicionamento
               <br />
-              estratégia a resultado
+              para marcas que querem crescer
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
@@ -291,9 +291,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              O que nos separa do
+              Por que empresas escolhem
               <br />
-              marketing convencional
+              a INVD para crescer
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
@@ -326,9 +326,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Clientes reais,
+              Marketing com visão
               <br />
-              resultados reais
+               e resultados reais
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
@@ -413,7 +413,7 @@ export default function Home() {
               <a href="#" className="inline-flex items-center">
                 <img
                   src="/logo.png"
-                  alt="INVD"
+                  alt="Logo da INVD"
                   className="h-7 w-auto object-contain"
                 />
               </a>
