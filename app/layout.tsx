@@ -6,6 +6,30 @@ export const metadata: Metadata = {
   title: "INVD | Agência de Marketing em Brasília",
   description:
     "Agência de marketing em Brasília especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
+  keywords: [
+    "agência de marketing em Brasília",
+    "marketing digital Brasília",
+    "tráfego pago Brasília",
+    "gestão comercial Brasília",
+    "social media Brasília",
+    "consultoria de marketing Brasília",
+    "INVD",
+  ],
+  openGraph: {
+    title: "INVD | Agência de Marketing em Brasília",
+    description:
+      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas em Brasília.",
+    url: "https://invdgroup.com",
+    siteName: "INVD",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "INVD | Agência de Marketing em Brasília",
+    description:
+      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas em Brasília.",
+  },
 };
 
 export default function RootLayout({
