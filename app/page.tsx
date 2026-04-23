@@ -66,22 +66,28 @@ export default function Home() {
   ];
 
   const cases = [
-    {
-      title: "Select Fit",
-      subtitle: "Fábrica de equipamentos fitness",
-      text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
-    },
-    {
-      title: "Escola Cense",
-      subtitle: "Posicionamento educacional",
-      text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
-    },
-    {
-      title: "Rede Cade",
-      subtitle: "Saúde e clínicas",
-      text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
-    },
-  ];
+  {
+    title: "Select Fit",
+    subtitle: "Fábrica de equipamentos fitness",
+    text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
+    image: "/cases/select-fit.png",
+    link: "https://instagram.com/selectfit",
+  },
+  {
+    title: "Escola Cense",
+    subtitle: "Posicionamento educacional",
+    text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
+    image: "/cases/escola-cense.png",
+    link: "https://instagram.com/escolacense",
+  },
+  {
+    title: "Rede Cade",
+    subtitle: "Saúde e clínicas",
+    text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
+    image: "/cases/rede-cade.png",
+    link: "https://instagram.com/redecade",
+  },
+];
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=15559008723&text&type=phone_number&app_absent=0";
