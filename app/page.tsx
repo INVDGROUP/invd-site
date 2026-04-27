@@ -300,7 +300,7 @@ export default function Home() {
               Por que empresas
               <br />
               escolhem a
-              <span className="text-[#C0005A]">INVD</span>
+              <span className="text-[#C0005A]"> INVD</span>
             </h2>
           </div>
 
