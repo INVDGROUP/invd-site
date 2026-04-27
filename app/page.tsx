@@ -211,7 +211,7 @@ export default function Home() {
             </div>
 
             <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Serviços de marketing digital, vendas e crescimento para empresas
+              Estratégia, marketing e vendas para empresas
               <span className="text-[#C0005A]">.</span>
             </h2>
 
@@ -260,9 +260,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Estratégia, tráfego e posicionamento
+              Soluções para
               <br />
-              para marcas que querem crescer
+              quem quer crescer.
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
