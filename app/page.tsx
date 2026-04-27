@@ -171,8 +171,8 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
-              Unimos marketing inteligente, presença digital e visão comercial
-              para impulsionar empresas em Brasília que querem vender mais e dominar seus mercados.
+              Unimos marketing inteligente, presença digital e visão comercial para impulsionar
+              empresas em todo o Brasil que querem vender mais e crescer com direção.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">

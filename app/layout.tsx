@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "INVD | Inteligência em Negócios, Vendas e Digital",
   description:
-    "Agência de marketing em Brasília especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
+    "Agência de marketing especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
   keywords: [
     "agência de marketing",
     "marketing digital",
