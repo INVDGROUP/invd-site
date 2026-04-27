@@ -297,9 +297,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Por que escolhem
+              Por que empresas escolhem
               <br />
-              a INVD para crescer
+              a INVD
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
