@@ -262,8 +262,8 @@ export default function Home() {
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
               Soluções para
               <br />
-              quem quer crescer.
-              <span className="text-[#C0005A]">.</span>
+              quem querem
+              <span className="text-[#C0005A]">crescer</span>
             </h2>
           </div>
 
