@@ -263,7 +263,7 @@ export default function Home() {
               Soluções para empresas
               <br />
               que querem 
-              <span className="text-[#C0005A]">crescer</span>
+              <span className="text-[#C0005A]"> crescer</span>
             </h2>
           </div>
 
