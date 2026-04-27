@@ -3,22 +3,22 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "INVD | Agência de Marketing em Brasília",
+  title: "INVD | Inteligência em Negócios, Vendas e Digital",
   description:
     "Agência de marketing em Brasília especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
   keywords: [
-    "agência de marketing em Brasília",
-    "marketing digital Brasília",
-    "tráfego pago Brasília",
-    "gestão comercial Brasília",
-    "social media Brasília",
-    "consultoria de marketing Brasília",
+    "agência de marketing",
+    "marketing digital",
+    "tráfego pago",
+    "gestão comercial",
+    "social media",
+    "consultoria de marketing",
     "INVD",
   ],
   openGraph: {
-    title: "INVD | Agência de Marketing em Brasília",
+    title: "INVD | Inteligência em Negócios, Vendas e Digital",
     description:
-      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas em Brasília.",
+      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas.",
     url: "https://invdgroup.com",
     siteName: "INVD",
     locale: "pt_BR",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "INVD | Agência de Marketing em Brasília",
+    title: "INVD | Inteligência em Negócios, Vendas e Digital",
     description:
-      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas em Brasília.",
+      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas.",
   },
 };
 
