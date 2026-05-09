@@ -3,32 +3,25 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "INVD | Inteligência em Negócios, Vendas e Digital",
+  title: "INVD — Agência de Reposicionamento e Escala para Empresas",
   description:
-    "Agência de marketing especializada em tráfego pago, posicionamento digital, gestão comercial e crescimento para empresas.",
+    "Especialistas em reposicionamento, reestruturação e escala. Atendemos empresas que faturam acima de R$100k e querem crescer com estratégia e performance.",
   keywords: [
-    "agência de marketing",
-    "marketing digital",
+    "agência high ticket",
+    "agência de escala",
+    "reposicionamento de marca",
+    "reestruturação de marketing",
+    "crescimento empresarial",
     "tráfego pago",
-    "gestão comercial",
-    "social media",
-    "consultoria de marketing",
-    "INVD",
   ],
   openGraph: {
-    title: "INVD | Inteligência em Negócios, Vendas e Digital",
+    title: "INVD — Reposicionamento e Escala",
     description:
-      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas.",
+      "Agência de alto padrão para empresas que faturam mas não escalam.",
     url: "https://invdgroup.com",
-    siteName: "INVD",
+    siteName: "INVD Group",
     locale: "pt_BR",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "INVD | Inteligência em Negócios, Vendas e Digital",
-    description:
-      "Tráfego pago, posicionamento digital, gestão comercial e estratégia para empresas.",
   },
 };
 
