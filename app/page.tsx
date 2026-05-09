@@ -70,21 +70,18 @@ export default function Home() {
     title: "Select Fit",
     subtitle: "Fábrica de equipamentos fitness",
     text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
-    image: "/cases/select-fit.png",
     link: "https://instagram.com/selectfit",
   },
   {
     title: "Escola Cense",
     subtitle: "Posicionamento educacional",
     text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
-    image: "/cases/escola-cense.png",
     link: "https://instagram.com/escolacense",
   },
   {
     title: "Rede Cade",
     subtitle: "Saúde e clínicas",
     text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
-    image: "/cases/rede-cade.png",
     link: "https://instagram.com/redecade",
   },
 ];
@@ -341,9 +338,12 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {cases.map((item) => (
-              <div
+              <a
                 key={item.title}
-                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7"
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 hover:-translate-y-1 block"
               >
                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610] text-[#C0005A]">
                   ▣
@@ -355,7 +355,7 @@ export default function Home() {
                 <p className="mt-5 text-sm leading-7 text-white/50">
                   {item.text}
                 </p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
