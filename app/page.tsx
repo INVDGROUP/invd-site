@@ -69,18 +69,21 @@ export default function Home() {
   {
     title: "Select Fit",
     subtitle: "Fábrica de equipamentos fitness",
+    metric: "+3x de alcance orgânico em 60 dias",
     text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
     link: "https://instagram.com/selectfit_",
   },
   {
     title: "Escola Cense",
     subtitle: "Posicionamento educacional",
+    metric: "Autoridade digital estruturada em 90 dias",
     text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
     link: "https://instagram.com/escolacence",
   },
   {
     title: "Rede Cade",
     subtitle: "Saúde e clínicas",
+    metric: "+40% de consistência na presença online",
     text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
     link: "https://instagram.com/redecadeoficial",
   },
@@ -121,6 +124,9 @@ export default function Home() {
             <a href="#servicos" className="transition hover:text-white">
               Serviços
             </a>
+            <a href="#metodo" className="transition hover:text-white">
+              Como trabalhamos
+            </a>
             <a href="#diferenciais" className="transition hover:text-white">
               Diferenciais
             </a>
@@ -153,7 +159,7 @@ export default function Home() {
             <div className="mb-8 flex items-center gap-3">
               <span className="h-px w-10 bg-[#C0005A]" />
               <span className="text-[9px] uppercase tracking-[0.38em] text-white/45">
-                Inteligência em Negócios, Vendas e Digital
+                Reposicionamento e escala para empresas de alto padrão
               </span>
             </div>
 
@@ -168,8 +174,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
-              Unimos marketing inteligente, presença digital e visão comercial para impulsionar
-              empresas em todo o Brasil que querem vender mais e crescer com direção.
+              Atendemos empresas que já faturam, mas travam no crescimento. Nossa especialidade é diagnosticar, reposicionar e escalar operações com visão estratégica e resultado mensurável.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -180,15 +185,15 @@ export default function Home() {
                 onClick={() => trackWhatsAppClick("hero")}
                 className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
               >
-                Fale com a INVD
+                Quero escalar com a INVD
                 <span className="ml-2">→</span>
               </a>
 
               <a
-                href="#servicos"
+                href="#metodo"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
               >
-                Conheça nossos serviços
+                Como trabalhamos
               </a>
             </div>
           </div>
@@ -283,6 +288,78 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="metodo" className="bg-[#F4F1F3] text-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
+                Como trabalhamos
+              </span>
+              <span className="h-px w-10 bg-[#C0005A]" />
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Do diagnóstico à escala —
+              <span className="text-[#C0005A]"> com método</span>
+            </h2>
+
+            <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
+              Não começamos pela execução. Começamos entendendo o seu negócio.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: "01",
+                title: "Diagnóstico",
+                text: "Mapeamos sua operação, posicionamento, canais e gaps de crescimento antes de propor qualquer solução.",
+                highlight: false,
+              },
+              {
+                step: "02",
+                title: "Estratégia",
+                text: "Estruturamos um plano sob medida conectando marketing, comunicação e vendas ao momento real da sua empresa.",
+                highlight: true,
+              },
+              {
+                step: "03",
+                title: "Execução e Escala",
+                text: "Atuamos como extensão do seu time com acompanhamento próximo, ajustes contínuos e foco em resultado.",
+                highlight: false,
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className={`rounded-2xl border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] ${
+                  item.highlight ? "border-[#C0005A]" : "border-[#E7DDE1]"
+                }`}
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C0005A]">
+                  {item.step}
+                </span>
+                <h3 className="mt-3 text-xl font-black text-black">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-black/55">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 text-center">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackWhatsAppClick("metodo")}
+              className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+            >
+              Agendar diagnóstico
+              <span className="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section id="diferenciais" className="bg-[#F4F1F3] text-black">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mb-12 max-w-2xl">
@@ -351,6 +428,9 @@ export default function Home() {
                 <h3 className="text-lg font-bold">{item.title}</h3>
                 <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/35">
                   {item.subtitle}
+                </p>
+                <p className="mt-3 text-sm font-bold text-[#C0005A]">
+                  {item.metric}
                 </p>
                 <p className="mt-5 text-sm leading-7 text-white/50">
                   {item.text}
