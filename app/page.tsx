@@ -91,7 +91,7 @@ export default function Home() {
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
-  const instagramLink = "https://www.instagram.com/somos_invd/";
+  const instagramLink = "https://www.instagram.com/invdgroup/";
 
   const trackWhatsAppClick = (location: string) => {
   if (typeof window === "undefined") return;
