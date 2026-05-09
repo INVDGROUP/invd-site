@@ -70,19 +70,19 @@ export default function Home() {
     title: "Select Fit",
     subtitle: "Fábrica de equipamentos fitness",
     text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
-    link: "https://instagram.com/selectfit",
+    link: "https://instagram.com/selectfit_",
   },
   {
     title: "Escola Cense",
     subtitle: "Posicionamento educacional",
     text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
-    link: "https://instagram.com/escolacense",
+    link: "https://instagram.com/escolacence",
   },
   {
     title: "Rede Cade",
     subtitle: "Saúde e clínicas",
     text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
-    link: "https://instagram.com/redecade",
+    link: "https://instagram.com/redecadeoficial",
   },
 ];
 
