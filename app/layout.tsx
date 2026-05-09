@@ -3,21 +3,27 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "INVD — Agência de Reposicionamento e Escala para Empresas",
+  title: "INVD — Agência de Marketing para Empresas que Querem Escalar",
   description:
-    "Especialistas em reposicionamento, reestruturação e escala. Atendemos empresas que faturam acima de R$100k e querem crescer com estratégia e performance.",
+    "Especialistas em reposicionamento, reestruturação e escala para empresas que faturam acima de R$100k. Tráfego pago, social media e estratégia integrada para crescimento real.",
   keywords: [
-    "agência high ticket",
-    "agência de escala",
-    "reposicionamento de marca",
-    "reestruturação de marketing",
-    "crescimento empresarial",
-    "tráfego pago",
+    "agência de marketing para empresas",
+    "agência para escalar empresa",
+    "agência de tráfego pago",
+    "agência de reposicionamento de marca",
+    "marketing para empresas high ticket",
+    "agência de marketing digital Brasil",
+    "como escalar empresa com marketing",
+    "agência de performance e resultados",
+    "consultoria de marketing para empresas",
+    "agência de crescimento empresarial",
+    "marketing estratégico para empresas",
+    "agência de reestruturação de marketing",
   ],
   openGraph: {
-    title: "INVD — Reposicionamento e Escala",
+    title: "INVD — Agência de Marketing para Empresas que Querem Escalar",
     description:
-      "Agência de alto padrão para empresas que faturam mas não escalam.",
+      "Reposicionamento, reestruturação e escala para empresas que faturam mas não crescem no ritmo certo.",
     url: "https://invdgroup.com",
     siteName: "INVD Group",
     locale: "pt_BR",

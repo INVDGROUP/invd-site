@@ -3,23 +3,23 @@ export default function Home() {
   const services = [
     {
       title: "Tráfego Pago",
-      text: "Campanhas de alta performance em Google, Meta e plataformas estratégicas com otimização contínua e foco em resultado.",
+      text: "Campanhas de alta performance em Meta e Google com gestão contínua, otimização de custo por aquisição e foco em escala de resultados para empresas.",
     },
     {
       title: "Social Media",
-      text: "Gestão de redes sociais com conteúdo estratégico, planejamento editorial e posicionamento que gera autoridade.",
+      text: "Gestão estratégica de redes sociais com conteúdo que posiciona sua empresa como referência e gera autoridade no mercado.",
     },
     {
       title: "Branding",
-      text: "Construção e fortalecimento de marca com identidade visual, narrativa e presença que diferenciam no mercado.",
+      text: "Reposicionamento e fortalecimento de marca com identidade visual, narrativa e presença que diferenciam sua empresa da concorrência.",
     },
     {
       title: "Consultoria Comercial",
-      text: "Diagnóstico de funil, estruturação de processos e alinhamento entre marketing e time comercial.",
+      text: "Diagnóstico de funil, reestruturação de processos e alinhamento entre marketing e time comercial para escalar vendas.",
     },
     {
       title: "Presença Digital",
-      text: "Estruturação de ecossistema digital com sites, páginas, automações e integração entre canais.",
+      text: "Estruturação completa do ecossistema digital — sites, automações e integração entre canais para empresas que querem crescer online.",
     },
   ];
 
@@ -90,7 +90,7 @@ export default function Home() {
 ];
 
   const whatsappLink =
-    "https://api.whatsapp.com/send/?phone=15559008723&text&type=phone_number&app_absent=0";
+    "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
   const instagramLink = "https://www.instagram.com/somos_invd/";
 
   const trackWhatsAppClick = (location: string) => {
@@ -159,14 +159,14 @@ export default function Home() {
             <div className="mb-8 flex items-center gap-3">
               <span className="h-px w-10 bg-[#C0005A]" />
               <span className="text-[9px] uppercase tracking-[0.38em] text-white/45">
-                Reposicionamento e escala para empresas de alto padrão
+                Agência de marketing para empresas que querem escalar
               </span>
             </div>
 
             <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
               Estratégia que
               <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
-                posiciona e
+                reposiciona e
               </span>
               <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
                 acelera.
@@ -174,7 +174,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
-              Atendemos empresas que já faturam, mas travam no crescimento. Nossa especialidade é diagnosticar, reposicionar e escalar operações com visão estratégica e resultado mensurável.
+              Somos especialistas em reposicionamento, reestruturação e escala para empresas que já faturam mas não crescem no ritmo certo. Tráfego pago, social media e estratégia integrada com foco em resultado real.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -213,21 +213,15 @@ export default function Home() {
             </div>
 
             <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Estratégia, marketing e vendas para empresas
-              <span className="text-[#C0005A]">.</span>
+              Agência de marketing estratégico para empresas que querem crescer de verdade<span className="text-[#C0005A]">.</span>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
-              A INVD nasceu da convergência entre inteligência comercial,
-              marketing estratégico e domínio digital. Atuamos como parceiros
-              de crescimento de empresas que exigem mais do que presença —
-              exigem posicionamento, performance e resultados mensuráveis.
+              A INVD é uma agência de marketing para empresas que faturam mas travam no crescimento. Atuamos com reposicionamento de marca, reestruturação de marketing e escala de resultados — sempre com visão comercial e performance mensurável.
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-black/45 md:text-base">
-              Saímos da lógica de fornecedor e operamos de forma mais próxima da
-              decisão. Nossa forma de atuar reestrutura o que você comunica,
-              vende e escala no mercado.
+              Não somos fornecedor. Somos parceiros estratégicos que atuam próximos à decisão, reestruturando o que você comunica, vende e escala no mercado.
             </p>
           </div>
 
@@ -262,10 +256,10 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Soluções para empresas
+              Soluções de marketing para empresas
               <br />
-              que querem 
-              <span className="text-[#C0005A]"> crescer</span>
+              que querem crescer com
+              <span className="text-[#C0005A]"> estratégia</span>
             </h2>
           </div>
 
@@ -284,6 +278,78 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="metodo" className="bg-[#F4F1F3] text-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
+                Como trabalhamos
+              </span>
+              <span className="h-px w-10 bg-[#C0005A]" />
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Do diagnóstico à escala —
+              <span className="text-[#C0005A]"> com método e resultado</span>
+            </h2>
+
+            <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
+              Empresas que faturam mas não escalam geralmente têm um problema de estratégia, não de execução. Por isso começamos pelo diagnóstico.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: "01",
+                title: "Diagnóstico",
+                text: "Mapeamos sua operação, posicionamento, canais e gaps de crescimento antes de propor qualquer solução de marketing.",
+                highlight: false,
+              },
+              {
+                step: "02",
+                title: "Estratégia",
+                text: "Desenvolvemos um plano sob medida conectando reposicionamento de marca, tráfego pago e conteúdo ao momento real da sua empresa.",
+                highlight: true,
+              },
+              {
+                step: "03",
+                title: "Execução e Escala",
+                text: "Atuamos como parceiros estratégicos com acompanhamento próximo, ajustes contínuos e foco em crescimento sustentável.",
+                highlight: false,
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className={`rounded-2xl border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] ${
+                  item.highlight ? "border-[#C0005A]" : "border-[#E7DDE1]"
+                }`}
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C0005A]">
+                  {item.step}
+                </span>
+                <h3 className="mt-3 text-xl font-black text-black">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-black/55">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 text-center">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackWhatsAppClick("metodo")}
+              className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+            >
+              Quero escalar minha empresa
+              <span className="ml-2">→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -369,78 +435,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="metodo" className="bg-[#F4F1F3] text-black">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-6 flex items-center justify-center gap-3">
-              <span className="h-px w-10 bg-[#C0005A]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Como trabalhamos
-              </span>
-              <span className="h-px w-10 bg-[#C0005A]" />
-            </div>
-
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Do diagnóstico à escala —
-              <span className="text-[#C0005A]"> com método</span>
-            </h2>
-
-            <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
-              Não começamos pela execução. Começamos entendendo o seu negócio.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                step: "01",
-                title: "Diagnóstico",
-                text: "Mapeamos sua operação, posicionamento, canais e gaps de crescimento antes de propor qualquer solução.",
-                highlight: false,
-              },
-              {
-                step: "02",
-                title: "Estratégia",
-                text: "Estruturamos um plano sob medida conectando marketing, comunicação e vendas ao momento real da sua empresa.",
-                highlight: true,
-              },
-              {
-                step: "03",
-                title: "Execução e Escala",
-                text: "Atuamos como extensão do seu time com acompanhamento próximo, ajustes contínuos e foco em resultado.",
-                highlight: false,
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className={`rounded-2xl border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] ${
-                  item.highlight ? "border-[#C0005A]" : "border-[#E7DDE1]"
-                }`}
-              >
-                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C0005A]">
-                  {item.step}
-                </span>
-                <h3 className="mt-3 text-xl font-black text-black">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-black/55">{item.text}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 text-center">
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackWhatsAppClick("metodo")}
-              className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
-            >
-              Agendar diagnóstico
-              <span className="ml-2">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section
         id="resultados"
         className="relative overflow-hidden border-t border-white/5 bg-black"
@@ -449,15 +443,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">
-              Pronto para
+              Pronto para escalar
               <br />
-              crescer de verdade
+              sua empresa de verdade
               <span className="text-[#C0005A]">?</span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/55 md:text-base">
-              Converse com nosso time e descubra como a INVD pode transformar a
-              presença digital e o desempenho comercial da sua empresa.
+              Converse com nosso time e descubra como a INVD pode reposicionar sua marca, reestruturar seu marketing e escalar seus resultados com estratégia e performance.
             </p>
 
             <a
@@ -467,7 +460,7 @@ export default function Home() {
               onClick={() => trackWhatsAppClick("cta_resultados")}
               className="mt-10 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
             >
-              Fale com a INVD
+              Quero escalar com a INVD
               <span className="ml-2">→</span>
             </a>
           </div>
