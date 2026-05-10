@@ -4,22 +4,53 @@ export default function Home() {
     {
       title: "Tráfego Pago",
       text: "Campanhas de alta performance em Meta e Google com gestão contínua, otimização de custo por aquisição e foco em escala de resultados para empresas.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13l4-4 4 4 4-6 4 3"/>
+          <path strokeLinecap="round" d="M3 20h18"/>
+        </svg>
+      ),
     },
     {
       title: "Social Media",
       text: "Gestão estratégica de redes sociais com conteúdo que posiciona sua empresa como referência e gera autoridade no mercado.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+          <circle cx="18" cy="5" r="2"/>
+          <circle cx="6" cy="12" r="2"/>
+          <circle cx="18" cy="19" r="2"/>
+          <path strokeLinecap="round" d="M8 11.5l8-5M8 12.5l8 5"/>
+        </svg>
+      ),
     },
     {
       title: "Branding",
       text: "Reposicionamento e fortalecimento de marca com identidade visual, narrativa e presença que diferenciam sua empresa da concorrência.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 2.47a1 1 0 011.414 0l10.586 10.586a1 1 0 010 1.414l-5.657 5.657a1 1 0 01-1.414 0L3.873 9.541a1 1 0 010-1.414L9.53 2.47z"/>
+          <path strokeLinecap="round" d="M9 12h.01"/>
+        </svg>
+      ),
     },
     {
       title: "Consultoria Comercial",
       text: "Diagnóstico de funil, reestruturação de processos e alinhamento entre marketing e time comercial para escalar vendas.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-6m3 6v-3m3 3v-4M4 21h16a1 1 0 001-1V7l-5-4H4a1 1 0 00-1 1v16a1 1 0 001 1z"/>
+        </svg>
+      ),
     },
     {
       title: "Presença Digital",
       text: "Estruturação completa do ecossistema digital — sites, automações e integração entre canais para empresas que querem crescer online.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+          <circle cx="12" cy="12" r="9"/>
+          <path strokeLinecap="round" d="M3 12h18M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9"/>
+        </svg>
+      ),
     },
   ];
 
@@ -269,8 +300,8 @@ export default function Home() {
                 key={service.title}
                 className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:-translate-y-1 hover:border-[#C0005A]/50"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610] text-[#C0005A]">
-                  ●
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610]">
+                  {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white">{service.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/50">
