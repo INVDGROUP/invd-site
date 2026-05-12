@@ -102,7 +102,6 @@ export default function Home() {
       service: "Tráfego Pago",
       metric: "+matrículas",
       metricLabel: "com redução de custo por aquisição",
-      text: "Campanhas de tráfego pago focadas em geração de matrículas com otimização contínua de custo por aquisição.",
       link: "https://instagram.com/escolacence",
       featured: false,
     },
@@ -112,7 +111,6 @@ export default function Home() {
       service: "Estruturação Comercial · Tráfego Pago",
       metric: "2x",
       metricLabel: "de receita com canal digital estruturado do zero",
-      text: "Estruturação do processo comercial integrado com campanhas de tráfego pago e fortalecimento da presença digital.",
       link: "https://instagram.com/redecadeoficial",
       featured: false,
     },
@@ -641,7 +639,7 @@ export default function Home() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
                 Contato
               </p>
-              <div className="mt-5 space-y-3">
+              <div className="mt-5">
                 <a
                   href="https://api.whatsapp.com/send/?phone=5561993253597"
                   target="_blank"
@@ -649,14 +647,6 @@ export default function Home() {
                   className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-white/75 transition hover:border-[#C0005A] hover:text-white"
                 >
                   WhatsApp
-                </a>
-                <a
-                  href="https://www.instagram.com/invdgroup/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-white/75 transition hover:border-[#C0005A] hover:text-white block w-fit"
-                >
-                  Instagram
                 </a>
               </div>
             </div>
