@@ -238,7 +238,7 @@ export default function Home() {
             </div>
             <div className="h-px w-full bg-white/5" />
             <div className="border-l-2 border-[#C0005A] pl-6">
-              <span className="block text-4xl font-black text-white tracking-[-0.04em]">3 anos</span>
+              <span className="block text-4xl font-black text-white tracking-[-0.04em]">5 anos</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">De mercado</span>
             </div>
           </div>
