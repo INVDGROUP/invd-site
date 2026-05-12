@@ -298,19 +298,23 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
+          <div className="mt-14 flex flex-col gap-4">
+            {services.map((service, index) => (
               <div
                 key={service.title}
-                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:-translate-y-1 hover:border-[#C0005A]/50"
+                className="group flex items-center gap-8 rounded-2xl border border-white/8 bg-white/[0.02] px-8 py-6 transition hover:border-[#C0005A]/50 hover:bg-white/[0.04]"
               >
-                <div className="mb-6 h-10">
+                <span className="text-5xl font-black text-white/10 group-hover:text-[#C0005A]/30 transition w-16 shrink-0 tracking-[-0.05em]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A0610]">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-white/50">
-                  {service.text}
-                </p>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-white">{service.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-white/50">{service.text}</p>
+                </div>
+                <span className="text-white/20 group-hover:text-[#C0005A] transition text-xl shrink-0">→</span>
               </div>
             ))}
           </div>
