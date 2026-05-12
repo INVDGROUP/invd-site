@@ -217,16 +217,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden lg:flex flex-col justify-center gap-8">
-            <div className="border-l border-[#C0005A]/40 pl-6">
+          <div className="hidden lg:flex flex-col justify-center gap-6">
+            <div className="border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">+150k</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Leads gerados</span>
             </div>
-            <div className="border-l border-[#C0005A]/40 pl-6">
+            <div className="h-px w-full bg-white/5" />
+            <div className="border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">+R$7Mi</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Em receita para clientes</span>
             </div>
-            <div className="border-l border-[#C0005A]/40 pl-6">
+            <div className="h-px w-full bg-white/5" />
+            <div className="border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">3 anos</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">De mercado</span>
             </div>
