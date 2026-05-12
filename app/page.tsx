@@ -120,17 +120,30 @@ export default function Home() {
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
-const trackWhatsAppClick = (location: string) => {
-  if (typeof window === "undefined") return;
-
-  window.dataLayer = window.dataLayer || [];
-
-  window.dataLayer.push({
-    event: "whatsapp_click",
-    button_location: location,
-    link_url: whatsappLink,
-  });
+  const trackWhatsAppClick = (location: string) => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "whatsapp_click",
+      button_location: location,
+      link_url: whatsappLink,
+    });
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-[#7C003E] selection:text-white">
@@ -190,7 +203,7 @@ const trackWhatsAppClick = (location: string) => {
               </span>
             </div>
 
-            <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
+            <h1 className="reveal text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
               Estratégia que
               <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
                 reposiciona e
@@ -200,11 +213,11 @@ const trackWhatsAppClick = (location: string) => {
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
+            <p className="reveal reveal-delay-1 mt-7 max-w-xl text-sm leading-7 text-white/55 md:text-base">
               Somos especialistas em reposicionamento, reestruturação e escala para empresas que já faturam mas não crescem no ritmo certo. Tráfego pago, social media e estratégia integrada com foco em resultado real.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href={whatsappLink}
                 target="_blank"
@@ -226,17 +239,17 @@ const trackWhatsAppClick = (location: string) => {
           </div>
 
           <div className="hidden lg:flex flex-col justify-center gap-6">
-            <div className="border-l-2 border-[#C0005A] pl-6">
+            <div className="reveal reveal-delay-1 border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">+150k</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Leads gerados</span>
             </div>
             <div className="h-px w-full bg-white/5" />
-            <div className="border-l-2 border-[#C0005A] pl-6">
+            <div className="reveal reveal-delay-2 border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">+R$7Mi</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Em receita para clientes</span>
             </div>
             <div className="h-px w-full bg-white/5" />
-            <div className="border-l-2 border-[#C0005A] pl-6">
+            <div className="reveal reveal-delay-3 border-l-2 border-[#C0005A] pl-6">
               <span className="block text-4xl font-black text-white tracking-[-0.04em]">5 anos</span>
               <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">De mercado</span>
             </div>
@@ -310,7 +323,7 @@ const trackWhatsAppClick = (location: string) => {
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group flex items-center gap-8 rounded-2xl border border-white/8 bg-white/[0.02] px-8 py-6 transition hover:border-[#C0005A]/50 hover:bg-white/[0.04]"
+                className="reveal group flex items-center gap-8 rounded-2xl border border-white/8 bg-white/[0.02] px-8 py-6 transition hover:border-[#C0005A]/50 hover:bg-white/[0.04]"
               >
                 <span className="text-5xl font-black text-white/10 group-hover:text-[#C0005A]/30 transition w-16 shrink-0 tracking-[-0.05em]">
                   {String(index + 1).padStart(2, "0")}
@@ -423,7 +436,7 @@ const trackWhatsAppClick = (location: string) => {
             {differentials.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+                className="reveal rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
               >
                 <h3 className="text-sm font-bold text-black">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-black/55">
@@ -461,7 +474,7 @@ const trackWhatsAppClick = (location: string) => {
                 href={item.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-8 transition hover:border-[#C0005A]/50 flex flex-col justify-between row-span-2"
+                className="reveal group relative rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-8 transition hover:border-[#C0005A]/50 flex flex-col justify-between row-span-2"
               >
                 <div>
                   <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
@@ -483,7 +496,7 @@ const trackWhatsAppClick = (location: string) => {
                   href={item.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="group rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 flex flex-col justify-between"
+                  className="reveal group rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 flex flex-col justify-between"
                 >
                   <div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
