@@ -173,7 +173,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(124,0,62,0.22),_transparent_30%),radial-gradient(circle_at_left,_rgba(92,0,48,0.16),_transparent_24%),linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.82)_100%)]" />
         <div className="absolute inset-0 opacity-40 bg-[linear-gradient(120deg,transparent_0%,transparent_35%,rgba(192,0,90,0.08)_50%,transparent_65%,transparent_100%)]" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-28 lg:px-10 lg:pb-28 lg:pt-32">
+        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-28 lg:px-10 lg:pb-28 lg:pt-32 grid lg:grid-cols-[1fr_auto] gap-16 items-center">
           <div className="max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
               <span className="h-px w-10 bg-[#C0005A]" />
@@ -214,6 +214,21 @@ export default function Home() {
               >
                 Como trabalhamos
               </a>
+            </div>
+          </div>
+
+          <div className="hidden lg:flex flex-col justify-center gap-8">
+            <div className="border-l border-[#C0005A]/40 pl-6">
+              <span className="block text-4xl font-black text-white tracking-[-0.04em]">+150k</span>
+              <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Leads gerados</span>
+            </div>
+            <div className="border-l border-[#C0005A]/40 pl-6">
+              <span className="block text-4xl font-black text-white tracking-[-0.04em]">+R$7Mi</span>
+              <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">Em receita para clientes</span>
+            </div>
+            <div className="border-l border-[#C0005A]/40 pl-6">
+              <span className="block text-4xl font-black text-white tracking-[-0.04em]">3 anos</span>
+              <span className="block text-[11px] uppercase tracking-[0.25em] text-white/40 mt-1">De mercado</span>
             </div>
           </div>
         </div>
