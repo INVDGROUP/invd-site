@@ -119,9 +119,7 @@ export default function Home() {
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
-  const instagramLink = "https://www.instagram.com/invdgroup/";
-
-  const trackWhatsAppClick = (location: string) => {
+const trackWhatsAppClick = (location: string) => {
   if (typeof window === "undefined") return;
 
   window.dataLayer = window.dataLayer || [];
@@ -570,6 +568,32 @@ export default function Home() {
                 Inteligência em Negócios, Vendas e Digital. Estratégia que
                 posiciona e acelera.
               </p>
+              <div className="mt-6 flex items-center gap-3">
+                <a
+                  href="https://www.instagram.com/invdgroup/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-[#C0005A] hover:text-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/invdgroup"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-[#C0005A] hover:text-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div>
@@ -577,27 +601,12 @@ export default function Home() {
                 Navegação
               </p>
               <div className="mt-5 space-y-3 text-sm text-white/65">
-                <a href="#sobre" className="block transition hover:text-white">
-                  Sobre
-                </a>
-                <a
-                  href="#servicos"
-                  className="block transition hover:text-white"
-                >
-                  Serviços
-                </a>
-                <a
-                  href="#diferenciais"
-                  className="block transition hover:text-white"
-                >
-                  Diferenciais
-                </a>
-                <a
-                  href="#resultados"
-                  className="block transition hover:text-white"
-                >
-                  Resultados
-                </a>
+                <a href="#sobre" className="block transition hover:text-white">Sobre</a>
+                <a href="#servicos" className="block transition hover:text-white">Serviços</a>
+                <a href="#diferenciais" className="block transition hover:text-white">Diferenciais</a>
+                <a href="#metodo" className="block transition hover:text-white">Como trabalhamos</a>
+                <a href="#resultados" className="block transition hover:text-white">Resultados</a>
+                <a href="#cases" className="block transition hover:text-white">Cases</a>
               </div>
             </div>
 
@@ -610,19 +619,28 @@ export default function Home() {
                 <span className="block">Social Media</span>
                 <span className="block">Branding</span>
                 <span className="block">Consultoria</span>
+                <span className="block">Presença Digital</span>
               </div>
             </div>
 
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
-                Rede social
+                Contato
               </p>
-              <div className="mt-5">
+              <div className="mt-5 space-y-3">
                 <a
-                  href={instagramLink}
+                  href="https://api.whatsapp.com/send/?phone=5561993253597"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-white/75 transition hover:border-[#C0005A] hover:text-white"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href="https://www.instagram.com/invdgroup/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-white/75 transition hover:border-[#C0005A] hover:text-white block w-fit"
                 >
                   Instagram
                 </a>
@@ -632,7 +650,12 @@ export default function Home() {
 
           <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
             <p>© 2026 INVD — Todos os direitos reservados.</p>
-            <p>Inteligência em Negócios, Vendas e Digital</p>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-flex items-center gap-2 text-white/30 transition hover:text-white"
+            >
+              Voltar ao topo ↑
+            </button>
           </div>
         </div>
       </footer>
