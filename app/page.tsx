@@ -85,28 +85,37 @@ export default function Home() {
   ];
 
   const cases = [
-  {
-    title: "Select Fit",
-    subtitle: "Fábrica de equipamentos fitness",
-    metric: "+3x de alcance orgânico em 60 dias",
-    text: "Presença digital mais sólida, campanhas mais alinhadas ao posicionamento e fortalecimento comercial com comunicação orientada a resultado.",
-    link: "https://instagram.com/selectfit_",
-  },
-  {
-    title: "Escola Cense",
-    subtitle: "Posicionamento educacional",
-    metric: "Autoridade digital estruturada em 90 dias",
-    text: "Estruturação de presença institucional com produção de conteúdo estratégico, fortalecimento de percepção e construção de autoridade.",
-    link: "https://instagram.com/escolacence",
-  },
-  {
-    title: "Rede Cade",
-    subtitle: "Saúde e clínicas",
-    metric: "+40% de consistência na presença online",
-    text: "Expansão digital com construção de marca, ativação de campanhas e melhoria da presença online com foco em consistência.",
-    link: "https://instagram.com/redecadeoficial",
-  },
-];
+    {
+      title: "Select Fit",
+      subtitle: "Fitness & Equipamentos",
+      service: "Posicionamento · Tráfego Pago · Social Media",
+      metric: "+3x",
+      metricLabel: "de alcance orgânico em 60 dias",
+      text: "Reposicionamento completo da marca com estruturação de presença digital, gestão de tráfego pago e social media integrados.",
+      link: "https://instagram.com/selectfit_",
+      featured: true,
+    },
+    {
+      title: "Escola Cense",
+      subtitle: "Educação",
+      service: "Tráfego Pago",
+      metric: "+matriculas",
+      metricLabel: "com campanhas de performance",
+      text: "Campanhas de tráfego pago focadas em geração de matrículas com otimização contínua de custo por aquisição.",
+      link: "https://instagram.com/escolacence",
+      featured: false,
+    },
+    {
+      title: "Rede Cade",
+      subtitle: "Saúde & Clínicas",
+      service: "Estruturação Comercial · Tráfego Pago",
+      metric: "+40%",
+      metricLabel: "de consistência na presença online",
+      text: "Estruturação do processo comercial integrado com campanhas de tráfego pago e fortalecimento da presença digital.",
+      link: "https://instagram.com/redecadeoficial",
+      featured: false,
+    },
+  ];
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
@@ -446,30 +455,52 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {cases.map((item) => (
+          <div className="mt-14 grid gap-4 md:grid-cols-[1.4fr_1fr] lg:grid-cols-[1.5fr_1fr]">
+            {cases.filter(c => c.featured).map(item => (
               <a
                 key={item.title}
                 href={item.link}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 hover:-translate-y-1 block"
+                className="group relative rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-8 transition hover:border-[#C0005A]/50 flex flex-col justify-between row-span-2"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#1A0610] text-[#C0005A]">
-                  ▣
+                <div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
+                  <h3 className="mt-3 text-2xl font-bold text-white">{item.title}</h3>
+                  <p className="mt-1 text-xs uppercase tracking-[0.15em] text-[#C0005A]/70">{item.service}</p>
+                  <p className="mt-5 text-sm leading-7 text-white/50">{item.text}</p>
                 </div>
-                <h3 className="text-lg font-bold">{item.title}</h3>
-                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/35">
-                  {item.subtitle}
-                </p>
-                <p className="mt-3 text-sm font-bold text-[#C0005A]">
-                  {item.metric}
-                </p>
-                <p className="mt-5 text-sm leading-7 text-white/50">
-                  {item.text}
-                </p>
+                <div className="mt-8 border-t border-white/8 pt-6">
+                  <span className="block text-5xl font-black text-white tracking-[-0.04em]">{item.metric}</span>
+                  <span className="block text-sm text-white/40 mt-1">{item.metricLabel}</span>
+                </div>
               </a>
             ))}
+
+            <div className="flex flex-col gap-4">
+              {cases.filter(c => !c.featured).map(item => (
+                <a
+                  key={item.title}
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
+                    <h3 className="mt-2 text-lg font-bold text-white">{item.title}</h3>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#C0005A]/70">{item.service}</p>
+                  </div>
+                  <div className="mt-5 border-t border-white/8 pt-4 flex items-end justify-between">
+                    <div>
+                      <span className="block text-3xl font-black text-white tracking-[-0.04em]">{item.metric}</span>
+                      <span className="block text-xs text-white/40 mt-1">{item.metricLabel}</span>
+                    </div>
+                    <span className="text-white/20 group-hover:text-[#C0005A] transition text-xl">→</span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
