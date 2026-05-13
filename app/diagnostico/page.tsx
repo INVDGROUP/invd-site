@@ -2,10 +2,7 @@
 import { useState } from "react";
 
 export default function Diagnostico() {
-  const whatsappLink =
-    "https://api.whatsapp.com/send/?phone=5561993253597&text=Ol%C3%A1! Fiz o diagn%C3%B3stico r%C3%A1pido da INVD e quero conversar sobre os resultados.";
-
-  const questions = [
+const questions = [
     {
       id: "q1",
       text: "Como sua empresa conquista a maioria dos novos clientes hoje?",
@@ -107,6 +104,12 @@ export default function Diagnostico() {
     high: "Boa base — o próximo passo é otimizar e acelerar.",
   };
 
+  const perfilMsg = {
+    low: "Olá! Fiz o diagnóstico da INVD. Estou buscando estruturar melhor minha captação e presença digital — acho que temos espaço para crescer bastante.",
+    mid: "Olá! Fiz o diagnóstico da INVD. Já tenho uma operação rodando mas sinto que o marketing poderia gerar mais resultado. Quero entender o que falta.",
+    high: "Olá! Fiz o diagnóstico da INVD. Temos uma boa base mas quero acelerar o crescimento e escalar com mais estratégia. Vamos conversar?",
+  };
+
   return (
     <main className="min-h-screen bg-[#111] text-white flex flex-col items-center px-6 py-16">
       <div className="w-full max-w-lg">
@@ -198,7 +201,7 @@ export default function Diagnostico() {
                 e o que precisa mudar para escalar.
               </p>
               <a
-                href={whatsappLink}
+                href={`https://api.whatsapp.com/send/?phone=5561993253597&text=${encodeURIComponent(perfilMsg[tier])}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
