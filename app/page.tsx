@@ -412,40 +412,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="diferenciais" className="bg-[#F4F1F3] text-black">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-          <div className="mb-12 max-w-2xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#C0005A]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Por que a INVD
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Por que empresas
-              <br />
-              escolhem a
-              <span className="text-[#C0005A]"> INVD</span>
-            </h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {differentials.map((item) => (
-              <div
-                key={item.title}
-                className="reveal rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
-              >
-                <h3 className="text-sm font-bold text-black">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-black/55">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="cases" className="bg-black">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-2xl text-center">
@@ -511,6 +477,40 @@ export default function Home() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="diferenciais" className="bg-[#F4F1F3] text-black">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mb-12 max-w-2xl">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#C0005A]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
+                Por que a INVD
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
+              Por que empresas
+              <br />
+              escolhem a
+              <span className="text-[#C0005A]"> INVD</span>
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {differentials.map((item) => (
+              <div
+                key={item.title}
+                className="reveal rounded-2xl border border-[#E7DDE1] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+              >
+                <h3 className="text-sm font-bold text-black">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-black/55">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
