@@ -203,10 +203,10 @@ export default function Home() {
 
             <h1 className="reveal text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
               Estratégia que
-              <span className="neon-glow block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
                 reposiciona e
               </span>
-              <span className="neon-glow block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
                 acelera.
               </span>
             </h1>
@@ -221,7 +221,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackWhatsAppClick("hero")}
-                className="neon-btn inline-flex items-center justify-center rounded-full bg-[#C0005A] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+                className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
               >
                 Quero escalar com a INVD
                 <span className="ml-2">→</span>
@@ -268,7 +268,7 @@ export default function Home() {
             </div>
 
             <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Agência de marketing estratégico para empresas que querem crescer de verdade<span className="neon-text text-[#C0005A]">.</span>
+              Agência de marketing estratégico para empresas que querem crescer de verdade<span className="text-[#C0005A]">.</span>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
@@ -313,7 +313,7 @@ export default function Home() {
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
               Soluções para empresas
               <br />
-              que querem <span className="neon-text text-[#C0005A]">crescer</span>
+              que querem <span className="text-[#C0005A]">crescer</span>
             </h2>
           </div>
 
@@ -353,7 +353,7 @@ export default function Home() {
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
               Do diagnóstico à escala —
-              <span className="neon-text text-[#C0005A]"> com método e resultado</span>
+              <span className="text-[#C0005A]"> com método e resultado</span>
             </h2>
 
             <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
@@ -403,7 +403,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               onClick={() => trackWhatsAppClick("metodo")}
-              className="neon-btn inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+              className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
             >
               Quero escalar minha empresa
               <span className="ml-2">→</span>
@@ -495,7 +495,7 @@ export default function Home() {
               Por que empresas
               <br />
               escolhem a
-              <span className="neon-text text-[#C0005A]"> INVD</span>
+              <span className="text-[#C0005A]"> INVD</span>
             </h2>
           </div>
 
@@ -538,7 +538,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               onClick={() => trackWhatsAppClick("cta_resultados")}
-              className="neon-btn mt-10 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+              className="mt-10 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
             >
               Quero escalar com a INVD
               <span className="ml-2">→</span>
@@ -669,7 +669,7 @@ export default function Home() {
         target="_blank"
         rel="noreferrer"
         onClick={() => trackWhatsAppClick("botao_fixo")}
-        className="neon-btn fixed bottom-5 right-5 z-50 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#970047]"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(192,0,90,0.35)] transition hover:bg-[#970047]"
       >
         WhatsApp
       </a>
