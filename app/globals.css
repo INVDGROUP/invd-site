@@ -36,3 +36,40 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Neon Effects */
+.neon-text {
+  text-shadow:
+    0 0 8px rgba(192, 0, 90, 0.75),
+    0 0 18px rgba(192, 0, 90, 0.45),
+    0 0 36px rgba(192, 0, 90, 0.2);
+}
+
+.neon-glow {
+  filter:
+    drop-shadow(0 0 6px rgba(212, 20, 110, 0.65))
+    drop-shadow(0 0 18px rgba(212, 20, 110, 0.35));
+}
+
+.neon-card {
+  box-shadow:
+    0 0 0 1px rgba(192, 0, 90, 0.55),
+    0 0 18px rgba(192, 0, 90, 0.22),
+    0 0 36px rgba(192, 0, 90, 0.1),
+    inset 0 0 18px rgba(192, 0, 90, 0.04);
+}
+
+.neon-btn {
+  box-shadow:
+    0 0 12px rgba(192, 0, 90, 0.55),
+    0 0 28px rgba(192, 0, 90, 0.28),
+    0 4px 20px rgba(192, 0, 90, 0.3);
+  transition: box-shadow 0.3s ease, background-color 0.2s ease;
+}
+
+.neon-btn:hover {
+  box-shadow:
+    0 0 20px rgba(192, 0, 90, 0.75),
+    0 0 44px rgba(192, 0, 90, 0.4),
+    0 4px 26px rgba(192, 0, 90, 0.45);
+}
