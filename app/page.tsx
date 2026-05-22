@@ -197,14 +197,14 @@ export default function Home() {
             <div className="mb-8 flex items-center gap-3">
               <span className="h-px w-10 bg-[#C0005A]" />
               <span className="text-[9px] uppercase tracking-[0.38em] text-white/45">
-                Agência de marketing para empresas que querem escalar
+                Agência de marketing em Brasília para empresas que querem escalar
               </span>
             </div>
 
             <h1 className="reveal text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white md:text-7xl lg:text-[5.6rem]">
               Estratégia que
               <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
-                reposiciona e
+                posiciona e
               </span>
               <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
                 acelera.
@@ -272,7 +272,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
-              A INVD é uma agência de marketing para empresas que faturam mas travam no crescimento. Atuamos com reposicionamento de marca, reestruturação de marketing e escala de resultados — sempre com visão comercial e performance mensurável.
+              A INVD é uma agência de marketing em Brasília para empresas que faturam mas travam no crescimento. Atuamos com reposicionamento de marca, reestruturação de marketing e escala de resultados — sempre com visão comercial e performance mensurável.
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-black/45 md:text-base">
@@ -653,7 +653,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
-            <p>© 2026 INVD — Todos os direitos reservados.</p>
+            <p>© 2026 INVD — Agência de Marketing em Brasília · Todos os direitos reservados.</p>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="inline-flex items-center gap-2 text-white/30 transition hover:text-white"
