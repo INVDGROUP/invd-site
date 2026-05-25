@@ -30,21 +30,20 @@ body {
 
 .dark-grid {
   background-image:
-    linear-gradient(rgba(9, 151, 247, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9, 151, 247, 0.07) 1px, transparent 1px),
-    radial-gradient(circle at 18% 18%, rgba(9, 151, 247, 0.18), transparent 28%),
-    radial-gradient(circle at 82% 8%, rgba(192, 0, 90, 0.08), transparent 22%);
-  background-size: 56px 56px, 56px 56px, auto, auto;
+    linear-gradient(rgba(9, 151, 247, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 151, 247, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 18% 18%, rgba(9, 151, 247, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 8%, rgba(192, 0, 90, 0.055), transparent 24%);
+  background-size: 64px 64px, 64px 64px, auto, auto;
 }
 
 .paper-bg {
   background-color: #f4f6f8;
   background-image:
-    radial-gradient(circle at 18% 12%, rgba(0, 0, 0, 0.055), transparent 18%),
-    radial-gradient(circle at 82% 20%, rgba(0, 0, 0, 0.04), transparent 22%),
-    radial-gradient(circle at 42% 80%, rgba(0, 0, 0, 0.045), transparent 24%),
-    linear-gradient(115deg, rgba(255, 255, 255, 0.88), rgba(226, 232, 238, 0.7)),
-    repeating-linear-gradient(8deg, rgba(2, 43, 58, 0.035) 0 1px, transparent 1px 7px);
+    radial-gradient(circle at 18% 12%, rgba(0, 43, 58, 0.026), transparent 20%),
+    radial-gradient(circle at 82% 20%, rgba(0, 43, 58, 0.022), transparent 24%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.92), rgba(232, 238, 243, 0.74)),
+    repeating-linear-gradient(8deg, rgba(2, 43, 58, 0.018) 0 1px, transparent 1px 8px);
 }
 
 .blue-marker {
@@ -107,40 +106,3 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
-
-/* Neon Effects */
-.neon-text {
-  text-shadow:
-    0 0 8px rgba(9, 151, 247, 0.75),
-    0 0 18px rgba(9, 151, 247, 0.45),
-    0 0 36px rgba(9, 151, 247, 0.2);
-}
-
-.neon-glow {
-  filter:
-    drop-shadow(0 0 6px rgba(9, 151, 247, 0.65))
-    drop-shadow(0 0 18px rgba(9, 151, 247, 0.35));
-}
-
-.neon-card {
-  box-shadow:
-    0 0 0 1px rgba(9, 151, 247, 0.55),
-    0 0 18px rgba(9, 151, 247, 0.22),
-    0 0 36px rgba(9, 151, 247, 0.1),
-    inset 0 0 18px rgba(9, 151, 247, 0.04);
-}
-
-.neon-btn {
-  box-shadow:
-    0 0 12px rgba(9, 151, 247, 0.55),
-    0 0 28px rgba(9, 151, 247, 0.28),
-    0 4px 20px rgba(9, 151, 247, 0.3);
-  transition: box-shadow 0.3s ease, background-color 0.2s ease;
-}
-
-.neon-btn:hover {
-  box-shadow:
-    0 0 20px rgba(9, 151, 247, 0.75),
-    0 0 44px rgba(9, 151, 247, 0.4),
-    0 4px 26px rgba(9, 151, 247, 0.45);
-}
