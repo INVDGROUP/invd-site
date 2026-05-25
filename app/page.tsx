@@ -47,7 +47,7 @@ function PrimaryCta({
       className={`cta-primary inline-flex items-center justify-center rounded-lg bg-[#0997F7] px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:bg-[#0478C7] ${className}`}
     >
       {children}
-      <span className="ml-2">→</span>
+      <span className="ml-2">?</span>
     </a>
   );
 }
@@ -209,8 +209,8 @@ export default function Home() {
   const methodSteps = [
     {
       step: "01",
-      title: "Diagnóstico",
-      text: "Mapeamos operação, posicionamento, canais e gaps de crescimento antes de propor qualquer solução.",
+      title: "Diagn?stico",
+      text: "Mapeamos opera??o, posicionamento, canais e gaps de crescimento antes de propor qualquer solu??o.",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 5h16M4 12h10M4 19h7m7-2 2 2m-7-3a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -219,8 +219,8 @@ export default function Home() {
     },
     {
       step: "02",
-      title: "Estratégia",
-      text: "Criamos um plano sob medida conectando marca, tráfego, conteúdo e vendas ao momento real da empresa.",
+      title: "Estrat?gia",
+      text: "Criamos um plano sob medida conectando marca, tr?fego, conte?do e vendas ao momento real da empresa.",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M5 19 19 5M8 5h11v11M5 8v11h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -229,8 +229,8 @@ export default function Home() {
     },
     {
       step: "03",
-      title: "Execução",
-      text: "Atuamos próximos ao time, com acompanhamento, ajustes contínuos e foco em crescimento sustentável.",
+      title: "Execu??o",
+      text: "Atuamos pr?ximos ao time, com acompanhamento, ajustes cont?nuos e foco em crescimento sustent?vel.",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m5 12 4 4L19 6M5 20h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -239,8 +239,8 @@ export default function Home() {
     },
     {
       step: "04",
-      title: "Otimização",
-      text: "Medimos os sinais certos, refinamos canais e transformamos aprendizado em crescimento previsível.",
+      title: "Otimiza??o",
+      text: "Medimos os sinais certos, refinamos canais e transformamos aprendizado em crescimento previs?vel.",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 16c3-7 7 4 10-3 1.3-3 3-5 6-5M4 20h16M18 5h2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -288,24 +288,24 @@ export default function Home() {
             />
           </a>
 
-          <nav className="hidden items-center gap-8 text-[11px] text-white/70 md:flex">
-            <a href="#sobre" className="transition hover:text-white">
+          <nav className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/58 md:flex">
+            <a href="#sobre" className="transition hover:text-[#0997F7]">
               Sobre
             </a>
-            <a href="#servicos" className="transition hover:text-white">
-              Serviços
+            <a href="#servicos" className="transition hover:text-[#0997F7]">
+              Servi?os
             </a>
-            <a href="#metodo" className="transition hover:text-white">
+            <a href="#metodo" className="transition hover:text-[#0997F7]">
               Como trabalhamos
             </a>
-            <a href="#diferenciais" className="transition hover:text-white">
+            <a href="#cases" className="transition hover:text-[#0997F7]">
+              Cases
+            </a>
+            <a href="#diferenciais" className="transition hover:text-[#0997F7]">
               Diferenciais
             </a>
-            <a href="#resultados" className="transition hover:text-white">
+            <a href="#resultados" className="transition hover:text-[#0997F7]">
               Resultados
-            </a>
-            <a href="#cases" className="transition hover:text-white">
-              Cases
             </a>
           </nav>
 
@@ -314,7 +314,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             onClick={() => trackWhatsAppClick("header")}
-            className="rounded-md bg-[#0997F7] px-5 py-2 text-[11px] font-black uppercase text-white transition hover:bg-[#0478C7]"
+            className="cta-primary rounded-lg bg-[#0997F7] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white transition hover:-translate-y-0.5 hover:bg-[#0478C7]"
           >
             Fale com a INVD
           </a>
@@ -329,11 +329,11 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-24 lg:grid-cols-[minmax(0,1fr)_420px] lg:px-10 lg:pb-28 lg:pt-32">
           <div className="max-w-3xl">
             <SectionEyebrow tone="light">
-              Agência de marketing em Brasília para empresas que querem escalar
+              Ag?ncia de marketing em Bras?lia para empresas que querem escalar
             </SectionEyebrow>
 
             <h1 className="font-impact reveal text-5xl font-black leading-[1.04] tracking-normal text-white md:text-7xl lg:text-[5.3rem]">
-              Estratégia que
+              Estrat?gia que
               <span className="block">posiciona e</span>
               <span className="blue-marker relative inline-block">
                 acelera.
@@ -342,7 +342,7 @@ export default function Home() {
             </h1>
 
             <p className="reveal reveal-delay-1 mt-7 max-w-2xl text-sm leading-7 text-white/68 md:text-base">
-              Somos especialistas em reposicionamento, reestruturação e escala para empresas que já faturam mas não crescem no ritmo certo. Tráfego pago, social media e estratégia integrada com foco em resultado real.
+              Somos especialistas em reposicionamento, reestrutura??o e escala para empresas que j? faturam mas n?o crescem no ritmo certo. Tr?fego pago, social media e estrat?gia integrada com foco em resultado real.
             </p>
 
             <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
@@ -407,15 +407,15 @@ export default function Home() {
             <SectionEyebrow>Sobre a INVD</SectionEyebrow>
 
             <h2 className="font-impact max-w-xl text-4xl font-black leading-[1.08] tracking-normal md:text-5xl">
-              Agência de marketing <span className="blue-marker">estratégico</span> para empresas que querem crescer de verdade<span className="text-[#C0005A]">.</span>
+              Ag?ncia de marketing <span className="blue-marker">estrat?gico</span> para empresas que querem crescer de verdade<span className="text-[#C0005A]">.</span>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-[#071F2A]/72 md:text-base">
-              A INVD é uma agência de marketing em Brasília para empresas que faturam mas travam no crescimento. Atuamos com reposicionamento de marca, reestruturação de marketing e escala de resultados — sempre com visão comercial e performance mensurável.
+              A INVD ? uma ag?ncia de marketing em Bras?lia para empresas que faturam mas travam no crescimento. Atuamos com reposicionamento de marca, reestrutura??o de marketing e escala de resultados ? sempre com vis?o comercial e performance mensur?vel.
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#071F2A]/58 md:text-base">
-              Não somos fornecedor. Somos parceiros estratégicos que atuam próximos à decisão, reestruturando o que você comunica, vende e escala no mercado.
+              N?o somos fornecedor. Somos parceiros estrat?gicos que atuam pr?ximos ? decis?o, reestruturando o que voc? comunica, vende e escala no mercado.
             </p>
           </div>
 
@@ -448,7 +448,7 @@ export default function Home() {
             <SectionEyebrow align="center" tone="light">O que fazemos</SectionEyebrow>
 
             <h2 className="font-impact text-4xl font-black leading-[1.08] tracking-normal md:text-5xl">
-              Soluções para empresas
+              Solu??es para empresas
               <br />
               que querem <span className="blue-marker">crescer</span>
             </h2>
@@ -484,12 +484,12 @@ export default function Home() {
             <SectionEyebrow tone="light">Como trabalhamos</SectionEyebrow>
 
             <h2 className="font-impact text-4xl font-black leading-[1.08] tracking-normal md:text-6xl">
-              Como funciona o método
+              Como funciona o m?todo
               <span className="blue-marker mt-2 block w-fit">INVD<span className="text-[#C0005A]">.</span></span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
-              Empresas que faturam mas não escalam geralmente têm um problema de estratégia, não de execução. Por isso começamos pelo diagnóstico.
+              Empresas que faturam mas n?o escalam geralmente t?m um problema de estrat?gia, n?o de execu??o. Por isso come?amos pelo diagn?stico.
             </p>
           </div>
 
@@ -528,7 +528,7 @@ export default function Home() {
               className="cta-primary inline-flex items-center justify-center rounded-lg bg-[#0997F7] px-8 py-4 text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:bg-[#0478C7]"
             >
               Quero escalar minha empresa
-              <span className="ml-2">→</span>
+              <span className="ml-2">?</span>
             </a>
           </div>
         </div>
@@ -541,9 +541,9 @@ export default function Home() {
             <SectionEyebrow align="center" tone="light">Cases e resultados</SectionEyebrow>
 
             <h2 className="font-impact text-4xl font-black leading-[1.08] tracking-normal md:text-5xl">
-              Marketing com visão
+              Marketing com vis?o
               <br />
-               e resultados reais
+              e resultados reais
               <span className="text-[#C0005A]">.</span>
             </h2>
           </div>
@@ -648,7 +648,7 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/68 md:text-base">
-              Converse com nosso time e descubra como a INVD pode reposicionar sua marca, reestruturar seu marketing e escalar seus resultados com estratégia e performance.
+              Converse com nosso time e descubra como a INVD pode reposicionar sua marca, reestruturar seu marketing e escalar seus resultados com estrat?gia e performance.
             </p>
 
             <PrimaryCta
@@ -692,7 +692,7 @@ export default function Home() {
                 />
               </a>
               <p className="mt-5 max-w-xs text-sm leading-7 text-white/52">
-                Inteligência em Negócios, Vendas e Digital. Estratégia que
+                Intelig?ncia em Neg?cios, Vendas e Digital. Estrat?gia que
                 posiciona e acelera.
               </p>
               <div className="mt-6 flex items-center gap-3">
@@ -725,28 +725,28 @@ export default function Home() {
 
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/42">
-                Navegação
+                Navega??o
               </p>
               <div className="mt-5 space-y-3 text-sm text-white/64">
                 <a href="#sobre" className="block transition hover:text-[#0997F7]">Sobre</a>
-                <a href="#servicos" className="block transition hover:text-[#0997F7]">Serviços</a>
-                <a href="#diferenciais" className="block transition hover:text-[#0997F7]">Diferenciais</a>
+                <a href="#servicos" className="block transition hover:text-[#0997F7]">Servi?os</a>
                 <a href="#metodo" className="block transition hover:text-[#0997F7]">Como trabalhamos</a>
-                <a href="#resultados" className="block transition hover:text-[#0997F7]">Resultados</a>
                 <a href="#cases" className="block transition hover:text-[#0997F7]">Cases</a>
+                <a href="#diferenciais" className="block transition hover:text-[#0997F7]">Diferenciais</a>
+                <a href="#resultados" className="block transition hover:text-[#0997F7]">Resultados</a>
               </div>
             </div>
 
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/42">
-                Serviços
+                Servi?os
               </p>
               <div className="mt-5 space-y-3 text-sm text-white/64">
-                <span className="block">Tráfego Pago</span>
+                <span className="block">Tr?fego Pago</span>
                 <span className="block">Social Media</span>
                 <span className="block">Branding</span>
                 <span className="block">Consultoria</span>
-                <span className="block">Presença Digital</span>
+                <span className="block">Presen?a Digital</span>
               </div>
             </div>
 
@@ -768,12 +768,12 @@ export default function Home() {
           </div>
 
           <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
-            <p>© 2026 INVD — Agência de Marketing em Brasília · Todos os direitos reservados.</p>
+            <p>? 2026 INVD ? Ag?ncia de Marketing em Bras?lia ? Todos os direitos reservados.</p>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="inline-flex items-center gap-2 text-white/30 transition hover:text-white"
             >
-              Voltar ao topo ↑
+              Voltar ao topo ?
             </button>
           </div>
         </div>
