@@ -253,7 +253,13 @@ export default function Home() {
       value: "+150k",
       label: "Leads gerados",
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M4 18V6m0 12h16M8 14l3-3 3 2 5-6"
             stroke="currentColor"
@@ -268,7 +274,13 @@ export default function Home() {
       value: "+R$7Mi",
       label: "Em receita para clientes",
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M12 3v18m4-14.5H9.8a3 3 0 0 0 0 6H14a3 3 0 0 1 0 6H7"
             stroke="currentColor"
@@ -283,7 +295,13 @@ export default function Home() {
       value: "5 anos",
       label: "De mercado",
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M12 6v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             stroke="currentColor"
@@ -302,7 +320,13 @@ export default function Home() {
       title: "Diagnóstico",
       text: "Mapeamos operação, posicionamento, canais e gaps de crescimento antes de propor qualquer solução.",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M4 5h16M4 12h10M4 19h7m7-2 2 2m-7-3a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"
             stroke="currentColor"
@@ -318,7 +342,13 @@ export default function Home() {
       title: "Estratégia",
       text: "Criamos um plano sob medida conectando marca, tráfego, conteúdo e vendas ao momento real da empresa.",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M5 19 19 5M8 5h11v11M5 8v11h11"
             stroke="currentColor"
@@ -334,7 +364,13 @@ export default function Home() {
       title: "Execução",
       text: "Atuamos próximos ao time, com acompanhamento, ajustes contínuos e foco em crescimento sustentável.",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="m5 12 4 4L19 6M5 20h14"
             stroke="currentColor"
@@ -350,7 +386,13 @@ export default function Home() {
       title: "Otimização",
       text: "Medimos os sinais certos, refinamos canais e transformamos aprendizado em crescimento previsível.",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M4 16c3-7 7 4 10-3 1.3-3 3-5 6-5M4 20h16M18 5h2v6"
             stroke="currentColor"
@@ -448,7 +490,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_42%,rgba(9,151,247,0.18),transparent_30%),linear-gradient(180deg,rgba(0,31,44,0.08)_0%,rgba(0,31,44,0.92)_78%,rgba(0,31,44,1)_100%)]" />
         <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#0997F7]/45 to-transparent" />
 
-        <div className="relative mx-auto grid min-h-[720px] max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-[minmax(0,1fr)_390px] lg:px-10 lg:py-28">
+        <div className="relative mx-auto grid min-h-[790px] max-w-7xl items-center gap-14 px-6 pb-28 pt-36 lg:grid-cols-[minmax(0,1fr)_390px] lg:px-10 lg:pb-36 lg:pt-44">
           <div className="max-w-[720px]">
             <SectionEyebrow tone="light">
               Agência de marketing em Brasília para empresas que querem escalar
@@ -464,14 +506,14 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="reveal reveal-delay-1 mt-7 max-w-[610px] text-[15px] leading-8 text-white/66">
+            <p className="reveal reveal-delay-1 mt-8 max-w-[610px] text-[15px] leading-8 text-white/66">
               Somos especialistas em reposicionamento, reestruturação e escala
               para empresas que já faturam mas não crescem no ritmo certo.
               Tráfego pago, social media e estratégia integrada com foco em
               resultado real.
             </p>
 
-            <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="reveal reveal-delay-2 mt-11 flex flex-col gap-4 sm:flex-row">
               <PrimaryCta
                 href={whatsappLink}
                 onClick={() => trackWhatsAppClick("hero")}
@@ -489,18 +531,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="panel-glow reveal reveal-delay-2 relative rounded-2xl border border-[#0997F7]/24 bg-[#062F3E]/70 p-5 backdrop-blur-xl">
+          <div className="panel-glow reveal reveal-delay-2 relative rounded-2xl border border-[#0997F7]/24 bg-[#062F3E]/70 p-6 backdrop-blur-xl">
             <span className="absolute -left-px top-0 h-16 w-px bg-[#0997F7]" />
             <span className="absolute -right-px bottom-0 h-20 w-px bg-[#0997F7]" />
 
-            <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/42">
-                Performance INVD
-              </span>
-              <span className="h-2 w-2 rounded-full bg-[#C0005A] shadow-[0_0_18px_rgba(192,0,90,0.75)]" />
-            </div>
-
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               {heroMetrics.map((metric) => (
                 <div
                   key={metric.label}
@@ -520,29 +555,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-5 h-14 rounded-xl border border-white/10 bg-[linear-gradient(135deg,rgba(9,151,247,0.13),rgba(255,255,255,0.025))] px-4 py-3">
-              <svg
-                viewBox="0 0 280 36"
-                className="h-full w-full text-[#0997F7]"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2 29 C34 24 43 12 70 18 C94 23 99 6 126 10 C156 14 158 26 186 20 C213 14 222 5 248 9 C263 11 270 17 278 12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M2 29 C34 24 43 12 70 18 C94 23 99 6 126 10 C156 14 158 26 186 20 C213 14 222 5 248 9 C263 11 270 17 278 12"
-                  stroke="currentColor"
-                  strokeOpacity=".16"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                />
-              </svg>
             </div>
           </div>
         </div>
@@ -743,7 +755,11 @@ export default function Home() {
                       strokeWidth="3"
                       strokeLinecap="round"
                     />
-                    <path d="M4 104h232" stroke="currentColor" strokeOpacity=".28" />
+                    <path
+                      d="M4 104h232"
+                      stroke="currentColor"
+                      strokeOpacity=".28"
+                    />
                   </svg>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/38">
@@ -963,22 +979,40 @@ export default function Home() {
                 Navegação
               </p>
               <div className="mt-5 space-y-3 text-sm text-white/64">
-                <a href="#sobre" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#sobre"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Sobre
                 </a>
-                <a href="#servicos" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#servicos"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Serviços
                 </a>
-                <a href="#metodo" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#metodo"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Como trabalhamos
                 </a>
-                <a href="#diferenciais" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#diferenciais"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Diferenciais
                 </a>
-                <a href="#resultados" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#resultados"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Resultados
                 </a>
-                <a href="#cases" className="block transition hover:text-[#0997F7]">
+                <a
+                  href="#cases"
+                  className="block transition hover:text-[#0997F7]"
+                >
                   Cases
                 </a>
               </div>
