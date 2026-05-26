@@ -23,76 +23,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.font-impact {
-  font-family: Impact, "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: 0;
-}
-
-.dark-grid {
-  background-image:
-    linear-gradient(rgba(9, 151, 247, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9, 151, 247, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 18% 18%, rgba(9, 151, 247, 0.12), transparent 30%),
-    radial-gradient(circle at 82% 8%, rgba(192, 0, 90, 0.055), transparent 24%);
-  background-size: 64px 64px, 64px 64px, auto, auto;
-}
-
-.paper-bg {
-  background-color: #f4f6f8;
-  background-image:
-    radial-gradient(circle at 18% 12%, rgba(0, 43, 58, 0.026), transparent 20%),
-    radial-gradient(circle at 82% 20%, rgba(0, 43, 58, 0.022), transparent 24%),
-    linear-gradient(115deg, rgba(255, 255, 255, 0.92), rgba(232, 238, 243, 0.74)),
-    repeating-linear-gradient(8deg, rgba(2, 43, 58, 0.018) 0 1px, transparent 1px 8px);
-}
-
-.blue-marker {
-  color: #0997f7;
-}
-
-.magenta-dot::after {
-  color: #c0005a;
-  content: ".";
-}
-
-.cta-primary {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 10px 28px rgba(9, 151, 247, 0.18),
-    0 0 26px rgba(9, 151, 247, 0.18);
-}
-
-.cta-primary:hover {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.14) inset,
-    0 14px 34px rgba(9, 151, 247, 0.24),
-    0 0 34px rgba(9, 151, 247, 0.26);
-}
-
-.panel-glow {
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.22),
-    0 0 60px rgba(9, 151, 247, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.surface-card {
-  box-shadow:
-    0 18px 44px rgba(0, 26, 36, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-.card-hover {
-  transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease, box-shadow 0.28s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.18),
-    0 0 30px rgba(9, 151, 247, 0.1);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -106,3 +36,40 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Neon Effects */
+.neon-text {
+  text-shadow:
+    0 0 8px rgba(192, 0, 90, 0.75),
+    0 0 18px rgba(192, 0, 90, 0.45),
+    0 0 36px rgba(192, 0, 90, 0.2);
+}
+
+.neon-glow {
+  filter:
+    drop-shadow(0 0 6px rgba(212, 20, 110, 0.65))
+    drop-shadow(0 0 18px rgba(212, 20, 110, 0.35));
+}
+
+.neon-card {
+  box-shadow:
+    0 0 0 1px rgba(192, 0, 90, 0.55),
+    0 0 18px rgba(192, 0, 90, 0.22),
+    0 0 36px rgba(192, 0, 90, 0.1),
+    inset 0 0 18px rgba(192, 0, 90, 0.04);
+}
+
+.neon-btn {
+  box-shadow:
+    0 0 12px rgba(192, 0, 90, 0.55),
+    0 0 28px rgba(192, 0, 90, 0.28),
+    0 4px 20px rgba(192, 0, 90, 0.3);
+  transition: box-shadow 0.3s ease, background-color 0.2s ease;
+}
+
+.neon-btn:hover {
+  box-shadow:
+    0 0 20px rgba(192, 0, 90, 0.75),
+    0 0 44px rgba(192, 0, 90, 0.4),
+    0 4px 26px rgba(192, 0, 90, 0.45);
+}
