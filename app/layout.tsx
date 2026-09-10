@@ -35,11 +35,6 @@ export const metadata: Metadata = {
   verification: {
     google: "NJzQsa9fjha-nAUj-FZfergLpNXdTfzHT8I7byUacvM",
   },
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
 };
 
 export default function RootLayout({
@@ -76,6 +71,7 @@ export default function RootLayout({
           `}
         </Script>
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"
