@@ -11,22 +11,6 @@ export default function Home() {
       ),
     },
     {
-      title: "Social Media",
-      text: "Gestão estratégica de redes sociais com conteúdo que posiciona sua empresa como referência e gera autoridade no mercado.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.3">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Branding",
-      text: "Reposicionamento e fortalecimento de marca com identidade visual, narrativa e presença que diferenciam sua empresa da concorrência.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      ),
-    },
-    {
       title: "Consultoria Comercial",
       text: "Diagnóstico de funil, reestruturação de processos e alinhamento entre marketing e time comercial para escalar vendas.",
       icon: (
@@ -186,7 +170,7 @@ export default function Home() {
             onClick={() => trackWhatsAppClick("header")}
             className="rounded-full bg-[#C0005A] px-5 py-2 text-[11px] font-semibold text-white transition hover:bg-[#970047]"
           >
-            Fale com a INVD
+              Fale com a INVD
           </a>
         </div>
       </header>
