@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect } from "react";
 export default function Home() {
   const services = [
@@ -148,9 +149,11 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/5 bg-black/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
           <a href="#" className="flex items-center gap-3">
-            <img
+            <Image
               src="/logo.png"
               alt="Logo da INVD"
+              width={338}
+              height={100}
               className="h-7 w-auto object-contain"
             />
           </a>
@@ -570,9 +573,11 @@ export default function Home() {
           <div className="grid gap-12 md:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
             <div>
               <a href="#" className="inline-flex items-center">
-                <img
+                <Image
                   src="/logo.png"
                   alt="Logo da INVD"
+                  width={338}
+                  height={100}
                   className="h-7 w-auto object-contain"
                 />
               </a>

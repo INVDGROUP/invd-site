@@ -1,5 +1,25 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
+
+function HotmartButton() {
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <a
+        onClick={(e) => e.preventDefault()}
+        href="https://pay.hotmart.com/V105871017C?checkoutMode=2"
+        className="hotmart-fb hotmart__button-checkout"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora" />
+      </a>
+      <p className="text-[11px] text-white/30">
+        Garantia de 7 dias · Acesso imediato · Pagamento seguro via Hotmart
+      </p>
+    </div>
+  );
+}
 
 export default function BaseDigital() {
   useEffect(() => {
@@ -20,31 +40,15 @@ export default function BaseDigital() {
     };
   }, []);
 
-  const HotmartButton = () => (
-    <div className="flex flex-col items-center gap-3">
-      <a
-        onClick={(e) => e.preventDefault()}
-        href="https://pay.hotmart.com/V105871017C?checkoutMode=2"
-        className="hotmart-fb hotmart__button-checkout"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora" />
-      </a>
-      <p className="text-[11px] text-white/30">
-        Garantia de 7 dias · Acesso imediato · Pagamento seguro via Hotmart
-      </p>
-    </div>
-  );
-
   return (
     <main className="min-h-screen bg-black text-white selection:bg-[#7C003E] selection:text-white">
 
       {/* Header */}
       <header className="border-b border-white/5 bg-black/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5 lg:px-10">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Logo da INVD" className="h-7 w-auto object-contain" />
-          </a>
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logo.png" alt="Logo da INVD" width={338} height={100} className="h-7 w-auto object-contain" />
+          </Link>
           <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
             Produto digital
           </span>
@@ -295,9 +299,9 @@ export default function BaseDigital() {
       {/* Footer */}
       <footer className="border-t border-white/5 bg-black">
         <div className="mx-auto max-w-4xl px-6 py-10 lg:px-10 flex flex-col gap-3 items-center text-center">
-          <a href="/">
-            <img src="/logo.png" alt="INVD" className="h-6 w-auto object-contain opacity-50" />
-          </a>
+          <Link href="/">
+            <Image src="/logo.png" alt="INVD" width={338} height={100} className="h-6 w-auto object-contain opacity-50" />
+          </Link>
           <p className="text-xs text-white/25">© 2026 INVD — Todos os direitos reservados.</p>
           <p className="text-xs text-white/20">Inteligência em Negócios, Vendas e Digital</p>
         </div>

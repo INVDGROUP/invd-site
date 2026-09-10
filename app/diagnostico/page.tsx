@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Diagnostico() {
@@ -115,7 +116,7 @@ const questions = [
       <div className="w-full max-w-lg">
 
         <div className="mb-10 flex items-center">
-          <img src="/logo.png" alt="INVD" className="h-6 w-auto object-contain" />
+          <Image src="/logo.png" alt="INVD" width={338} height={100} className="h-6 w-auto object-contain" />
         </div>
 
         {step === 0 && (
