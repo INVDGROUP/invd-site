@@ -70,7 +70,17 @@ export default function Home() {
     },
   ];
 
-  const cases = [
+  const cases: Array<{
+    title: string;
+    subtitle: string;
+    service: string | null;
+    metric: string | null;
+    metricLabel: string | null;
+    text: string | null;
+    link: string | null;
+    logo: string;
+    remoteLogo?: boolean;
+  }> = [
     {
       title: "Select Fit",
       subtitle: "Fitness & Equipamentos",
@@ -79,25 +89,48 @@ export default function Home() {
       metricLabel: "de crescimento de receita desde o início da parceria",
       text: "Reposicionamento completo da marca com estruturação de presença digital, gestão de tráfego pago e social media integrados.",
       link: "https://instagram.com/selectfit_",
-      featured: true,
+      logo: "/cases/select-fit.png",
     },
     {
-      title: "Escola Cense",
+      title: "Escola CENCE",
       subtitle: "Educação",
       service: "Tráfego Pago",
       metric: "+matrículas",
       metricLabel: "com redução de custo por aquisição",
       link: "https://instagram.com/escolacence",
-      featured: false,
+      text: null,
+      logo: "/cases/escola-cence.png",
     },
     {
-      title: "Rede Cade",
+      title: "Rede CADE",
       subtitle: "Saúde & Clínicas",
       service: "Estruturação Comercial · Tráfego Pago",
       metric: "2x",
       metricLabel: "de receita com canal digital estruturado do zero",
       link: "https://instagram.com/redecadeoficial",
-      featured: false,
+      text: null,
+      logo: "https://framerusercontent.com/images/j5tPhVLjrTPgJmgzh2mw5gA7zzg.svg",
+      remoteLogo: true,
+    },
+    {
+      title: "Kbal Fitness",
+      subtitle: "Academia",
+      service: null,
+      metric: null,
+      metricLabel: null,
+      text: null,
+      link: null,
+      logo: "/cases/kbal-fitness.png",
+    },
+    {
+      title: "Gilson Rufino",
+      subtitle: "Consultoria empresarial",
+      service: null,
+      metric: null,
+      metricLabel: null,
+      text: null,
+      link: null,
+      logo: "/cases/gilson-rufino.png",
     },
   ];
 
@@ -418,52 +451,61 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-[1.4fr_1fr] lg:grid-cols-[1.5fr_1fr]">
-            {cases.filter(c => c.featured).map(item => (
-              <a
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {cases.map((item) => (
+              <article
                 key={item.title}
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                className="reveal group relative rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-8 transition hover:border-[#C0005A]/50 flex flex-col justify-between row-span-2"
+                className="reveal group overflow-hidden rounded-[1.6rem] border border-white/8 bg-white/[0.02] transition hover:border-[#C0005A]/50"
               >
-                <div>
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
-                  <h3 className="mt-3 text-2xl font-bold text-white">{item.title}</h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.15em] text-[#C0005A]/70">{item.service}</p>
-                  <p className="mt-5 text-sm leading-7 text-white/50">{item.text}</p>
+                <div className="relative flex h-40 items-center justify-center bg-white p-6">
+                  {item.remoteLogo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={item.logo} alt={`Logo ${item.title}`} className="h-full w-full object-contain" />
+                  ) : (
+                    <Image
+                      src={item.logo}
+                      alt={`Logo ${item.title}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-6"
+                    />
+                  )}
                 </div>
-                <div className="mt-8 border-t border-white/8 pt-6">
-                  <span className="block text-5xl font-black text-white tracking-[-0.04em]">{item.metric}</span>
-                  <span className="block text-sm text-white/40 mt-1">{item.metricLabel}</span>
-                </div>
-              </a>
-            ))}
 
-            <div className="flex flex-col gap-4">
-              {cases.filter(c => !c.featured).map(item => (
-                <a
-                  key={item.title}
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="reveal group rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-7 transition hover:border-[#C0005A]/50 flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">{item.subtitle}</span>
-                    <h3 className="mt-2 text-lg font-bold text-white">{item.title}</h3>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#C0005A]/70">{item.service}</p>
+                <div className="flex min-h-52 flex-col p-6">
+                  <span className="text-xs uppercase tracking-[0.2em] text-white/35">{item.subtitle}</span>
+                  <h3 className="mt-2 text-xl font-bold text-white">{item.title}</h3>
+                  {item.service && (
+                    <p className="mt-2 text-xs uppercase tracking-[0.12em] text-[#C0005A]">{item.service}</p>
+                  )}
+                  {item.text && <p className="mt-4 text-sm leading-6 text-white/50">{item.text}</p>}
+
+                  <div className="mt-auto pt-6">
+                    {item.metric && item.metricLabel ? (
+                      <div className="border-t border-white/8 pt-4">
+                        <span className="block text-3xl font-black tracking-[-0.04em] text-white">{item.metric}</span>
+                        <span className="mt-1 block text-sm text-white/40">{item.metricLabel}</span>
+                      </div>
+                    ) : (
+                      <span className="inline-flex rounded-full border border-[#C0005A]/30 bg-[#C0005A]/10 px-3 py-1 text-xs font-semibold text-[#E44A91]">
+                        Case INVD
+                      </span>
+                    )}
+
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-4 inline-flex text-sm text-white/45 transition hover:text-white"
+                      >
+                        Ver perfil <span className="ml-2">↗</span>
+                      </a>
+                    )}
                   </div>
-                  <div className="mt-5 border-t border-white/8 pt-4 flex items-end justify-between">
-                    <div>
-                      <span className="block text-3xl font-black text-white tracking-[-0.04em]">{item.metric}</span>
-                      <span className="block text-xs text-white/40 mt-1">{item.metricLabel}</span>
-                    </div>
-                    <span className="text-white/20 group-hover:text-[#C0005A] transition text-xl">→</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
