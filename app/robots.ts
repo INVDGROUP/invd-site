@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://invdgroup.com/sitemap.xml",
+    host: "https://invdgroup.com",
   };
 }

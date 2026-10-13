@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import BrandLogo from "../components/brand-logo";
 
@@ -115,9 +116,9 @@ const questions = [
     <main className="min-h-screen bg-[#111] text-white flex flex-col items-center px-6 py-16">
       <div className="w-full max-w-lg">
 
-        <div className="mb-10 flex items-center">
+        <Link href="/" aria-label="Voltar para a página inicial" className="mb-10 flex items-center">
           <BrandLogo small />
-        </div>
+        </Link>
 
         {step === 0 && (
           <div>

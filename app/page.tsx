@@ -587,6 +587,8 @@ export default function Home() {
                 <a href="#metodo" className="block transition hover:text-white">Como trabalhamos</a>
                 <a href="#diferenciais" className="block transition hover:text-white">Diferenciais</a>
                 <a href="#cases" className="block transition hover:text-white">Case</a>
+                <a href="/diagnostico" className="block transition hover:text-white">Diagnóstico gratuito</a>
+                <a href="/base-digital" className="block transition hover:text-white">Base Digital</a>
               </div>
             </div>
 
