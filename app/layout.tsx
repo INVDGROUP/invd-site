@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+const siteUrl = "https://invdgroup.com";
+
 export const metadata: Metadata = {
-  title: "INVD Group — Inteligência em Vendas no Digital",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "INVD Group — Inteligência em Vendas no Digital",
+    template: "%s | INVD Group",
+  },
   description:
     "Empresa de marketing digital e publicidade especializada em gestão de tráfego pago e estratégias de aquisição de clientes.",
   keywords: [
@@ -24,14 +30,43 @@ export const metadata: Metadata = {
     "agência de marketing para empresas",
     "marketing digital Distrito Federal",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "INVD Group — Inteligência em Vendas no Digital",
     description:
       "Inteligência, comunicação e estratégias de mídia digital para conectar empresas aos públicos certos e gerar oportunidades de negócio.",
-    url: "https://invdgroup.com",
+    url: siteUrl,
     siteName: "INVD Group",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/logo-invd.png",
+        width: 721,
+        height: 409,
+        alt: "INVD Group",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "INVD Group — Inteligência em Vendas no Digital",
+    description:
+      "Inteligência, comunicação e estratégias de mídia digital para gerar oportunidades de negócio.",
+    images: ["/logo-invd.png"],
   },
   verification: {
     google: "NJzQsa9fjha-nAUj-FZfergLpNXdTfzHT8I7byUacvM",
@@ -43,6 +78,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "INVD Group",
+    url: siteUrl,
+    logo: `${siteUrl}/logo-invd.png`,
+    description:
+      "Empresa de marketing digital e publicidade especializada em gestão de tráfego pago e estratégias de aquisição de clientes.",
+    telephone: "+55 61 99325-3597",
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Distrito Federal, Brasil",
+    },
+    sameAs: [
+      "https://www.instagram.com/invdgroup/",
+      "https://www.linkedin.com/company/invdgroup",
+    ],
+  };
+
   return (
     <html lang="pt-BR">
       <head>
@@ -83,6 +137,12 @@ export default function RootLayout({
         </noscript>
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KFBHRHKT"
