@@ -15,9 +15,10 @@ export default function BrandLogo({ className = "", small = false }: BrandLogoPr
       <Image
         alt=""
         aria-hidden="true"
-        height={1000}
+        height={409}
         src="/logo-invd.png"
-        width={1000}
+        unoptimized
+        width={721}
       />
     </span>
   );

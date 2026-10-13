@@ -35,24 +35,15 @@ body {
 }
 
 .brand-logo img {
-  height: 69px;
-  left: -10px;
-  max-width: none;
-  position: absolute;
-  top: -19px;
-  width: 69px;
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .brand-logo--small {
   height: 24px;
   width: 43px;
-}
-
-.brand-logo--small img {
-  height: 59px;
-  left: -8px;
-  top: -16px;
-  width: 59px;
 }
 
 .reveal {
