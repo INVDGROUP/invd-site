@@ -117,7 +117,7 @@ const questions = [
       <div className="w-full max-w-lg">
 
         <Link href="/" aria-label="Voltar para a página inicial" className="mb-10 flex items-center">
-          <BrandLogo small />
+          <BrandLogo />
         </Link>
 
         {step === 0 && (
