@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
+import BrandLogo from "../components/brand-logo";
 
 export default function Diagnostico() {
 const questions = [
@@ -11,66 +11,66 @@ const questions = [
         "Quase tudo por indicação de clientes atuais",
         "Mistura de indicação e alguns anúncios",
         "Tráfego pago e presença digital estruturada",
-        "Prospecção ativa e comercial estruturado",
+        "Campanhas recorrentes com aquisição estruturada",
       ],
     },
     {
       id: "q2",
-      text: "Como você descreveria o posicionamento da sua marca no mercado?",
+      text: "Como sua empresa define os públicos das campanhas digitais?",
       options: [
-        "Não temos um posicionamento claro definido",
-        "Temos mas não comunicamos bem",
-        "É claro internamente mas o mercado não percebe",
-        "Somos referência reconhecida no nosso segmento",
+        "Ainda não temos públicos bem definidos",
+        "Usamos segmentações amplas sem muitos critérios",
+        "Temos perfis de público definidos, mas pouco testados",
+        "Segmentamos, testamos e refinamos com dados",
       ],
     },
     {
       id: "q3",
-      text: "Quando um potencial cliente pergunta o preço, o que geralmente acontece?",
+      text: "Como os resultados das campanhas são acompanhados hoje?",
       options: [
-        "Frequentemente perdemos para concorrente mais barato",
-        "Às vezes perdemos por preço mas não sempre",
-        "O preço raramente é o fator decisivo",
-        "Cobramos premium e somos escolhidos pelo valor",
+        "Não acompanhamos indicadores com frequência",
+        "Olhamos métricas básicas de vez em quando",
+        "Acompanhamos custo por lead e conversões",
+        "Usamos dados para otimizar mídia e aquisição continuamente",
       ],
     },
     {
       id: "q4",
-      text: "Como está sua presença digital hoje?",
+      text: "Como a comunicação dos anúncios é planejada hoje?",
       options: [
-        "Fraca — site desatualizado e redes sem consistência",
-        "Regular — postamos mas sem estratégia clara",
-        "Razoável — temos presença mas não gera resultado",
-        "Forte — presença digital gera leads e autoridade",
+        "Sem planejamento ou mensagem definida",
+        "Criamos anúncios pontualmente, sem linha consistente",
+        "Temos mensagens definidas, mas testamos pouco",
+        "Planejamos, testamos e ajustamos a comunicação por público",
       ],
     },
     {
       id: "q5",
-      text: "Qual é o principal obstáculo para crescer mais rápido hoje?",
+      text: "Qual é o principal obstáculo para melhorar sua aquisição hoje?",
       options: [
-        "Não sabemos como atrair mais clientes de forma previsível",
-        "Temos clientes mas nossa margem está apertada",
-        "Crescemos mas perdemos qualidade e controle",
-        "Falta estrutura de marketing e vendas integrada",
+        "Não sabemos quais canais e públicos priorizar",
+        "Investimos em mídia, mas sem estratégia clara",
+        "Geramos contatos, mas com pouca qualidade",
+        "Precisamos otimizar uma operação que já funciona",
       ],
     },
   ];
 
   const gargalos = {
     low: [
-      { t: "Posicionamento indefinido", d: "Sua marca não comunica valor com clareza, o que força competição por preço e dificulta crescimento sustentável." },
-      { t: "Captação dependente de indicação", d: "Sem canais de aquisição estruturados, o crescimento fica limitado à rede atual — instável e imprevisível." },
-      { t: "Presença digital fraca", d: "Sem presença digital estratégica, sua empresa é invisível para clientes que poderiam estar buscando exatamente o que você oferece." },
+      { t: "Aquisição pouco estruturada", d: "Sem objetivos, públicos e canais definidos, o investimento em mídia perde direção e consistência." },
+      { t: "Dependência de indicação", d: "Quando não há uma estratégia digital de aquisição, a geração de novas oportunidades fica limitada à rede atual." },
+      { t: "Mensuração insuficiente", d: "Sem indicadores claros, a empresa tem pouca informação para decidir onde investir e o que otimizar." },
     ],
     mid: [
-      { t: "Marketing sem direção comercial", d: "Há esforço em comunicação mas sem alinhamento com vendas — o resultado não se converte em receita previsível." },
-      { t: "Posicionamento pouco percebido", d: "O mercado ainda não reconhece claramente o diferencial da sua empresa, o que fragiliza a precificação e a escolha do cliente." },
-      { t: "Escala sem estrutura", d: "Para crescer no próximo nível é necessário integrar tráfego, conteúdo e processo comercial em um ecossistema coeso." },
+      { t: "Mídia sem direcionamento claro", d: "Já existe investimento, mas objetivos, públicos ou mensagens ainda podem estar desconectados da estratégia de aquisição." },
+      { t: "Comunicação pouco testada", d: "A operação pode evoluir ao testar abordagens e entender quais mensagens geram mais interesse em cada público." },
+      { t: "Otimização irregular", d: "Acompanhamento e ajustes mais consistentes podem melhorar a eficiência dos investimentos em mídia." },
     ],
     high: [
-      { t: "Oportunidade de escala acelerada", d: "Com a estrutura que você já tem, um plano estratégico de tráfego e posicionamento pode multiplicar os resultados atuais." },
-      { t: "Integração de canais", d: "A conexão entre marketing, vendas e presença digital pode estar gerando ineficiências que limitam o crescimento." },
-      { t: "Autoridade de mercado", d: "Empresas no seu estágio se beneficiam de branding e presença consistente para consolidar liderança e defender margem." },
+      { t: "Evolução da eficiência", d: "A base atual permite aprofundar testes de públicos, mensagens e canais para buscar melhores resultados de aquisição." },
+      { t: "Integração de dados", d: "A mensuração entre plataformas pode ampliar a leitura da jornada e apoiar decisões mais precisas." },
+      { t: "Novas oportunidades de mídia", d: "Uma operação madura pode explorar novos segmentos, formatos e hipóteses com controle e aprendizado contínuo." },
     ],
   };
 
@@ -95,20 +95,20 @@ const questions = [
   const pct = Math.round((score / 15) * 100);
   const tier = pct <= 33 ? "low" : pct <= 66 ? "mid" : "high";
   const titles = {
-    low: "Empresa em risco de estagnação",
-    mid: "Potencial alto, execução travada",
-    high: "Empresa madura com gargalos pontuais",
+    low: "Aquisição em fase inicial",
+    mid: "Operação com potencial de evolução",
+    high: "Aquisição estruturada",
   };
   const descs = {
-    low: "Vários pilares precisam de reestruturação urgente.",
-    mid: "Você tem base, mas falta estratégia para escalar.",
-    high: "Boa base — o próximo passo é otimizar e acelerar.",
+    low: "Há espaço para organizar objetivos, públicos e mensuração.",
+    mid: "A base existe; agora é preciso ganhar direção e consistência.",
+    high: "O próximo passo é aprofundar testes e otimizações.",
   };
 
   const perfilMsg = {
-    low: "Olá! Fiz o diagnóstico da INVD. Estou buscando estruturar melhor minha captação e presença digital — acho que temos espaço para crescer bastante.",
-    mid: "Olá! Fiz o diagnóstico da INVD. Já tenho uma operação rodando mas sinto que o marketing poderia gerar mais resultado. Quero entender o que falta.",
-    high: "Olá! Fiz o diagnóstico da INVD. Temos uma boa base mas quero acelerar o crescimento e escalar com mais estratégia. Vamos conversar?",
+    low: "Olá! Fiz a análise de aquisição da INVD e quero estruturar melhor meus canais, públicos e campanhas.",
+    mid: "Olá! Fiz a análise de aquisição da INVD. Já invisto em mídia, mas quero ganhar mais direção e consistência.",
+    high: "Olá! Fiz a análise de aquisição da INVD. Tenho uma operação estruturada e quero aprofundar testes e otimizações.",
   };
 
   return (
@@ -116,24 +116,24 @@ const questions = [
       <div className="w-full max-w-lg">
 
         <div className="mb-10 flex items-center">
-          <Image src="/logo.png" alt="INVD" width={338} height={100} className="h-6 w-auto object-contain" />
+          <BrandLogo small />
         </div>
 
         {step === 0 && (
           <div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C0005A]">Diagnóstico gratuito</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Análise de aquisição</span>
             <h1 className="mt-4 text-4xl font-black leading-[1.05] tracking-[-0.04em]">
-              Sua empresa está no<br />
-              <span className="text-[#C0005A]">limite do crescimento?</span>
+              Como está sua<br />
+              <span className="text-[#7C003E]">aquisição digital?</span>
             </h1>
             <p className="mt-5 text-sm leading-7 text-white/50">
-              5 perguntas para identificar onde está o gargalo do seu negócio.
+              5 perguntas para avaliar a estrutura atual de mídia e geração de oportunidades.
             </p>
             <button
               onClick={() => setStep(1)}
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#5C0030]"
             >
-              Iniciar diagnóstico →
+              Iniciar análise →
             </button>
           </div>
         )}
@@ -142,10 +142,10 @@ const questions = [
           <div>
             <div className="flex gap-2 mb-8">
               {questions.map((_, i) => (
-                <div key={i} className={`h-[3px] flex-1 rounded-full transition-all ${i < step ? "bg-[#C0005A]" : "bg-white/10"}`} />
+                <div key={i} className={`h-[3px] flex-1 rounded-full transition-all ${i < step ? "bg-[#7C003E]" : "bg-white/10"}`} />
               ))}
             </div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C0005A]">Pergunta {step} de 5</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Pergunta {step} de 5</span>
             <h2 className="mt-4 text-xl font-bold leading-snug mb-8">{currentQ.text}</h2>
             <div className="flex flex-col gap-3 mb-8">
               {currentQ.options.map((opt, i) => (
@@ -154,8 +154,8 @@ const questions = [
                   onClick={() => handleSelect(i)}
                   className={`text-left rounded-xl border px-5 py-4 text-sm leading-relaxed transition-all ${
                     selected === i
-                      ? "border-[#C0005A] bg-[#C0005A]/10 text-white"
-                      : "border-white/10 bg-white/[0.03] text-white/70 hover:border-[#C0005A]/50 hover:text-white"
+                      ? "border-[#7C003E] bg-[#7C003E]/10 text-white"
+                      : "border-white/10 bg-white/[0.03] text-white/70 hover:border-[#7C003E]/50 hover:text-white"
                   }`}
                 >
                   {opt}
@@ -165,19 +165,19 @@ const questions = [
             <button
               onClick={handleNext}
               disabled={selected === null}
-              className="w-full inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047] disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-full inline-flex items-center justify-center rounded-full bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#5C0030] disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {step === 5 ? "Ver diagnóstico" : "Próxima →"}
+              {step === 5 ? "Ver análise" : "Próxima →"}
             </button>
           </div>
         )}
 
         {step === 6 && (
           <div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C0005A]">Seu diagnóstico</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Sua análise</span>
             <div className="mt-6 flex items-center gap-5 mb-8">
-              <div className="flex-shrink-0 w-20 h-20 rounded-full border-2 border-[#C0005A] flex items-center justify-center">
-                <span className="text-2xl font-black text-[#C0005A]">{pct}%</span>
+              <div className="flex-shrink-0 w-20 h-20 rounded-full border-2 border-[#7C003E] flex items-center justify-center">
+                <span className="text-2xl font-black text-[#7C003E]">{pct}%</span>
               </div>
               <div>
                 <p className="font-bold text-white text-base">{titles[tier]}</p>
@@ -189,23 +189,23 @@ const questions = [
             <div className="flex flex-col gap-3 mb-8">
               {gargalos[tier].map((g, i) => (
                 <div key={i} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                  <p className="text-sm font-bold text-[#C0005A] mb-2">{g.t}</p>
+                  <p className="text-sm font-bold text-[#7C003E] mb-2">{g.t}</p>
                   <p className="text-sm text-white/55 leading-relaxed">{g.d}</p>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-xl border border-[#C0005A]/30 bg-[#C0005A]/10 p-5 mb-4 text-center">
+            <div className="rounded-xl border border-[#7C003E]/30 bg-[#7C003E]/10 p-5 mb-4 text-center">
               <p className="text-sm text-white/60 leading-relaxed mb-4">
-                A INVD faz um diagnóstico completo e gratuito para{" "}
-                <span className="text-white font-semibold">identificar exatamente onde está o seu gargalo</span>{" "}
-                e o que precisa mudar para escalar.
+                A INVD pode aprofundar a leitura da sua operação para{" "}
+                <span className="text-white font-semibold">definir públicos, canais e oportunidades de mídia</span>{" "}
+                de acordo com os objetivos do seu negócio.
               </p>
               <a
                 href={`https://api.whatsapp.com/send/?phone=5561993253597&text=${encodeURIComponent(perfilMsg[tier])}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-[#C0005A] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#970047]"
+                className="inline-flex items-center justify-center rounded-full bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#5C0030]"
               >
                 Falar com a INVD agora →
               </a>
@@ -223,7 +223,7 @@ const questions = [
         <footer className="mt-16 pt-6 border-t border-white/5">
           <div className="flex flex-col gap-2 text-xs text-white/25 text-center">
             <p>© 2026 INVD — Todos os direitos reservados.</p>
-            <p>Inteligência em Negócios, Vendas e Digital</p>
+            <p>Inteligência em Vendas no Digital</p>
           </div>
         </footer>
 
