@@ -3,30 +3,31 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "INVD — Agência de Marketing em Brasília para Empresas que Querem Escalar",
+  title: "INVD Group — Inteligência em Vendas no Digital",
   description:
-    "Agência de marketing em Brasília especializada em reposicionamento, tráfego pago e escala para empresas que faturam mas não crescem no ritmo certo. Estratégia com resultado real no DF.",
+    "Empresa de marketing digital e publicidade especializada em gestão de tráfego pago e estratégias de aquisição de clientes.",
   keywords: [
     "agência de marketing em Brasília",
     "agência de marketing digital Brasília",
     "agência de tráfego pago Brasília",
+    "gestão de tráfego pago",
+    "estratégia de aquisição de clientes",
+    "planejamento de mídia digital",
+    "Meta Ads Brasília",
+    "Google Ads Brasília",
+    "geração de demanda qualificada",
     "marketing para empresas Brasília DF",
     "agência de marketing DF",
-    "consultoria de marketing Brasília",
     "agência de performance Brasília",
     "marketing estratégico Brasília",
-    "agência de reposicionamento de marca Brasília",
-    "agência para escalar empresa Brasília",
-    "social media Brasília",
     "tráfego pago DF",
     "agência de marketing para empresas",
-    "agência de crescimento empresarial Brasília",
     "marketing digital Distrito Federal",
   ],
   openGraph: {
-    title: "INVD — Agência de Marketing em Brasília para Empresas que Querem Escalar",
+    title: "INVD Group — Inteligência em Vendas no Digital",
     description:
-      "Agência de marketing em Brasília. Reposicionamento, tráfego pago e escala para empresas que faturam mas não crescem no ritmo certo.",
+      "Inteligência, comunicação e estratégias de mídia digital para conectar empresas aos públicos certos e gerar oportunidades de negócio.",
     url: "https://invdgroup.com",
     siteName: "INVD Group",
     locale: "pt_BR",

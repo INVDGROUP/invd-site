@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import BrandLogo from "../components/brand-logo";
 
 function HotmartButton() {
   return (
@@ -47,7 +47,7 @@ export default function BaseDigital() {
       <header className="border-b border-white/5 bg-black/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5 lg:px-10">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Logo da INVD" width={338} height={100} className="h-7 w-auto object-contain" />
+            <BrandLogo />
           </Link>
           <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
             Produto digital
@@ -61,16 +61,16 @@ export default function BaseDigital() {
 
         <div className="relative mx-auto max-w-4xl px-6 pb-20 pt-24 lg:px-10 lg:pb-24 lg:pt-28 text-center">
           <div className="mb-6 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-[#C0005A]" />
+            <span className="h-px w-8 bg-[#7C003E]" />
             <span className="text-[9px] uppercase tracking-[0.38em] text-white/40">
               Curso · INVD Group
             </span>
-            <span className="h-px w-8 bg-[#C0005A]" />
+            <span className="h-px w-8 bg-[#7C003E]" />
           </div>
 
           <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.05em] md:text-7xl">
             Base Digital
-            <span className="block bg-gradient-to-b from-[#D4146E] to-[#9A0048] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-b from-[#7C003E] to-[#5C0030] bg-clip-text text-transparent">
               INVD
             </span>
           </h1>
@@ -91,15 +91,15 @@ export default function BaseDigital() {
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-10">
           <div className="mb-12 text-center">
             <div className="mb-5 flex items-center justify-center gap-3">
-              <span className="h-px w-8 bg-[#C0005A]" />
+              <span className="h-px w-8 bg-[#7C003E]" />
               <span className="text-[10px] uppercase tracking-[0.35em] text-black/40">
                 O que você vai aprender
               </span>
-              <span className="h-px w-8 bg-[#C0005A]" />
+              <span className="h-px w-8 bg-[#7C003E]" />
             </div>
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
               Sua página profissional no ar
-              <span className="text-[#C0005A]"> de graça</span>
+              <span className="text-[#7C003E]"> de graça</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-black/55">
               Você vai aprender a criar sua própria página profissional do zero, usando código simples
@@ -112,7 +112,7 @@ export default function BaseDigital() {
             {[
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
                   </svg>
                 ),
@@ -121,7 +121,7 @@ export default function BaseDigital() {
               },
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 17l6-6-6-6m8 14h8"/>
                   </svg>
                 ),
@@ -130,7 +130,7 @@ export default function BaseDigital() {
               },
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
                   </svg>
                 ),
@@ -139,7 +139,7 @@ export default function BaseDigital() {
               },
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
                 ),
@@ -148,7 +148,7 @@ export default function BaseDigital() {
               },
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                 ),
@@ -157,7 +157,7 @@ export default function BaseDigital() {
               },
               {
                 icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#C0005A" strokeWidth="1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                 ),
@@ -186,14 +186,14 @@ export default function BaseDigital() {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-8 bg-[#C0005A]" />
+                <span className="h-px w-8 bg-[#7C003E]" />
                 <span className="text-[10px] uppercase tracking-[0.35em] text-white/40">
                   Para quem é
                 </span>
               </div>
               <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
                 Para quem está
-                <span className="text-[#C0005A]"> começando no digital</span>
+                <span className="text-[#7C003E]"> começando no digital</span>
               </h2>
               <p className="mt-6 text-sm leading-7 text-white/55">
                 O Base Digital INVD foi criado para quem precisa aparecer de forma profissional online
@@ -211,9 +211,9 @@ export default function BaseDigital() {
                 "Quem tentou mas achou tudo complexo demais",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-4 rounded-xl border border-white/8 bg-white/[0.02] px-5 py-4">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C0005A]/20">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#7C003E]/20">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 3" stroke="#C0005A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 5l2.5 2.5L8 3" stroke="#7C003E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
                   <p className="text-sm leading-6 text-white/70">{item}</p>
@@ -230,14 +230,14 @@ export default function BaseDigital() {
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-8 bg-[#C0005A]" />
+                <span className="h-px w-8 bg-[#7C003E]" />
                 <span className="text-[10px] uppercase tracking-[0.35em] text-black/40">
                   Quanto custa manter
                 </span>
               </div>
               <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
                 Hospedagem
-                <span className="text-[#C0005A]"> grátis.</span>
+                <span className="text-[#7C003E]"> grátis.</span>
                 <br />
                 Para sempre.
               </h2>
@@ -272,17 +272,17 @@ export default function BaseDigital() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(124,0,62,0.18),_transparent_40%)]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 lg:px-10 text-center">
           <div className="mb-6 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-[#C0005A]" />
+            <span className="h-px w-8 bg-[#7C003E]" />
             <span className="text-[9px] uppercase tracking-[0.38em] text-white/40">
               Garantia incondicional de 7 dias
             </span>
-            <span className="h-px w-8 bg-[#C0005A]" />
+            <span className="h-px w-8 bg-[#7C003E]" />
           </div>
 
           <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">
             Sua presença digital
             <br />
-            <span className="text-[#C0005A]">começa hoje.</span>
+            <span className="text-[#7C003E]">começa hoje.</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/55">
@@ -300,10 +300,10 @@ export default function BaseDigital() {
       <footer className="border-t border-white/5 bg-black">
         <div className="mx-auto max-w-4xl px-6 py-10 lg:px-10 flex flex-col gap-3 items-center text-center">
           <Link href="/">
-            <Image src="/logo.png" alt="INVD" width={338} height={100} className="h-6 w-auto object-contain opacity-50" />
+            <BrandLogo className="opacity-50" small />
           </Link>
           <p className="text-xs text-white/25">© 2026 INVD — Todos os direitos reservados.</p>
-          <p className="text-xs text-white/20">Inteligência em Negócios, Vendas e Digital</p>
+          <p className="text-xs text-white/20">Inteligência em Vendas no Digital</p>
         </div>
       </footer>
 
