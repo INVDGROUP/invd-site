@@ -1,20 +1,20 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import BrandLogo from "./components/brand-logo";
 import CasesCarousel, { type CaseItem } from "./components/cases-carousel";
 export default function Home() {
   const services = [
     {
-      title: "Gestão de Tráfego Pago",
-      text: "Planejamento, gestão e otimização contínua de campanhas no Meta Ads e Google Ads para gerar demanda qualificada e oportunidades comerciais.",
+      title: "Diagnóstico e Estratégia de Aquisição",
+      text: "Analisamos a estrutura atual, identificamos onde as oportunidades estão sendo perdidas e definimos prioridades para transformar mídia em avanço comercial.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
       ),
     },
     {
-      title: "Estratégia de Aquisição",
-      text: "Definição de objetivos, públicos, canais e jornadas para estruturar uma aquisição de clientes consistente.",
+      title: "Gestão de Tráfego e Conversão",
+      text: "Planejamos, gerimos e otimizamos campanhas no Meta Ads e Google Ads, alinhando público, mensagem e página de conversão ao objetivo do negócio.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -22,53 +22,90 @@ export default function Home() {
       ),
     },
     {
-      title: "Inteligência e Mensuração",
-      text: "Monitoramento de indicadores, análise de dados e integração de mensuração conforme o projeto para orientar decisões de mídia.",
+      title: "Inteligência e Validação",
+      text: "Acompanhamos indicadores de mídia e sinais do processo comercial para validar a qualidade das oportunidades e orientar os próximos investimentos.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       ),
     },
   ];
 
-  const pillars = [
+  const methodSummary = [
     {
-      title: "Inteligência",
-      text: "Compreender o negócio, o mercado, o público e os dados para orientar decisões.",
+      title: "Identificar",
+      text: "Encontrar os gargalos que limitam a geração de oportunidades e vendas.",
       letter: "I",
     },
     {
-      title: "Comunicação",
-      text: "Desenvolver mensagens relevantes que aproximam marcas de seus públicos.",
-      letter: "C",
+      title: "Nortear",
+      text: "Definir os ajustes e prioridades que devem orientar a operação.",
+      letter: "N",
     },
     {
-      title: "Estratégia",
-      text: "Definir objetivos, direcionamentos e oportunidades para cada operação.",
-      letter: "E",
+      title: "Validar",
+      text: "Medir o impacto das mudanças e confirmar o que realmente funciona.",
+      letter: "V",
     },
     {
-      title: "Performance",
-      text: "Acompanhar resultados e otimizar continuamente os investimentos em mídia.",
-      letter: "P",
+      title: "Desenvolver",
+      text: "Ampliar o que foi validado, respeitando a capacidade comercial da empresa.",
+      letter: "D",
     },
   ];
 
-  const differentials = [
+  const methodSteps = [
     {
-      title: "Inteligência antes da mídia",
-      text: "Cada decisão parte da compreensão do negócio, do mercado, do público e dos dados disponíveis.",
+      code: "I",
+      action: "Identificar",
+      title: "Encontrar o que limita os resultados",
+      text: "Antes de aumentar o investimento, cruzamos mídia, comunicação, jornada e atendimento para localizar onde as oportunidades estão sendo perdidas.",
+      practical: "Se a empresa recebe contatos, mas poucos avançam para a venda, analisamos desde a promessa do anúncio até a abordagem comercial — não apenas o custo do lead.",
+      outputs: ["Diagnóstico da operação", "Gargalos prioritários", "Plano de ação"],
     },
     {
-      title: "Comunicação que aproxima",
-      text: "Orientamos mensagens relevantes para conectar cada marca às pessoas certas em cada etapa da jornada.",
+      code: "N",
+      action: "Nortear",
+      title: "Transformar o diagnóstico em direção",
+      text: "Definimos os ajustes com maior potencial de impacto, conectando posicionamento, criativos, qualificação dos contatos e processo de atendimento.",
+      practical: "A operação recebe uma ordem clara de prioridades: o que precisa mudar agora, o que deve ser testado e o que ainda não justifica investimento.",
+      outputs: ["Direcionamento de mídia", "Mensagens e públicos", "Prioridades de implementação"],
     },
     {
-      title: "Estratégia para aquisição",
-      text: "Objetivos, canais, públicos e oportunidades são organizados em uma operação de mídia coerente.",
+      code: "V",
+      action: "Validar",
+      title: "Medir impacto além dos cliques",
+      text: "Acompanhamos se os ajustes geram contatos mais qualificados, mais negociações e melhores condições para a venda.",
+      practical: "Os dados mostram o que deve continuar, o que precisa mudar e quais hipóteses merecem uma nova rodada de teste.",
+      outputs: ["Indicadores acompanhados", "Aprendizados dos testes", "Decisões orientadas por dados"],
     },
     {
-      title: "Performance com consistência",
-      text: "Acompanhamos indicadores e otimizamos os investimentos continuamente, com clareza sobre cada decisão.",
+      code: "D",
+      action: "Desenvolver",
+      title: "Escalar o que foi comprovado",
+      text: "Com a estratégia validada, ampliamos investimentos e ações de forma progressiva, preservando eficiência e qualidade.",
+      practical: "A evolução acompanha a capacidade de atendimento e o desempenho das vendas para que crescimento de volume também represente crescimento de negócio.",
+      outputs: ["Escala progressiva", "Otimização contínua", "Evolução da operação"],
+    },
+  ];
+
+  const implementationSteps = [
+    {
+      step: "01",
+      title: "Alinhamento e diagnóstico",
+      text: "Reunimos os acessos, alinhamos objetivos e analisamos a estrutura atual para identificar gargalos e definir as prioridades do projeto.",
+      detail: "Objetivos claros antes de qualquer configuração.",
+    },
+    {
+      step: "02",
+      title: "Preparação e implementação",
+      text: "Configuramos contas e rastreamento, aplicamos os ajustes prioritários e estruturamos a página de conversão quando ela fizer parte do escopo.",
+      detail: "Base técnica e comercial pronta para ativação.",
+    },
+    {
+      step: "03",
+      title: "Ativação e acompanhamento",
+      text: "Com acessos e materiais aprovados, definimos o cronograma, ativamos as campanhas e iniciamos o ciclo de validação e otimização.",
+      detail: "Aprendizado contínuo desde os primeiros dados.",
     },
   ];
 
@@ -137,6 +174,8 @@ export default function Home() {
 
   const whatsappLink =
     "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
+  const [activeMethod, setActiveMethod] = useState(0);
+  const activeMethodStep = methodSteps[activeMethod];
   const trackWhatsAppClick = (location: string) => {
     if (typeof window === "undefined") return;
     window.dataLayer = window.dataLayer || [];
@@ -180,8 +219,8 @@ export default function Home() {
             <a href="#metodo" className="transition hover:text-white">
               Como trabalhamos
             </a>
-            <a href="#diferenciais" className="transition hover:text-white">
-              Diferenciais
+            <a href="#implantacao" className="transition hover:text-white">
+              Implantação
             </a>
             <a href="#cases" className="transition hover:text-white">
               Case
@@ -220,7 +259,7 @@ export default function Home() {
             </h1>
 
             <p className="reveal reveal-delay-1 mt-7 max-w-xl text-sm leading-7 text-[#8A8A8A] md:text-base">
-              Somos especialistas em reposicionamento, reestruturação e escala para empresas que já faturam mas não crescem no ritmo certo. Tráfego pago, social media e estratégia integrada com foco em resultado real.
+              Estruturamos aquisição para empresas que já investem ou querem investir em mídia com mais clareza — conectando comunicação, tráfego pago e processo comercial para gerar oportunidades que podem virar vendas.
             </p>
 
             <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
@@ -270,25 +309,25 @@ export default function Home() {
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-[#7C003E]" />
               <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Sobre a INVD
+                Sobre a INVD · Método INVD
               </span>
             </div>
 
             <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Inteligência aplicada à comunicação e à aquisição de clientes<span className="text-[#7C003E]">.</span>
+              O método que transforma gargalos em direção para crescer<span className="text-[#7C003E]">.</span>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
-              A INVD Group é uma empresa de marketing digital e publicidade especializada em gestão de tráfego pago. Combinamos inteligência, comunicação e estratégias de mídia para conectar negócios aos seus potenciais clientes.
+              A INVD Group é uma empresa de marketing digital e publicidade especializada em aquisição. Nossa atuação é guiada por um método próprio que conecta análise, estratégia, validação e evolução.
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-7 text-black/45 md:text-base">
-              Nossa atuação considera mercado, comportamento do consumidor, planejamento e dados para desenvolver uma presença digital orientada à geração de demanda e oportunidades comerciais.
+              Identificamos o que limita os resultados, norteamos os ajustes, validamos o impacto e desenvolvemos o que funciona. Assim, a mídia deixa de ser uma ação isolada e passa a responder ao objetivo comercial.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {pillars.map((item) => (
+            {methodSummary.map((item) => (
               <div
                 key={item.title}
                 className="group relative rounded-sm border border-[#D9D9D9] bg-white p-6 transition hover:border-[#7C003E]/45"
@@ -318,9 +357,9 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Estratégias de mídia
+              Da estratégia à mídia
               <br />
-              para gerar <span className="text-[#7C003E]">demanda</span>
+              para gerar <span className="text-[#7C003E]">avanço comercial</span>
             </h2>
           </div>
 
@@ -359,49 +398,82 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Da compreensão à otimização —
-              <span className="text-[#7C003E]"> estratégia em cada etapa</span>
+              Um método para sair do gargalo e chegar à
+              <span className="text-[#7C003E]"> escala com clareza</span>
             </h2>
 
             <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
-              Campanhas consistentes começam antes da veiculação. Entendemos o contexto, definimos o direcionamento e acompanhamos os dados para evoluir a operação.
+              O método INVD conecta leitura de negócio, decisão estratégica e execução. Cada fase responde a uma pergunta comercial antes de avançar para a próxima.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                step: "01",
-                title: "Inteligência",
-                text: "Compreendemos o negócio, o mercado, o público e os objetivos que devem orientar a estratégia de aquisição.",
-                highlight: false,
-              },
-              {
-                step: "02",
-                title: "Estratégia",
-                text: "Definimos públicos, canais, mensagens e direcionamentos de mídia de acordo com o contexto de cada operação.",
-                highlight: true,
-              },
-              {
-                step: "03",
-                title: "Execução e Otimização",
-                text: "Gerimos as campanhas, acompanhamos indicadores e realizamos ajustes contínuos para melhorar a eficiência do investimento.",
-                highlight: false,
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className={`border bg-white p-8 transition hover:-translate-y-1 ${
-                  item.highlight ? "border-[#7C003E]" : "border-[#D9D9D9]"
-                }`}
-              >
-                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">
-                  {item.step}
+          <div className="mt-14 grid overflow-hidden border border-[#D9D9D9] bg-white lg:grid-cols-[0.72fr_1.28fr]">
+            <div
+              className="grid border-b border-[#D9D9D9] sm:grid-cols-2 lg:block lg:border-b-0 lg:border-r"
+              role="tablist"
+              aria-label="Etapas do método INVD"
+            >
+              {methodSteps.map((item, index) => {
+                const isActive = activeMethod === index;
+                return (
+                  <button
+                    key={item.code}
+                    type="button"
+                    role="tab"
+                    id={`method-tab-${index}`}
+                    aria-selected={isActive}
+                    aria-controls="method-panel"
+                    onClick={() => setActiveMethod(index)}
+                    className={`group flex w-full items-center gap-5 border-b border-[#E7E7E7] px-6 py-6 text-left transition last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#7C003E] lg:px-8 ${
+                      isActive ? "bg-[#050505] text-white" : "bg-white text-black hover:bg-[#F5F5F3]"
+                    }`}
+                  >
+                    <span className={`text-4xl font-black tracking-[-0.08em] ${isActive ? "text-[#7C003E]" : "text-black/15 group-hover:text-[#7C003E]/40"}`}>
+                      {item.code}
+                    </span>
+                    <span>
+                      <span className="block text-[9px] uppercase tracking-[0.28em] opacity-45">Fase {String(index + 1).padStart(2, "0")}</span>
+                      <span className="mt-1 block text-sm font-bold">{item.action}</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              id="method-panel"
+              role="tabpanel"
+              aria-labelledby={`method-tab-${activeMethod}`}
+              className="relative min-h-[31rem] p-7 sm:p-10 lg:p-12"
+            >
+              <span className="pointer-events-none absolute right-6 top-2 text-[8rem] font-black leading-none tracking-[-0.1em] text-[#7C003E]/[0.06] sm:text-[11rem]">
+                {activeMethodStep.code}
+              </span>
+              <div className="relative">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#7C003E]">
+                  {activeMethodStep.code} — {activeMethodStep.action}
                 </span>
-                <h3 className="mt-3 text-xl font-black text-black">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-black/55">{item.text}</p>
+                <h3 className="mt-5 max-w-xl text-3xl font-black leading-[1] tracking-[-0.04em] text-black md:text-4xl">
+                  {activeMethodStep.title}
+                </h3>
+                <p className="mt-6 max-w-2xl text-sm leading-7 text-black/60 md:text-base">
+                  {activeMethodStep.text}
+                </p>
+
+                <div className="mt-8 border-l-2 border-[#7C003E] bg-[#F5F5F3] p-5">
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-black/40">Na prática</span>
+                  <p className="mt-2 text-sm leading-7 text-black/65">{activeMethodStep.practical}</p>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {activeMethodStep.outputs.map((output) => (
+                    <span key={output} className="border border-[#D9D9D9] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-black/55">
+                      {output}
+                    </span>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
 
           <div className="mt-14 text-center">
@@ -412,7 +484,7 @@ export default function Home() {
               onClick={() => trackWhatsAppClick("metodo")}
               className="inline-flex items-center justify-center rounded-sm bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#050505]"
             >
-              Quero estruturar minha aquisição
+              Quero identificar meus gargalos
               <span className="ml-2">→</span>
             </a>
           </div>
@@ -442,36 +514,60 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="diferenciais" className="bg-[#F5F5F3] text-[#050505]">
+      <section id="implantacao" className="bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-12 max-w-3xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-[#7C003E]" />
               <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Por que a INVD
+                Da contratação à operação
               </span>
             </div>
 
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Por que empresas
-              <br />
-              escolhem a
-              <span className="text-[#7C003E]"> INVD</span>
+              Próximos passos,
+              <span className="text-[#7C003E]"> sem etapas soltas</span>
             </h2>
+
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">
+              Depois da decisão, organizamos pessoas, acessos e prioridades para que a estratégia chegue à operação com contexto, rastreamento e ritmo de acompanhamento.
+            </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {differentials.map((item) => (
+          <div className="grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] lg:grid-cols-3">
+            {implementationSteps.map((item) => (
               <div
-                key={item.title}
-                className="reveal border-l-2 border-[#D9D9D9] bg-white p-7 transition hover:border-l-[#7C003E]"
+                key={item.step}
+                className="reveal group bg-white p-7 transition hover:bg-[#050505] sm:p-9"
               >
-                <h3 className="text-sm font-bold text-black">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-black/55">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Etapa {item.step}</span>
+                  <span className="text-4xl font-black tracking-[-0.08em] text-black/10 transition group-hover:text-white/10">{item.step}</span>
+                </div>
+                <h3 className="mt-7 text-xl font-black text-black transition group-hover:text-white">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-black/55 transition group-hover:text-white/55">
                   {item.text}
                 </p>
+                <div className="mt-8 border-t border-black/10 pt-5 transition group-hover:border-white/10">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40 transition group-hover:text-white/40">{item.detail}</p>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-start justify-between gap-6 border-l-2 border-[#7C003E] bg-white px-6 py-6 sm:flex-row sm:items-center sm:px-8">
+            <p className="max-w-2xl text-sm leading-6 text-black/60">
+              O cronograma é definido após o recebimento dos acessos e materiais necessários, de acordo com o escopo contratado e a realidade da operação.
+            </p>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackWhatsAppClick("implantacao")}
+              className="shrink-0 text-sm font-bold text-[#7C003E] transition hover:text-[#92004A]"
+            >
+              Conversar sobre o projeto →
+            </a>
           </div>
         </div>
       </section>
@@ -585,7 +681,7 @@ export default function Home() {
                 <a href="#sobre" className="block transition hover:text-white">Sobre</a>
                 <a href="#servicos" className="block transition hover:text-white">Serviços</a>
                 <a href="#metodo" className="block transition hover:text-white">Como trabalhamos</a>
-                <a href="#diferenciais" className="block transition hover:text-white">Diferenciais</a>
+                <a href="#implantacao" className="block transition hover:text-white">Implantação</a>
                 <a href="#cases" className="block transition hover:text-white">Case</a>
                 <a href="/diagnostico" className="block transition hover:text-white">Diagnóstico gratuito</a>
                 <a href="/base-digital" className="block transition hover:text-white">Base Digital</a>
@@ -597,11 +693,11 @@ export default function Home() {
                 Serviços
               </p>
               <div className="mt-5 space-y-3 text-sm text-white/65">
+                <span className="block">Diagnóstico de Aquisição</span>
                 <span className="block">Gestão de Tráfego Pago</span>
-                <span className="block">Estratégia de Aquisição</span>
-                <span className="block">Planejamento de Mídia</span>
+                <span className="block">Estratégia e Conversão</span>
                 <span className="block">Meta Ads e Google Ads</span>
-                <span className="block">Análise e Mensuração</span>
+                <span className="block">Inteligência e Validação</span>
               </div>
             </div>
 
