@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     type: "website",
     images: ["/logo-invd.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diagnóstico gratuito de aquisição digital",
+    description:
+      "Descubra o nível de estrutura da aquisição digital da sua empresa em cinco perguntas.",
+    images: ["/logo-invd.png"],
+  },
 };
 
 export default function DiagnosticoLayout({

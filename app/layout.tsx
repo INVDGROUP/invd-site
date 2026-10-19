@@ -7,31 +7,13 @@ const siteUrl = "https://invdgroup.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gestão de Tráfego Pago | INVD Group",
+    default: "INVD Group | Gestão Estratégica de Tráfego Pago",
     template: "%s | INVD Group",
   },
   description:
-    "Gestão estratégica de tráfego pago para empresas que buscam gerar oportunidades comerciais e melhorar continuamente sua aquisição de clientes.",
-  keywords: [
-    "agência de marketing em Brasília",
-    "agência de marketing digital Brasília",
-    "agência de tráfego pago Brasília",
-    "gestão de tráfego pago",
-    "estratégia de aquisição de clientes",
-    "planejamento de mídia digital",
-    "Meta Ads Brasília",
-    "Google Ads Brasília",
-    "geração de demanda qualificada",
-    "marketing para empresas Brasília DF",
-    "agência de marketing DF",
-    "agência de performance Brasília",
-    "marketing estratégico Brasília",
-    "tráfego pago DF",
-    "agência de marketing para empresas",
-    "marketing digital Distrito Federal",
-  ],
+    "Gestão estratégica de tráfego pago para empresas que buscam gerar oportunidades comerciais qualificadas. Conheça a INVD Group e nosso método de trabalho.",
   alternates: {
-    canonical: "/",
+    canonical: "https://invdgroup.com/",
   },
   robots: {
     index: true,
@@ -45,10 +27,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Gestão estratégica de tráfego pago | INVD Group",
+    title: "INVD Group | Gestão Estratégica de Tráfego Pago",
     description:
       "Campanhas de aquisição planejadas, gerenciadas e analisadas para gerar oportunidades reais de negócio.",
-    url: siteUrl,
+    url: "https://invdgroup.com/",
     siteName: "INVD Group",
     locale: "pt_BR",
     type: "website",
@@ -63,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gestão estratégica de tráfego pago | INVD Group",
+    title: "INVD Group | Gestão Estratégica de Tráfego Pago",
     description:
       "Campanhas de aquisição planejadas, gerenciadas e analisadas para gerar oportunidades reais de negócio.",
     images: ["/logo-invd.png"],
@@ -78,22 +60,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationJsonLd = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "INVD Group",
-    url: siteUrl,
-    logo: `${siteUrl}/logo-invd.png`,
-    description:
-      "Empresa especializada em gestão estratégica de tráfego pago e aquisição de oportunidades comerciais.",
-    telephone: "+55 61 99325-3597",
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Distrito Federal, Brasil",
-    },
-    sameAs: [
-      "https://www.instagram.com/invdgroup/",
-      "https://www.linkedin.com/company/invdgroup",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "INVD Group",
+        alternateName: "Inteligência em Vendas no Digital",
+        url: `${siteUrl}/`,
+        logo: `${siteUrl}/logo-invd.png`,
+        description:
+          "Empresa especializada em gestão estratégica de tráfego pago e aquisição de oportunidades comerciais.",
+        telephone: "+55 61 99325-3597",
+        areaServed: {
+          "@type": "AdministrativeArea",
+          name: "Distrito Federal, Brasil",
+        },
+        sameAs: [
+          "https://www.instagram.com/invdgroup/",
+          "https://www.linkedin.com/company/invdgroup",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: `${siteUrl}/`,
+        name: "INVD Group",
+        inLanguage: "pt-BR",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
     ],
   };
 
@@ -140,7 +138,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
         <noscript>
