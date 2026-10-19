@@ -7,11 +7,11 @@ const siteUrl = "https://invdgroup.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "INVD Group — Inteligência em Vendas no Digital",
+    default: "Gestão de Tráfego Pago | INVD Group",
     template: "%s | INVD Group",
   },
   description:
-    "Empresa de marketing digital e publicidade especializada em gestão de tráfego pago e estratégias de aquisição de clientes.",
+    "Gestão estratégica de tráfego pago para empresas que buscam gerar oportunidades comerciais e melhorar continuamente sua aquisição de clientes.",
   keywords: [
     "agência de marketing em Brasília",
     "agência de marketing digital Brasília",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "INVD Group — Inteligência em Vendas no Digital",
+    title: "Gestão estratégica de tráfego pago | INVD Group",
     description:
-      "Inteligência, comunicação e estratégias de mídia digital para conectar empresas aos públicos certos e gerar oportunidades de negócio.",
+      "Campanhas de aquisição planejadas, gerenciadas e analisadas para gerar oportunidades reais de negócio.",
     url: siteUrl,
     siteName: "INVD Group",
     locale: "pt_BR",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "INVD Group — Inteligência em Vendas no Digital",
+    title: "Gestão estratégica de tráfego pago | INVD Group",
     description:
-      "Inteligência, comunicação e estratégias de mídia digital para gerar oportunidades de negócio.",
+      "Campanhas de aquisição planejadas, gerenciadas e analisadas para gerar oportunidades reais de negócio.",
     images: ["/logo-invd.png"],
   },
   verification: {
@@ -85,7 +85,7 @@ export default function RootLayout({
     url: siteUrl,
     logo: `${siteUrl}/logo-invd.png`,
     description:
-      "Empresa de marketing digital e publicidade especializada em gestão de tráfego pago e estratégias de aquisição de clientes.",
+      "Empresa especializada em gestão estratégica de tráfego pago e aquisição de oportunidades comerciais.",
     telephone: "+55 61 99325-3597",
     areaServed: {
       "@type": "AdministrativeArea",

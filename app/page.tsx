@@ -1,492 +1,129 @@
-"use client";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import BrandLogo from "./components/brand-logo";
 import CasesCarousel, { type CaseItem } from "./components/cases-carousel";
+import { BackToTopButton, RevealObserver, WhatsAppLink } from "./components/conversion-elements";
+import MethodTabs, { type MethodStep } from "./components/method-tabs";
+
+const whatsappLink = "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
+
+const acquisitionProblems = [
+  { number: "01", title: "Os anúncios atraem contatos, mas não o perfil esperado.", text: "Pode existir um descompasso entre público, mensagem, oferta e objetivo da campanha." },
+  { number: "02", title: "Os leads chegam, mas não há clareza sobre o que acontece depois.", text: "Sem acompanhar os indicadores relevantes, volume de contatos não revela quais campanhas contribuem para oportunidades reais." },
+  { number: "03", title: "A empresa quer investir em mídia, mas ainda não estruturou a aquisição.", text: "Objetivos, canais, públicos e critérios de acompanhamento precisam estar definidos antes de ampliar o investimento." },
+];
+
+const services = [
+  { number: "01", title: "Estratégia de aquisição", text: "Planejamento das campanhas, definição de objetivos, públicos, canais e estrutura de aquisição." },
+  { number: "02", title: "Gestão e otimização", text: "Implementação, monitoramento e ajustes contínuos nas campanhas de mídia paga." },
+  { number: "03", title: "Análise de performance", text: "Acompanhamento dos indicadores, avaliação da qualidade das oportunidades e identificação de melhorias." },
+];
+
+const methodSteps: MethodStep[] = [
+  {
+    code: "I", action: "Identificar", title: "Localizar o que limita a aquisição",
+    text: "Mapeamos o cenário da operação, avaliamos indicadores e localizamos os fatores que estão limitando o desempenho da aquisição.",
+    practical: "A leitura considera campanhas, mensagem, oferta e o caminho percorrido pelas oportunidades para definir onde a atenção é mais necessária.",
+    outputs: ["Cenário mapeado", "Limitações identificadas", "Prioridades definidas"],
+  },
+  {
+    code: "N", action: "Nivelar", title: "Fortalecer os pontos prioritários",
+    text: "Priorizamos e executamos ajustes nos pontos identificados, fortalecendo aquilo que compromete os resultados.",
+    practical: "A operação recebe uma ordem clara de trabalho para corrigir o que limita o desempenho antes de ampliar esforços em etapas que já funcionam.",
+    outputs: ["Ajustes priorizados", "Execução orientada", "Base fortalecida"],
+  },
+  {
+    code: "V", action: "Validar", title: "Verificar o efeito das mudanças",
+    text: "Acompanhamos indicadores, comparamos resultados e verificamos se as mudanças produziram melhorias.",
+    practical: "Os dados mostram o que deve continuar, o que precisa mudar e quais hipóteses merecem uma nova rodada de análise.",
+    outputs: ["Indicadores acompanhados", "Resultados comparados", "Aprendizados registrados"],
+  },
+  {
+    code: "D", action: "Desenvolver", title: "Evoluir a partir do que foi validado",
+    text: "Aprimoramos o que foi validado, consolidamos aprendizados e ampliamos gradualmente as estratégias quando existem condições para isso.",
+    practical: "A evolução respeita o desempenho observado e a capacidade da operação, sem tratar aumento de investimento como garantia automática de resultado.",
+    outputs: ["Aprendizados consolidados", "Melhoria contínua", "Evolução gradual"],
+  },
+];
+
+const implementationSteps = [
+  { step: "01", title: "Conversa inicial", text: "Entendemos o contexto do negócio, os objetivos e o cenário atual de aquisição.", detail: "Uma conversa objetiva para compreender a necessidade." },
+  { step: "02", title: "Proposta e alinhamento", text: "Apresentamos o escopo de atuação, as condições e as prioridades de trabalho.", detail: "Responsabilidades e próximos passos bem definidos." },
+  { step: "03", title: "Início da operação", text: "Após a contratação, organizamos os acessos, o planejamento e a implementação das atividades previstas.", detail: "A execução começa de acordo com o escopo contratado." },
+];
+
+const cases: CaseItem[] = [
+  { title: "Select Fit", subtitle: "Fitness & Equipamentos", service: "Estratégia de Aquisição · Tráfego Pago", metric: "9x", metricLabel: "de crescimento de receita desde o início da parceria", text: "Planejamento de mídia e gestão de tráfego pago orientados à aquisição de clientes.", link: "https://instagram.com/selectfit_", logo: "/cases/select-fit.png" },
+  { title: "Escola CENCE", subtitle: "Educação", service: "Tráfego Pago", metric: "+matrículas", metricLabel: "com redução de custo por aquisição", link: "https://instagram.com/escolacence", text: null, logo: "/cases/escola-cence-transparent.png" },
+  { title: "Rede CADE", subtitle: "Saúde & Clínicas", service: "Planejamento de Mídia · Tráfego Pago", metric: "2x", metricLabel: "de receita com canal digital estruturado do zero", link: "https://instagram.com/redecadeoficial", text: null, logo: "/cases/rede-cade.png" },
+  { title: "Kbal Fitness", subtitle: "Academia", service: null, metric: null, metricLabel: null, text: null, link: null, logo: "/cases/kbal-fitness-transparent.png" },
+  { title: "Gilson Rufino", subtitle: "Consultoria empresarial", service: null, metric: null, metricLabel: null, text: null, link: null, logo: "/cases/gilson-rufino.png" },
+  { title: "V2 Tech", subtitle: "Tecnologia", service: null, metric: null, metricLabel: null, text: null, link: null, logo: "/cases/v2-tech.png" },
+];
+
 export default function Home() {
-  const services = [
-    {
-      title: "Diagnóstico e Estratégia de Aquisição",
-      text: "Analisamos a estrutura atual, identificamos onde as oportunidades estão sendo perdidas e definimos prioridades para transformar mídia em avanço comercial.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      ),
-    },
-    {
-      title: "Gestão de Tráfego e Conversão",
-      text: "Planejamos, gerimos e otimizamos campanhas no Meta Ads e Google Ads, alinhando público, mensagem e página de conversão ao objetivo do negócio.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Inteligência e Validação",
-      text: "Acompanhamos indicadores de mídia e sinais do processo comercial para validar a qualidade das oportunidades e orientar os próximos investimentos.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#7C003E" strokeWidth="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      ),
-    },
-  ];
-
-  const methodSummary = [
-    {
-      title: "Identificar",
-      text: "Encontrar os gargalos que limitam a geração de oportunidades e vendas.",
-      letter: "I",
-    },
-    {
-      title: "Nortear",
-      text: "Definir os ajustes e prioridades que devem orientar a operação.",
-      letter: "N",
-    },
-    {
-      title: "Validar",
-      text: "Medir o impacto das mudanças e confirmar o que realmente funciona.",
-      letter: "V",
-    },
-    {
-      title: "Desenvolver",
-      text: "Ampliar o que foi validado, respeitando a capacidade comercial da empresa.",
-      letter: "D",
-    },
-  ];
-
-  const methodSteps = [
-    {
-      code: "I",
-      action: "Identificar",
-      title: "Encontrar o que limita os resultados",
-      text: "Antes de aumentar o investimento, cruzamos mídia, comunicação, jornada e atendimento para localizar onde as oportunidades estão sendo perdidas.",
-      practical: "Se a empresa recebe contatos, mas poucos avançam para a venda, analisamos desde a promessa do anúncio até a abordagem comercial — não apenas o custo do lead.",
-      outputs: ["Diagnóstico da operação", "Gargalos prioritários", "Plano de ação"],
-    },
-    {
-      code: "N",
-      action: "Nortear",
-      title: "Transformar o diagnóstico em direção",
-      text: "Definimos os ajustes com maior potencial de impacto, conectando posicionamento, criativos, qualificação dos contatos e processo de atendimento.",
-      practical: "A operação recebe uma ordem clara de prioridades: o que precisa mudar agora, o que deve ser testado e o que ainda não justifica investimento.",
-      outputs: ["Direcionamento de mídia", "Mensagens e públicos", "Prioridades de implementação"],
-    },
-    {
-      code: "V",
-      action: "Validar",
-      title: "Medir impacto além dos cliques",
-      text: "Acompanhamos se os ajustes geram contatos mais qualificados, mais negociações e melhores condições para a venda.",
-      practical: "Os dados mostram o que deve continuar, o que precisa mudar e quais hipóteses merecem uma nova rodada de teste.",
-      outputs: ["Indicadores acompanhados", "Aprendizados dos testes", "Decisões orientadas por dados"],
-    },
-    {
-      code: "D",
-      action: "Desenvolver",
-      title: "Escalar o que foi comprovado",
-      text: "Com a estratégia validada, ampliamos investimentos e ações de forma progressiva, preservando eficiência e qualidade.",
-      practical: "A evolução acompanha a capacidade de atendimento e o desempenho das vendas para que crescimento de volume também represente crescimento de negócio.",
-      outputs: ["Escala progressiva", "Otimização contínua", "Evolução da operação"],
-    },
-  ];
-
-  const implementationSteps = [
-    {
-      step: "01",
-      title: "Alinhamento e diagnóstico",
-      text: "Reunimos os acessos, alinhamos objetivos e analisamos a estrutura atual para identificar gargalos e definir as prioridades do projeto.",
-      detail: "Objetivos claros antes de qualquer configuração.",
-    },
-    {
-      step: "02",
-      title: "Preparação e implementação",
-      text: "Configuramos contas e rastreamento, aplicamos os ajustes prioritários e estruturamos a página de conversão quando ela fizer parte do escopo.",
-      detail: "Base técnica e comercial pronta para ativação.",
-    },
-    {
-      step: "03",
-      title: "Ativação e acompanhamento",
-      text: "Com acessos e materiais aprovados, definimos o cronograma, ativamos as campanhas e iniciamos o ciclo de validação e otimização.",
-      detail: "Aprendizado contínuo desde os primeiros dados.",
-    },
-  ];
-
-  const cases: CaseItem[] = [
-    {
-      title: "Select Fit",
-      subtitle: "Fitness & Equipamentos",
-      service: "Estratégia de Aquisição · Tráfego Pago",
-      metric: "9x",
-      metricLabel: "de crescimento de receita desde o início da parceria",
-      text: "Planejamento de mídia e gestão de tráfego pago orientados à aquisição de clientes.",
-      link: "https://instagram.com/selectfit_",
-      logo: "/cases/select-fit.png",
-    },
-    {
-      title: "Escola CENCE",
-      subtitle: "Educação",
-      service: "Tráfego Pago",
-      metric: "+matrículas",
-      metricLabel: "com redução de custo por aquisição",
-      link: "https://instagram.com/escolacence",
-      text: null,
-      logo: "/cases/escola-cence-transparent.png",
-    },
-    {
-      title: "Rede CADE",
-      subtitle: "Saúde & Clínicas",
-      service: "Planejamento de Mídia · Tráfego Pago",
-      metric: "2x",
-      metricLabel: "de receita com canal digital estruturado do zero",
-      link: "https://instagram.com/redecadeoficial",
-      text: null,
-      logo: "/cases/rede-cade.png",
-    },
-    {
-      title: "Kbal Fitness",
-      subtitle: "Academia",
-      service: null,
-      metric: null,
-      metricLabel: null,
-      text: null,
-      link: null,
-      logo: "/cases/kbal-fitness-transparent.png",
-    },
-    {
-      title: "Gilson Rufino",
-      subtitle: "Consultoria empresarial",
-      service: null,
-      metric: null,
-      metricLabel: null,
-      text: null,
-      link: null,
-      logo: "/cases/gilson-rufino.png",
-    },
-    {
-      title: "V2 Tech",
-      subtitle: "Tecnologia",
-      service: null,
-      metric: null,
-      metricLabel: null,
-      text: null,
-      link: null,
-      logo: "/cases/v2-tech.png",
-    },
-  ];
-
-  const whatsappLink =
-    "https://api.whatsapp.com/send/?phone=5561993253597&text&type=phone_number&app_absent=0";
-  const [activeMethod, setActiveMethod] = useState(0);
-  const activeMethodStep = methodSteps[activeMethod];
-  const trackWhatsAppClick = (location: string) => {
-    if (typeof window === "undefined") return;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "whatsapp_click",
-      button_location: location,
-      link_url: whatsappLink,
-    });
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <main className="min-h-screen bg-[#050505] text-[#F5F5F3] selection:bg-[#7C003E] selection:text-white">
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-          <a href="#" className="flex items-center gap-3">
-            <BrandLogo />
-          </a>
-
-          <nav className="hidden items-center gap-8 text-[11px] text-white/70 md:flex">
-            <a href="#sobre" className="transition hover:text-white">
-              Sobre
-            </a>
-            <a href="#servicos" className="transition hover:text-white">
-              Serviços
-            </a>
-            <a href="#metodo" className="transition hover:text-white">
-              Como trabalhamos
-            </a>
-            <a href="#implantacao" className="transition hover:text-white">
-              Implantação
-            </a>
-            <a href="#cases" className="transition hover:text-white">
-              Case
-            </a>
+      <RevealObserver />
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+          <a href="#conteudo" aria-label="INVD Group — início" className="flex items-center gap-3"><BrandLogo /></a>
+          <nav aria-label="Navegação principal" className="hidden items-center gap-7 text-[11px] text-white/70 md:flex">
+            <a href="#problemas" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Desafios</a>
+            <a href="#servicos" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">O que fazemos</a>
+            <a href="#cases" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Cases</a>
+            <a href="#metodo" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Método INVD</a>
+            <a href="#como-comecar" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Como começar</a>
           </nav>
-
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => trackWhatsAppClick("header")}
-            className="rounded-sm bg-[#7C003E] px-5 py-2.5 text-[11px] font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5F5F3]"
-          >
-              Fale com a INVD
-          </a>
+          <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="header" className="rounded-sm bg-[#7C003E] px-5 py-2.5 text-[11px] font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5F5F3]">Fale com a INVD</WhatsAppLink>
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#050505]">
+      <section id="conteudo" className="relative scroll-mt-20 overflow-hidden bg-[#050505]">
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] border-l border-white/[0.06] bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px] lg:block" />
         <div className="pointer-events-none absolute right-[10%] top-0 h-full w-px bg-[#7C003E]/30" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-24 lg:grid-cols-[1fr_20rem] lg:px-10 lg:pb-32 lg:pt-32">
-          <div className="max-w-3xl">
-            <div className="mb-8 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#8A8A8A]">
-                Agência de marketing em Brasília para empresas que querem escalar
-              </span>
-            </div>
-
-            <h1 className="reveal text-5xl font-black leading-[0.9] tracking-[-0.055em] text-[#F5F5F3] md:text-7xl lg:text-[5.6rem]">
-              Estratégia que
-              <span className="block text-[#7C003E]">posiciona e</span>
-              <span className="block text-[#7C003E]">acelera.</span>
-            </h1>
-
-            <p className="reveal reveal-delay-1 mt-7 max-w-xl text-sm leading-7 text-[#8A8A8A] md:text-base">
-              Estruturamos aquisição para empresas que já investem ou querem investir em mídia com mais clareza — conectando comunicação, tráfego pago e processo comercial para gerar oportunidades que podem virar vendas.
-            </p>
-
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 pt-20 lg:grid-cols-[1fr_20rem] lg:px-10 lg:pb-32 lg:pt-28">
+          <div className="max-w-4xl">
+            <div className="mb-8 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#8A8A8A]">Inteligência em Vendas no Digital</span></div>
+            <h1 className="reveal text-5xl font-black leading-[0.9] tracking-[-0.055em] text-[#F5F5F3] md:text-7xl lg:text-[5.35rem]">Tráfego pago para gerar<span className="block text-[#7C003E]">oportunidades reais</span><span className="block text-[#7C003E]">de negócio.</span></h1>
+            <p className="reveal reveal-delay-1 mt-7 max-w-2xl text-sm leading-7 text-[#A1A1A1] md:text-base">Estruturamos e gerenciamos campanhas de aquisição com foco em atrair potenciais clientes, acompanhar a qualidade dos leads e melhorar continuamente os resultados.</p>
             <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackWhatsAppClick("hero")}
-                className="inline-flex items-center justify-center rounded-sm bg-[#7C003E] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              >
-                Quero escalar com a INVD
-                <span className="ml-2">→</span>
-              </a>
-
-              <a
-                href="#metodo"
-                className="inline-flex items-center justify-center rounded-sm border border-white/25 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-              >
-                Como trabalhamos
-              </a>
+              <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="hero" className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conversar sobre meu negócio <span className="ml-2">→</span></WhatsAppLink>
+              <a href="#metodo" className="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/25 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conhecer o Método INVD</a>
             </div>
           </div>
-
-          <div className="grid grid-cols-3 gap-3 border-y border-white/10 py-6 lg:flex lg:flex-col lg:justify-center lg:gap-7 lg:py-8">
-            <p className="hidden text-[9px] font-semibold uppercase tracking-[0.32em] text-[#8A8A8A] lg:block">Performance em números</p>
-            <div className="reveal reveal-delay-1 border-l border-[#7C003E] pl-3 lg:pl-6">
-              <span className="block text-2xl font-black tracking-[-0.05em] text-[#F5F5F3] sm:text-3xl lg:text-5xl">+150k</span>
-              <span className="mt-2 block text-[8px] uppercase tracking-[0.14em] text-[#8A8A8A] lg:text-[10px] lg:tracking-[0.22em]">Leads gerados</span>
-            </div>
-            <div className="hidden h-px w-full bg-white/10 lg:block" />
-            <div className="reveal reveal-delay-2 border-l border-[#7C003E] pl-3 lg:pl-6">
-              <span className="block text-2xl font-black tracking-[-0.05em] text-[#F5F5F3] sm:text-3xl lg:text-5xl">+R$7Mi</span>
-              <span className="mt-2 block text-[8px] uppercase tracking-[0.14em] text-[#8A8A8A] lg:text-[10px] lg:tracking-[0.22em]">Em receita para clientes</span>
-            </div>
-            <div className="hidden h-px w-full bg-white/10 lg:block" />
-            <div className="reveal reveal-delay-3 border-l border-[#7C003E] pl-3 lg:pl-6">
-              <span className="block text-2xl font-black tracking-[-0.05em] text-[#F5F5F3] sm:text-3xl lg:text-5xl">5 anos</span>
-              <span className="mt-2 block text-[8px] uppercase tracking-[0.14em] text-[#8A8A8A] lg:text-[10px] lg:tracking-[0.22em]">De mercado</span>
-            </div>
-          </div>
+          <aside className="border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Perfil de empresa atendida">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#8A8A8A]">Para empresas que</p>
+            <ul className="mt-5 space-y-4 text-sm leading-6 text-white/60">
+              <li className="border-l border-[#7C003E] pl-4">Já investem em anúncios e precisam melhorar o desempenho.</li>
+              <li className="border-l border-[#7C003E] pl-4">Buscam contatos com maior aderência à oferta.</li>
+              <li className="border-l border-[#7C003E] pl-4">Querem entender como a mídia contribui para a aquisição.</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
-      <section id="sobre" className="bg-[#F5F5F3] text-[#050505]">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
-          <div>
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Sobre a INVD · Método INVD
-              </span>
-            </div>
-
-            <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              O método que transforma gargalos em direção para crescer<span className="text-[#7C003E]">.</span>
-            </h2>
-
-            <p className="mt-6 max-w-xl text-sm leading-7 text-black/65 md:text-base">
-              A INVD Group é uma empresa de marketing digital e publicidade especializada em aquisição. Nossa atuação é guiada por um método próprio que conecta análise, estratégia, validação e evolução.
-            </p>
-
-            <p className="mt-5 max-w-xl text-sm leading-7 text-black/45 md:text-base">
-              Identificamos o que limita os resultados, norteamos os ajustes, validamos o impacto e desenvolvemos o que funciona. Assim, a mídia deixa de ser uma ação isolada e passa a responder ao objetivo comercial.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {methodSummary.map((item) => (
-              <div
-                key={item.title}
-                className="group relative rounded-sm border border-[#D9D9D9] bg-white p-6 transition hover:border-[#7C003E]/45"
-              >
-                <span className="absolute right-4 top-3 text-4xl font-black text-[#D9D9D9] transition group-hover:text-[#7C003E]/25">
-                  {item.letter}
-                </span>
-                <h3 className="text-sm font-bold text-black">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-black/55">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="servicos" className="bg-[#050505]">
+      <section id="problemas" className="scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-white/45">
-                O que fazemos
-              </span>
-              <span className="h-px w-10 bg-[#7C003E]" />
-            </div>
-
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Da estratégia à mídia
-              <br />
-              para gerar <span className="text-[#7C003E]">avanço comercial</span>
-            </h2>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Problemas reais de aquisição</span></div>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Quando investir em mídia não é suficiente para entender o que funciona<span className="text-[#7C003E]">.</span></h2>
           </div>
-
-          <div className="mt-14 flex flex-col gap-4">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="reveal group flex flex-col items-start gap-5 border-t border-white/15 px-1 py-8 transition hover:border-[#7C003E] sm:flex-row sm:items-center sm:gap-8 sm:px-4"
-              >
-                <span className="w-16 shrink-0 text-5xl font-black tracking-[-0.05em] text-white/10 transition group-hover:text-[#7C003E]/60">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/10 bg-white/[0.025]">
-                  {service.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white">{service.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-white/50">{service.text}</p>
-                </div>
-                <span className="shrink-0 text-xl text-white/20 transition group-hover:translate-x-1 group-hover:text-[#7C003E]">→</span>
-              </div>
-            ))}
+          <div className="mt-14 grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] lg:grid-cols-3">
+            {acquisitionProblems.map((problem) => <article key={problem.number} className="reveal bg-white p-7 sm:p-9"><span className="text-4xl font-black tracking-[-0.08em] text-[#7C003E]/25">{problem.number}</span><h3 className="mt-7 text-xl font-black leading-tight text-black">{problem.title}</h3><p className="mt-4 text-sm leading-7 text-black/55">{problem.text}</p></article>)}
           </div>
+          <p className="mt-9 max-w-3xl border-l-2 border-[#7C003E] pl-5 text-sm leading-7 text-black/60 md:text-base">A INVD conecta planejamento, execução e leitura de dados para transformar o investimento em mídia em uma operação de aquisição mais compreensível e evolutiva.</p>
         </div>
       </section>
 
-      <section id="metodo" className="bg-[#F5F5F3] text-[#050505]">
+      <section id="servicos" className="scroll-mt-20 bg-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Como trabalhamos
-              </span>
-              <span className="h-px w-10 bg-[#7C003E]" />
-            </div>
-
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Um método para sair do gargalo e chegar à
-              <span className="text-[#7C003E]"> escala com clareza</span>
-            </h2>
-
-            <p className="mt-6 text-sm leading-7 text-black/55 md:text-base">
-              O método INVD conecta leitura de negócio, decisão estratégica e execução. Cada fase responde a uma pergunta comercial antes de avançar para a próxima.
-            </p>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/45">O que fazemos</span><span className="h-px w-10 bg-[#7C003E]" /></div>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Gestão de tráfego com estratégia, execução e <span className="text-[#7C003E]">análise.</span></h2>
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55 md:text-base">Uma solução central de gestão estratégica de tráfego pago, organizada em três frentes que funcionam de forma integrada.</p>
           </div>
-
-          <div className="mt-14 grid overflow-hidden border border-[#D9D9D9] bg-white lg:grid-cols-[0.72fr_1.28fr]">
-            <div
-              className="grid border-b border-[#D9D9D9] sm:grid-cols-2 lg:block lg:border-b-0 lg:border-r"
-              role="tablist"
-              aria-label="Etapas do método INVD"
-            >
-              {methodSteps.map((item, index) => {
-                const isActive = activeMethod === index;
-                return (
-                  <button
-                    key={item.code}
-                    type="button"
-                    role="tab"
-                    id={`method-tab-${index}`}
-                    aria-selected={isActive}
-                    aria-controls="method-panel"
-                    onClick={() => setActiveMethod(index)}
-                    className={`group flex w-full items-center gap-5 border-b border-[#E7E7E7] px-6 py-6 text-left transition last:border-b-0 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#7C003E] lg:px-8 ${
-                      isActive ? "bg-[#050505] text-white" : "bg-white text-black hover:bg-[#F5F5F3]"
-                    }`}
-                  >
-                    <span className={`text-4xl font-black tracking-[-0.08em] ${isActive ? "text-[#7C003E]" : "text-black/15 group-hover:text-[#7C003E]/40"}`}>
-                      {item.code}
-                    </span>
-                    <span>
-                      <span className="block text-[9px] uppercase tracking-[0.28em] opacity-45">Fase {String(index + 1).padStart(2, "0")}</span>
-                      <span className="mt-1 block text-sm font-bold">{item.action}</span>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <div
-              id="method-panel"
-              role="tabpanel"
-              aria-labelledby={`method-tab-${activeMethod}`}
-              className="relative min-h-[31rem] p-7 sm:p-10 lg:p-12"
-            >
-              <span className="pointer-events-none absolute right-6 top-2 text-[8rem] font-black leading-none tracking-[-0.1em] text-[#7C003E]/[0.06] sm:text-[11rem]">
-                {activeMethodStep.code}
-              </span>
-              <div className="relative">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#7C003E]">
-                  {activeMethodStep.code} — {activeMethodStep.action}
-                </span>
-                <h3 className="mt-5 max-w-xl text-3xl font-black leading-[1] tracking-[-0.04em] text-black md:text-4xl">
-                  {activeMethodStep.title}
-                </h3>
-                <p className="mt-6 max-w-2xl text-sm leading-7 text-black/60 md:text-base">
-                  {activeMethodStep.text}
-                </p>
-
-                <div className="mt-8 border-l-2 border-[#7C003E] bg-[#F5F5F3] p-5">
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-black/40">Na prática</span>
-                  <p className="mt-2 text-sm leading-7 text-black/65">{activeMethodStep.practical}</p>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {activeMethodStep.outputs.map((output) => (
-                    <span key={output} className="border border-[#D9D9D9] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-black/55">
-                      {output}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-14 text-center">
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackWhatsAppClick("metodo")}
-              className="inline-flex items-center justify-center rounded-sm bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#050505]"
-            >
-              Quero identificar meus gargalos
-              <span className="ml-2">→</span>
-            </a>
+          <div className="mt-14 flex flex-col">
+            {services.map((service) => <article key={service.number} className="reveal group grid gap-5 border-t border-white/15 px-1 py-8 transition hover:border-[#7C003E] sm:grid-cols-[4rem_1fr] sm:items-start sm:gap-8 sm:px-4 lg:grid-cols-[4rem_18rem_1fr]"><span className="text-5xl font-black tracking-[-0.05em] text-white/10 transition group-hover:text-[#7C003E]/60">{service.number}</span><h3 className="text-xl font-bold text-white">{service.title}</h3><p className="max-w-2xl text-sm leading-7 text-white/50 sm:col-start-2 lg:col-start-3">{service.text}</p></article>)}
           </div>
         </div>
       </section>
@@ -514,121 +151,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="implantacao" className="bg-[#F5F5F3] text-[#050505]">
+      <section id="metodo" className="scroll-mt-20 border-t border-white/10 bg-[#F5F5F3] text-[#050505]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="max-w-3xl">
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Método INVD</span><span className="h-px w-10 bg-[#7C003E]" /></div>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Método INVD: decisões orientadas pelo que realmente limita os <span className="text-[#7C003E]">resultados.</span></h2>
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">Uma lógica contínua para identificar o ponto limitante, ajustar prioridades, validar mudanças e desenvolver a operação a partir do que os dados demonstram.</p>
+          </div>
+          <MethodTabs steps={methodSteps} />
+        </div>
+      </section>
+
+      <section id="como-comecar" className="scroll-mt-20 bg-white text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mb-12 max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-black/45">
-                Da contratação à operação
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">
-              Próximos passos,
-              <span className="text-[#7C003E]"> sem etapas soltas</span>
-            </h2>
-
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">
-              Depois da decisão, organizamos pessoas, acessos e prioridades para que a estratégia chegue à operação com contexto, rastreamento e ritmo de acompanhamento.
-            </p>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Como começar</span></div>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Três passos para iniciar a <span className="text-[#7C003E]">contratação.</span></h2>
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">Depois do primeiro contato, a conversa avança com escopo, responsabilidades e próximos passos claros.</p>
           </div>
-
           <div className="grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] lg:grid-cols-3">
-            {implementationSteps.map((item) => (
-              <div
-                key={item.step}
-                className="reveal group bg-white p-7 transition hover:bg-[#050505] sm:p-9"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Etapa {item.step}</span>
-                  <span className="text-4xl font-black tracking-[-0.08em] text-black/10 transition group-hover:text-white/10">{item.step}</span>
-                </div>
-                <h3 className="mt-7 text-xl font-black text-black transition group-hover:text-white">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-black/55 transition group-hover:text-white/55">
-                  {item.text}
-                </p>
-                <div className="mt-8 border-t border-black/10 pt-5 transition group-hover:border-white/10">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40 transition group-hover:text-white/40">{item.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col items-start justify-between gap-6 border-l-2 border-[#7C003E] bg-white px-6 py-6 sm:flex-row sm:items-center sm:px-8">
-            <p className="max-w-2xl text-sm leading-6 text-black/60">
-              O cronograma é definido após o recebimento dos acessos e materiais necessários, de acordo com o escopo contratado e a realidade da operação.
-            </p>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackWhatsAppClick("implantacao")}
-              className="shrink-0 text-sm font-bold text-[#7C003E] transition hover:text-[#92004A]"
-            >
-              Conversar sobre o projeto →
-            </a>
+            {implementationSteps.map((item) => <article key={item.step} className="reveal group bg-white p-7 transition hover:bg-[#050505] sm:p-9"><div className="flex items-center justify-between"><span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Passo {item.step}</span><span className="text-4xl font-black tracking-[-0.08em] text-black/10 transition group-hover:text-white/10">{item.step}</span></div><h3 className="mt-7 text-xl font-black text-black transition group-hover:text-white">{item.title}</h3><p className="mt-4 text-sm leading-7 text-black/55 transition group-hover:text-white/55">{item.text}</p><div className="mt-8 border-t border-black/10 pt-5 transition group-hover:border-white/10"><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40 transition group-hover:text-white/40">{item.detail}</p></div></article>)}
           </div>
         </div>
       </section>
 
-      <section
-        id="contato"
-        className="relative overflow-hidden border-t border-white/10 bg-[#050505]"
-      >
+      <section id="contato" className="relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
         <div className="absolute left-1/2 top-0 h-px w-40 -translate-x-1/2 bg-[#7C003E]" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">
-              Pronto para gerar
-              <br />
-              novas oportunidades
-              <span className="text-[#7C003E]">?</span>
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/55 md:text-base">
-              Converse com nosso time e entenda como uma estratégia de mídia estruturada pode aproximar sua empresa dos públicos certos e fortalecer sua aquisição de clientes.
-            </p>
-
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackWhatsAppClick("cta_final")}
-              className="mt-10 inline-flex items-center justify-center rounded-sm bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-            >
-              Quero falar sobre aquisição
-              <span className="ml-2">→</span>
-            </a>
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">Vamos avaliar como o tráfego pago pode contribuir para a aquisição de clientes da sua empresa<span className="text-[#7C003E]">?</span></h2>
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/55 md:text-base">Converse com a INVD para apresentar seu cenário, seus objetivos e entender como podemos atuar na sua estratégia de aquisição.</p>
+            <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="cta_final" className="mt-10 inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conversar sobre meu negócio <span className="ml-2">→</span></WhatsAppLink>
           </div>
-
           <div className="mt-24 text-center">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-white/35">
-              Parceiros certificados
-            </p>
-
+            <p className="text-[10px] uppercase tracking-[0.35em] text-white/35">Parceiros</p>
             <div className="mx-auto mt-8 grid w-full max-w-xl gap-5 sm:grid-cols-2">
-              <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4">
-                <Image
-                  src="/partners/google-partner.png"
-                  alt="Google Partner"
-                  width={600}
-                  height={600}
-                  unoptimized
-                  className="h-28 w-auto object-contain"
-                />
-              </div>
-
-              <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4">
-                <Image
-                  src="/partners/kommo-partner.png"
-                  alt="Kommo Partner"
-                  width={1920}
-                  height={1080}
-                  unoptimized
-                  className="h-full w-full object-contain"
-                />
-              </div>
+              <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4"><Image src="/partners/google-partner.png" alt="Google Partner" width={600} height={600} unoptimized className="h-28 w-auto object-contain" /></div>
+              <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4"><Image src="/partners/kommo-partner.png" alt="Kommo Partner" width={1920} height={1080} unoptimized className="h-full w-full object-contain" /></div>
             </div>
           </div>
         </div>
@@ -638,107 +197,31 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
           <div className="grid gap-12 md:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
             <div>
-              <a href="#" className="inline-flex items-center">
-                <BrandLogo />
-              </a>
-              <p className="mt-4 max-w-xs text-sm leading-7 text-white/45">
-                Inteligência em Vendas no Digital. Comunicação e mídia para
-                gerar demanda e oportunidades de negócio.
-              </p>
+              <a href="#conteudo" aria-label="INVD Group — início" className="inline-flex items-center"><BrandLogo /></a>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-white/45">Inteligência em Vendas no Digital. Gestão estratégica de tráfego pago para aquisição de clientes.</p>
               <div className="mt-6 flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/invdgroup/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <circle cx="12" cy="12" r="4"/>
-                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/invdgroup"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
-                    <rect x="2" y="9" width="4" height="12"/>
-                    <circle cx="4" cy="4" r="2"/>
-                  </svg>
-                </a>
+                <a href="https://www.instagram.com/invdgroup/" target="_blank" rel="noreferrer" aria-label="INVD Group no Instagram" className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+                <a href="https://www.linkedin.com/company/invdgroup" target="_blank" rel="noreferrer" aria-label="INVD Group no LinkedIn" className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
               </div>
             </div>
-
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
-                Navegação
-              </p>
-              <div className="mt-5 space-y-3 text-sm text-white/65">
-                <a href="#sobre" className="block transition hover:text-white">Sobre</a>
-                <a href="#servicos" className="block transition hover:text-white">Serviços</a>
-                <a href="#metodo" className="block transition hover:text-white">Como trabalhamos</a>
-                <a href="#implantacao" className="block transition hover:text-white">Implantação</a>
-                <a href="#cases" className="block transition hover:text-white">Case</a>
-                <a href="/diagnostico" className="block transition hover:text-white">Diagnóstico gratuito</a>
-                <a href="/base-digital" className="block transition hover:text-white">Base Digital</a>
-              </div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Navegação</p>
+              <div className="mt-5 space-y-3 text-sm text-white/65"><a href="#problemas" className="block transition hover:text-white">Desafios</a><a href="#servicos" className="block transition hover:text-white">O que fazemos</a><a href="#cases" className="block transition hover:text-white">Cases</a><a href="#metodo" className="block transition hover:text-white">Método INVD</a><a href="#como-comecar" className="block transition hover:text-white">Como começar</a></div>
             </div>
-
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
-                Serviços
-              </p>
-              <div className="mt-5 space-y-3 text-sm text-white/65">
-                <span className="block">Diagnóstico de Aquisição</span>
-                <span className="block">Gestão de Tráfego Pago</span>
-                <span className="block">Estratégia e Conversão</span>
-                <span className="block">Meta Ads e Google Ads</span>
-                <span className="block">Inteligência e Validação</span>
-              </div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Atuação</p>
+              <div className="mt-5 space-y-3 text-sm text-white/65"><span className="block">Estratégia de aquisição</span><span className="block">Gestão de tráfego pago</span><span className="block">Análise de performance</span><span className="block">Meta Ads e Google Ads</span></div>
             </div>
-
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">
-                Contato
-              </p>
-              <div className="mt-5">
-                <a
-                  href="https://api.whatsapp.com/send/?phone=5561993253597"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center border border-white/15 px-4 py-2 text-sm text-white/75 transition hover:border-[#7C003E] hover:text-white"
-                >
-                  WhatsApp
-                </a>
-              </div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Contato</p>
+              <div className="mt-5"><WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="footer" className="inline-flex min-h-11 items-center border border-white/15 px-4 py-2 text-sm text-white/75 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">WhatsApp</WhatsAppLink></div>
             </div>
           </div>
-
-          <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
-            <p>© 2026 INVD Group — Marketing Digital e Publicidade · Todos os direitos reservados.</p>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="inline-flex items-center gap-2 text-white/30 transition hover:text-white"
-            >
-              Voltar ao topo ↑
-            </button>
-          </div>
+          <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between"><p>© 2026 INVD Group — Marketing Digital e Publicidade · Todos os direitos reservados.</p><BackToTopButton /></div>
         </div>
       </footer>
 
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noreferrer"
-        onClick={() => trackWhatsAppClick("botao_fixo")}
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center rounded-sm bg-[#7C003E] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(5,5,5,0.4)] transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-      >
-        WhatsApp
-      </a>
+      <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="botao_fixo" aria-label="Conversar com a INVD pelo WhatsApp" className="fixed bottom-5 right-5 z-50 inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(5,5,5,0.4)] transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">WhatsApp</WhatsAppLink>
     </main>
   );
 }
