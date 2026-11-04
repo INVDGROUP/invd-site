@@ -113,7 +113,7 @@ const questions = [
   };
 
   return (
-    <main className="min-h-screen bg-[#111] text-white flex flex-col items-center px-6 py-16">
+    <main className="diagnostic-shell min-h-screen bg-[#111] text-white flex flex-col items-center px-6 py-16">
       <div className="w-full max-w-lg">
 
         <Link href="/" aria-label="Voltar para a página inicial" className="mb-10 flex items-center">

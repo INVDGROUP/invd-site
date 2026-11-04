@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandLogo from "../components/brand-logo";
+import EditorialOrbit from "../components/editorial-orbit";
 import { RevealObserver } from "../components/conversion-elements";
 import PurchaseLink from "./purchase-link";
 
@@ -76,14 +77,14 @@ function CheckoutButton({ location, label = "Quero criar minha página" }: { loc
 
 export default function BaseDigital() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#7C003E] selection:text-white">
+    <main className="editorial-shell min-h-screen bg-[#050505] text-white selection:bg-[#7C003E] selection:text-white">
       <RevealObserver />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd).replace(/</g, "\\u003c") }}
       />
 
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+      <header className="editorial-header sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
           <Link href="/" aria-label="Voltar para a página inicial da INVD" className="flex items-center gap-3">
             <BrandLogo />
@@ -99,7 +100,7 @@ export default function BaseDigital() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#050505]">
+      <section className="editorial-hero relative overflow-hidden bg-[#050505]">
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] border-l border-white/[0.06] bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px] lg:block" />
         <div className="pointer-events-none absolute right-[10%] top-0 h-full w-px bg-[#7C003E]/30" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pb-24 pt-20 lg:grid-cols-[1fr_18rem] lg:px-10 lg:pb-28 lg:pt-28">
@@ -120,7 +121,8 @@ export default function BaseDigital() {
               <a href="#conteudo" className="inline-flex min-h-12 items-center justify-center px-2 text-sm font-semibold text-white/65 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Ver o que está incluído ↓</a>
             </div>
           </div>
-          <aside className="border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Resumo do curso">
+          <aside className="editorial-aside border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Resumo do curso">
+            <EditorialOrbit eyebrow="Autonomia em movimento" label="BASE" />
             <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/60">Você recebe</p>
             <ul className="mt-5 space-y-4 text-sm leading-6 text-white/65">
               <li className="border-l border-[#7C003E] pl-4">Orientação passo a passo.</li>
@@ -131,7 +133,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section className="bg-[#F5F5F3] text-[#050505]">
+      <section className="editorial-light bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
@@ -146,7 +148,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section id="conteudo" className="scroll-mt-20 bg-white text-[#050505]">
+      <section id="conteudo" className="editorial-light scroll-mt-20 bg-white text-[#050505]">
         <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">O que você vai aprender</span></div>
@@ -166,7 +168,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section id="como-funciona" className="scroll-mt-20 bg-[#050505]">
+      <section id="como-funciona" className="editorial-dark scroll-mt-20 bg-[#050505]">
         <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/60">Como funciona</span><span className="h-px w-10 bg-[#7C003E]" /></div>
@@ -184,7 +186,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section id="para-quem" className="scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
+      <section id="para-quem" className="editorial-light scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto grid max-w-6xl gap-px px-6 py-24 lg:grid-cols-2 lg:px-10">
           <div className="border border-[#D9D9D9] bg-white p-7 sm:p-10">
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Para quem é</p>
@@ -207,7 +209,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section className="bg-white text-[#050505]">
+      <section className="editorial-light bg-white text-[#050505]">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-10">
           <div>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Publicação e custos</span></div>
@@ -221,7 +223,7 @@ export default function BaseDigital() {
         </div>
       </section>
 
-      <section id="inscricao" className="relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
+      <section id="inscricao" className="editorial-cta relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
         <div className="absolute left-1/2 top-0 h-px w-40 -translate-x-1/2 bg-[#7C003E]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
           <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-white/60">Compra processada pela Hotmart</p>

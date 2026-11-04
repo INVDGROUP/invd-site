@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BrandLogo from "./components/brand-logo";
+import EditorialOrbit from "./components/editorial-orbit";
 import CasesCarousel, { type CaseItem } from "./components/cases-carousel";
 import { BackToTopButton, RevealObserver, WhatsAppLink } from "./components/conversion-elements";
 import MethodTabs, { type MethodStep } from "./components/method-tabs";
@@ -63,9 +64,9 @@ const cases: CaseItem[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050505] text-[#F5F5F3] selection:bg-[#7C003E] selection:text-white">
+    <main className="editorial-shell min-h-screen bg-[#050505] text-[#F5F5F3] selection:bg-[#7C003E] selection:text-white">
       <RevealObserver />
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+      <header className="editorial-header sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <a href="#conteudo" aria-label="INVD Group — início" className="flex items-center gap-3"><BrandLogo /></a>
           <nav aria-label="Navegação principal" className="hidden items-center gap-5 text-[11px] text-white/70 md:flex">
@@ -80,7 +81,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="conteudo" className="relative scroll-mt-20 overflow-hidden bg-[#050505]">
+      <section id="conteudo" className="editorial-hero relative scroll-mt-20 overflow-hidden bg-[#050505]">
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] border-l border-white/[0.06] bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px] lg:block" />
         <div className="pointer-events-none absolute right-[10%] top-0 h-full w-px bg-[#7C003E]/30" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 pt-20 lg:grid-cols-[1fr_20rem] lg:px-10 lg:pb-32 lg:pt-28">
@@ -93,7 +94,8 @@ export default function Home() {
               <Link href="/diagnostico" className="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/25 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Fazer diagnóstico gratuito</Link>
             </div>
           </div>
-          <aside className="border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Perfil de empresa atendida">
+          <aside className="editorial-aside border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Perfil de empresa atendida">
+            <EditorialOrbit />
             <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#8A8A8A]">Para empresas que</p>
             <ul className="mt-5 space-y-4 text-sm leading-6 text-white/60">
               <li className="border-l border-[#7C003E] pl-4">Já investem em anúncios e precisam melhorar o desempenho.</li>
@@ -104,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="problemas" className="scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
+      <section id="problemas" className="editorial-light scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Problemas reais de aquisição</span></div>
@@ -117,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="servicos" className="scroll-mt-20 bg-[#050505]">
+      <section id="servicos" className="editorial-dark scroll-mt-20 bg-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/60">O que fazemos</span><span className="h-px w-10 bg-[#7C003E]" /></div>
@@ -130,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cases" className="bg-[#050505]">
+      <section id="cases" className="editorial-dark bg-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3">
@@ -153,7 +155,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="metodo" className="scroll-mt-20 border-t border-white/10 bg-[#F5F5F3] text-[#050505]">
+      <section id="metodo" className="editorial-light scroll-mt-20 border-t border-white/10 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Método INVD</span><span className="h-px w-10 bg-[#7C003E]" /></div>
@@ -164,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="diagnostico" className="scroll-mt-20 border-y border-white/10 bg-[#050505]">
+      <section id="diagnostico" className="editorial-dark scroll-mt-20 border-y border-white/10 bg-[#050505]">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-10">
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white/60">Diagnóstico gratuito</span></div>
@@ -183,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="como-comecar" className="scroll-mt-20 bg-white text-[#050505]">
+      <section id="como-comecar" className="editorial-light scroll-mt-20 bg-white text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mb-12 max-w-3xl">
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Como começar</span></div>
@@ -196,7 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contato" className="relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
+      <section id="contato" className="editorial-cta relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
         <div className="absolute left-1/2 top-0 h-px w-40 -translate-x-1/2 bg-[#7C003E]" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-4xl text-center">
