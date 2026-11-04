@@ -17,7 +17,7 @@ type CasesCarouselProps = {
 
 function LogoCard({ item }: { item: CaseItem }) {
   const content = (
-    <div className="group relative flex h-40 w-64 shrink-0 items-center justify-center overflow-hidden border border-white/15 bg-[#0B0B0B] p-8 transition hover:border-[#7C003E] hover:bg-[#101010] sm:h-44 sm:w-72">
+    <div className="group relative flex h-40 w-64 shrink-0 items-center justify-center overflow-hidden rounded-[1.5rem] border border-[#DCE3EA] bg-white p-8 transition hover:-translate-y-1 hover:border-[#246FBF]/45 hover:shadow-[0_18px_50px_rgba(36,111,191,0.10)] sm:h-44 sm:w-72">
       {item.logo.startsWith("http") ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -46,7 +46,7 @@ function LogoCard({ item }: { item: CaseItem }) {
       target="_blank"
       rel="noreferrer"
       aria-label={`Conheça o case ${item.title}`}
-      className="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7C003E]"
+      className="shrink-0 rounded-[1.5rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#246FBF]"
     >
       {content}
     </a>

@@ -96,7 +96,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" data-scroll-behavior="smooth">
       <head>
         <Script id="gtm-script" strategy="beforeInteractive">
           {`
