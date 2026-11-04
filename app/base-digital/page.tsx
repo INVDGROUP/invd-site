@@ -6,238 +6,101 @@ import PurchaseLink from "./purchase-link";
 const checkoutUrl = "https://pay.hotmart.com/V105871017C?checkoutMode=2";
 
 const learningItems = [
-  {
-    number: "01",
-    title: "Criar uma página profissional do zero",
-    text: "Monte uma página para apresentar seu nome, seus serviços e seus canais de contato sem depender de programação avançada.",
-  },
-  {
-    number: "02",
-    title: "Personalizar três templates prontos",
-    text: "Use modelos comentados como ponto de partida e substitua textos, informações e elementos visuais pelos seus próprios dados.",
-  },
-  {
-    number: "03",
-    title: "Publicar com GitHub Pages",
-    text: "Siga o processo de publicação para colocar um projeto compatível no ar sem mensalidade de hospedagem.",
-  },
-  {
-    number: "04",
-    title: "Adicionar um formulário de contato",
-    text: "Na aula bônus, configure um formulário funcional para receber contatos por e-mail sem manter um servidor próprio.",
-  },
+  { number: "01", title: "Estrutura de uma página profissional", text: "Entenda como organizar apresentação, serviços e contato para que sua página seja clara para quem chega." },
+  { number: "02", title: "Três templates prontos para editar", text: "Escolha um modelo comentado e substitua textos, informações e elementos visuais pelos dados do seu trabalho." },
+  { number: "03", title: "Publicação com GitHub Pages", text: "Siga o passo a passo para colocar uma página estática compatível no ar sem mensalidade de hospedagem." },
+  { number: "04", title: "Formulário de contato funcional", text: "Use a aula bônus para configurar o recebimento de contatos por e-mail sem manter um servidor próprio." },
 ];
 
 const journey = [
-  {
-    step: "01",
-    title: "Acompanhe as aulas",
-    text: "Entenda a estrutura da página e o papel de cada parte antes de começar a personalização.",
-  },
-  {
-    step: "02",
-    title: "Escolha e edite o template",
-    text: "Substitua o conteúdo do modelo pelas informações do seu trabalho, seguindo as orientações do curso.",
-  },
-  {
-    step: "03",
-    title: "Publique sua página",
-    text: "Configure o GitHub Pages e disponibilize o projeto em um endereço que você possa compartilhar.",
-  },
+  { step: "01", eyebrow: "Aprenda", title: "Entenda a estrutura", text: "Acompanhe as aulas e veja o papel de cada parte da página antes de começar a personalização." },
+  { step: "02", eyebrow: "Personalize", title: "Coloque a sua identidade", text: "Escolha um dos três templates e substitua o conteúdo pelas informações do seu negócio ou serviço." },
+  { step: "03", eyebrow: "Publique", title: "Compartilhe seu endereço", text: "Configure o GitHub Pages e disponibilize sua página em um link que pode ser enviado a clientes e parceiros." },
+];
+
+const faqs = [
+  { question: "Preciso saber programar para acompanhar?", answer: "Você não precisa ter domínio avançado de programação. O curso foi organizado para que você siga as aulas e edite os pontos indicados nos templates prontos." },
+  { question: "Que tipo de página vou conseguir criar?", answer: "Uma página profissional para apresentar quem você é, seus serviços e seus canais de contato. O foco é uma presença digital objetiva para profissionais e pequenos negócios." },
+  { question: "Vou pagar mensalidade de hospedagem?", answer: "O projeto ensinado é publicado no GitHub Pages, que oferece hospedagem sem mensalidade para páginas estáticas compatíveis. Um domínio próprio é opcional e contratado separadamente." },
+  { question: "O Base Digital serve para loja virtual ou sistema?", answer: "Não. Lojas virtuais, áreas de acesso, sistemas e projetos totalmente personalizados exigem outro tipo de desenvolvimento. A proposta do curso é construir uma página profissional objetiva." },
+  { question: "Existe implementação individual feita pela INVD?", answer: "Não. O Base Digital é um curso prático para você acompanhar e implementar. Ele não inclui desenvolvimento sob demanda nem acompanhamento individual de implementação." },
+  { question: "Como funciona a garantia?", answer: "A compra é processada pela Hotmart e conta com garantia de 7 dias, conforme as condições apresentadas no checkout." },
 ];
 
 const courseJsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
   name: "Base Digital INVD",
-  description:
-    "Curso prático para criar, personalizar e publicar uma página profissional usando templates prontos e GitHub Pages.",
-  provider: {
-    "@type": "Organization",
-    name: "INVD Group",
-    sameAs: "https://invdgroup.com",
-  },
+  description: "Curso prático para transformar um template em uma página profissional e publicá-la com GitHub Pages.",
+  provider: { "@type": "Organization", name: "INVD Group", sameAs: "https://invdgroup.com" },
 };
 
 function CheckoutButton({ location, label = "Quero criar minha página" }: { location: string; label?: string }) {
   return (
-    <PurchaseLink
-      href={checkoutUrl}
-      target="_blank"
-      rel="noreferrer"
-      location={location}
-      className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-    >
-      {label}
-      <span className="ml-2" aria-hidden="true">→</span>
+    <PurchaseLink href={checkoutUrl} target="_blank" rel="noreferrer" location={location} className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#246FBF] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(36,111,191,0.28)] transition hover:bg-[#3689DB] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+      {label}<span className="ml-2" aria-hidden="true">→</span>
     </PurchaseLink>
   );
 }
 
 export default function BaseDigital() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#7C003E] selection:text-white">
+    <main className="min-h-screen bg-white text-[#344054] selection:bg-[#246FBF] selection:text-white">
       <RevealObserver />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd).replace(/</g, "\\u003c") }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd).replace(/</g, "\\u003c") }} />
 
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
-          <Link href="/" aria-label="Voltar para a página inicial da INVD" className="flex items-center gap-3">
-            <BrandLogo />
-          </Link>
-          <nav aria-label="Navegação da página Base Digital" className="hidden items-center gap-7 text-[11px] text-white/65 md:flex">
-            <a href="#conteudo" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conteúdo</a>
-            <a href="#como-funciona" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Como funciona</a>
-            <a href="#para-quem" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Para quem é</a>
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071A31]/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+          <Link href="/" aria-label="Voltar para a página inicial da INVD" className="flex items-center"><BrandLogo /></Link>
+          <nav aria-label="Navegação da página Base Digital" className="hidden items-center gap-7 text-[11px] font-medium text-white/65 lg:flex">
+            <a href="#entregas" className="transition hover:text-[#7CC4FF]">O que você recebe</a><a href="#como-funciona" className="transition hover:text-[#7CC4FF]">Como funciona</a><a href="#para-quem" className="transition hover:text-[#7CC4FF]">Para quem é</a><a href="#duvidas" className="transition hover:text-[#7CC4FF]">Dúvidas</a>
           </nav>
-          <a href="#inscricao" className="inline-flex min-h-11 items-center border border-white/20 px-4 py-2 text-[11px] font-semibold text-white/80 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            Conhecer o curso
-          </a>
+          <a href="#oferta" className="inline-flex min-h-11 items-center rounded-full bg-[#246FBF] px-5 py-2.5 text-[11px] font-semibold text-white transition hover:bg-[#3689DB]">Conhecer o Base Digital</a>
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#050505]">
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] border-l border-white/[0.06] bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:56px_56px] lg:block" />
-        <div className="pointer-events-none absolute right-[10%] top-0 h-full w-px bg-[#7C003E]/30" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pb-24 pt-20 lg:grid-cols-[1fr_18rem] lg:px-10 lg:pb-28 lg:pt-28">
+      <section className="relative overflow-hidden border-b border-white/10 bg-[#071A31] text-white">
+        <div className="pointer-events-none absolute -left-48 -top-64 h-[40rem] w-[40rem] rounded-full bg-[#286AA5]/25 blur-[140px]" />
+        <div className="pointer-events-none absolute -bottom-72 right-[-8rem] h-[44rem] w-[44rem] rounded-full bg-[#1674C7]/20 blur-[150px]" />
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[30rem] -translate-x-1/2 bg-[linear-gradient(180deg,transparent,rgba(43,99,151,0.12),transparent)] blur-3xl" />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-6 pb-20 pt-20 lg:grid-cols-[minmax(0,1fr)_23rem] lg:items-center lg:px-10 lg:pb-28 lg:pt-28">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[9px] font-semibold uppercase tracking-[0.34em] text-white/60">Curso prático · INVD Group</span>
-            </div>
-            <h1 className="reveal text-5xl font-black leading-[0.9] tracking-[-0.055em] md:text-7xl lg:text-[5.15rem]">
-              Crie e publique sua
-              <span className="block text-[#7C003E]">página profissional.</span>
-            </h1>
-            <p className="reveal reveal-delay-1 mt-7 max-w-2xl text-sm leading-7 text-white/60 md:text-base">
-              O Base Digital INVD ensina você a personalizar um template, apresentar seus serviços e colocar sua página no ar com GitHub Pages — mesmo sem experiência avançada em programação.
-            </p>
-            <div className="reveal reveal-delay-2 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <CheckoutButton location="hero" />
-              <a href="#conteudo" className="inline-flex min-h-12 items-center justify-center px-2 text-sm font-semibold text-white/65 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Ver o que está incluído ↓</a>
-            </div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#7CC4FF]">Curso prático · Base Digital INVD</p>
+            <h1 className="reveal mt-8 text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white md:text-7xl lg:text-[5.2rem]">Sua página profissional no ar, <span className="bg-[linear-gradient(90deg,#54A7F5_0%,#71C7FF_55%,#A5E0FF_100%)] bg-clip-text text-transparent">sem começar do zero.</span></h1>
+            <p className="reveal reveal-delay-1 mt-7 max-w-2xl text-base leading-7 text-white/65 md:text-lg">Aprenda a personalizar um template, apresentar seus serviços com clareza e publicar seu próprio endereço digital — sem depender de programação avançada.</p>
+            <div className="reveal reveal-delay-2 mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"><CheckoutButton location="hero" label="Quero colocar minha página no ar" /><a href="#entregas" className="inline-flex min-h-12 items-center px-3 text-sm font-semibold text-white/65 transition hover:text-white">Ver tudo que está incluído ↓</a></div>
+            <p className="mt-5 text-xs text-white/45">Compra segura pela Hotmart · Garantia de 7 dias</p>
           </div>
-          <aside className="border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Resumo do curso">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/60">Você recebe</p>
-            <ul className="mt-5 space-y-4 text-sm leading-6 text-white/65">
-              <li className="border-l border-[#7C003E] pl-4">Orientação passo a passo.</li>
-              <li className="border-l border-[#7C003E] pl-4">Três templates para personalizar.</li>
-              <li className="border-l border-[#7C003E] pl-4">Aula bônus de formulário de contato.</li>
-            </ul>
+          <aside className="rounded-[2rem] border border-white/12 bg-white/[0.055] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl" aria-label="Resultado prático do curso">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#F8FAFC] text-[#0A1F3B] shadow-2xl">
+              <div className="flex items-center gap-1.5 border-b border-[#E2E8F0] px-4 py-3"><span className="h-2 w-2 rounded-full bg-[#CBD5E1]" /><span className="h-2 w-2 rounded-full bg-[#CBD5E1]" /><span className="h-2 w-2 rounded-full bg-[#CBD5E1]" /><span className="ml-3 h-2 w-24 rounded-full bg-[#E2E8F0]" /></div>
+              <div className="p-5"><div className="h-2 w-20 rounded-full bg-[#246FBF]" /><div className="mt-5 h-5 w-[88%] rounded-full bg-[#0A1F3B]" /><div className="mt-2 h-5 w-[64%] rounded-full bg-[#0A1F3B]" /><div className="mt-5 h-2 w-full rounded-full bg-[#DCE3EA]" /><div className="mt-2 h-2 w-[78%] rounded-full bg-[#DCE3EA]" /><div className="mt-6 h-9 w-32 rounded-full bg-[#246FBF]" /><div className="mt-7 grid grid-cols-3 gap-2"><div className="h-14 rounded-lg bg-[#EDF5FD]" /><div className="h-14 rounded-lg bg-[#EDF5FD]" /><div className="h-14 rounded-lg bg-[#EDF5FD]" /></div></div>
+            </div>
+            <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#7CC4FF]">Seu resultado prático</p><p className="mt-3 text-sm leading-6 text-white/65">Um endereço profissional para apresentar seu trabalho, seus serviços e o próximo passo para falar com você.</p>
           </aside>
         </div>
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-px border-t border-white/10 bg-white/10 sm:grid-cols-3">{["3 templates prontos para editar", "Hospedagem sem mensalidade", "Aula bônus de formulário"].map((item, index) => <div key={item} className="bg-white/[0.04] px-6 py-5 text-sm font-medium text-white/70 backdrop-blur-sm lg:px-10"><span className="mr-3 text-[#7CC4FF]">0{index + 1}</span>{item}</div>)}</div>
       </section>
 
-      <section className="bg-[#F5F5F3] text-[#050505]">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-            <div>
-              <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">O ponto de partida</span></div>
-              <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Ter uma presença própria não precisa começar com uma estrutura <span className="text-[#7C003E]">complexa.</span></h2>
-            </div>
-            <div className="space-y-5 text-sm leading-7 text-black/60 md:text-base">
-              <p>Perfis em redes sociais ajudam na divulgação, mas não substituem um espaço organizado para explicar quem você é, o que oferece e como entrar em contato.</p>
-              <p>O curso propõe um primeiro projeto objetivo: uma página profissional que você consegue editar, publicar e manter com mais autonomia.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="bg-[#F6F8FA]"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:px-10 lg:py-28"><div><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">O problema não é falta de competência</p><h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-5xl">Seu trabalho precisa de um lugar próprio para ser entendido.</h2></div><div className="grid gap-4 sm:grid-cols-2"><article className="reveal rounded-[1.75rem] border border-[#DCE3EA] bg-white p-7"><span className="text-sm font-semibold text-[#246FBF]">01</span><h3 className="mt-10 text-xl font-semibold text-[#0A1F3B]">Redes sociais não explicam tudo</h3><p className="mt-4 text-sm leading-7 text-[#667085]">Posts se perdem no feed e nem sempre deixam claro o que você oferece ou como contratar.</p></article><article className="reveal reveal-delay-1 rounded-[1.75rem] border border-[#DCE3EA] bg-white p-7"><span className="text-sm font-semibold text-[#246FBF]">02</span><h3 className="mt-10 text-xl font-semibold text-[#0A1F3B]">Começar do zero trava a execução</h3><p className="mt-4 text-sm leading-7 text-[#667085]">Sem uma estrutura pronta, decisões técnicas e visuais transformam um projeto simples em algo difícil de terminar.</p></article></div></div></section>
 
-      <section id="conteudo" className="scroll-mt-20 bg-white text-[#050505]">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
-          <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">O que você vai aprender</span></div>
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Do template à página publicada<span className="text-[#7C003E]">.</span></h2>
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">Cada conteúdo aproxima você de um resultado concreto, sem transformar o curso em uma formação completa de desenvolvimento web.</p>
-          </div>
-          <div className="mt-14 grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] sm:grid-cols-2">
-            {learningItems.map((item) => (
-              <article key={item.number} className="reveal bg-white p-7 sm:p-9">
-                <span className="text-4xl font-black tracking-[-0.08em] text-[#7C003E]/70">{item.number}</span>
-                <h3 className="mt-7 text-xl font-black leading-tight text-black">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-black/55">{item.text}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-10 text-center"><CheckoutButton location="conteudo" label="Quero acessar o Base Digital" /></div>
-        </div>
-      </section>
+      <section id="entregas" className="scroll-mt-20 bg-white"><div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">O que você recebe</p><div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"><h2 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-5xl">Tudo o que precisa para sair do template e chegar à publicação.</h2><p className="max-w-sm text-sm leading-7 text-[#667085]">Um percurso direto, com entregas concretas e sem transformar o curso em uma formação completa de desenvolvimento web.</p></div><div className="mt-14 grid gap-5 sm:grid-cols-2">{learningItems.map((item) => <article key={item.number} className="reveal rounded-[1.75rem] border border-[#DCE3EA] bg-[#F8FAFC] p-7 sm:p-8"><span className="text-sm font-semibold text-[#246FBF]">{item.number}</span><h3 className="mt-10 text-xl font-semibold leading-tight tracking-[-0.025em] text-[#0A1F3B]">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#667085]">{item.text}</p></article>)}</div><div className="mt-10 text-center"><CheckoutButton location="entregas" label="Quero acessar o Base Digital" /></div></div></section>
 
-      <section id="como-funciona" className="scroll-mt-20 bg-[#050505]">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10">
-          <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/60">Como funciona</span><span className="h-px w-10 bg-[#7C003E]" /></div>
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Aprenda, personalize e <span className="text-[#7C003E]">publique.</span></h2>
-          </div>
-          <div className="mt-14 flex flex-col">
-            {journey.map((item) => (
-              <article key={item.step} className="reveal group grid gap-5 border-t border-white/15 px-1 py-8 transition hover:border-[#7C003E] sm:grid-cols-[4rem_1fr] sm:gap-8 sm:px-4 lg:grid-cols-[4rem_18rem_1fr]">
-                <span className="text-5xl font-black tracking-[-0.05em] text-white/10 transition group-hover:text-[#7C003E]/60">{item.step}</span>
-                <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                <p className="max-w-2xl text-sm leading-7 text-white/60 sm:col-start-2 lg:col-start-3">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="relative overflow-hidden bg-[#071A31] text-white"><div className="pointer-events-none absolute -left-40 -top-52 h-[34rem] w-[34rem] rounded-full bg-[#286AA5]/25 blur-[120px]" /><div className="pointer-events-none absolute -bottom-64 right-[6%] h-[38rem] w-[38rem] rounded-full bg-[#1674C7]/20 blur-[135px]" /><div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-6 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-10 lg:py-28"><div><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#7CC4FF]">Ao final do percurso</p><h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-5xl">Você não sai apenas com aulas assistidas.</h2><p className="mt-6 max-w-xl text-base leading-7 text-white/65">Sai com um projeto que pode continuar ajustando conforme seu trabalho evolui.</p></div><div className="rounded-[2rem] border border-white/12 bg-white/[0.05] p-7 backdrop-blur-sm sm:p-8"><p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/45">Sua base digital organizada</p><ul className="mt-6 divide-y divide-white/10">{["Uma página com apresentação clara do seu trabalho.", "Seus serviços e formas de contato em um só endereço.", "Autonomia para editar textos e informações.", "Um processo de publicação que você poderá repetir."].map((item, index) => <li key={item} className="flex gap-4 py-5 text-sm leading-6 text-white/75"><span className="text-[#7CC4FF]">0{index + 1}</span>{item}</li>)}</ul></div></div></section>
 
-      <section id="para-quem" className="scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
-        <div className="mx-auto grid max-w-6xl gap-px px-6 py-24 lg:grid-cols-2 lg:px-10">
-          <div className="border border-[#D9D9D9] bg-white p-7 sm:p-10">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Para quem é</p>
-            <h2 className="mt-5 text-3xl font-black leading-none tracking-[-0.04em] md:text-4xl">Um primeiro passo para quem quer autonomia digital.</h2>
-            <ul className="mt-8 space-y-4 text-sm leading-6 text-black/60">
-              <li className="border-l-2 border-[#7C003E] pl-4">MEIs, profissionais autônomos e freelancers.</li>
-              <li className="border-l-2 border-[#7C003E] pl-4">Quem precisa apresentar serviços e contato em uma página própria.</li>
-              <li className="border-l-2 border-[#7C003E] pl-4">Quem está disposto a editar um template seguindo as aulas.</li>
-            </ul>
-          </div>
-          <div className="border border-t-0 border-[#D9D9D9] bg-[#ECE9EA] p-7 sm:p-10 lg:border-l-0 lg:border-t">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60">O que o curso não substitui</p>
-            <h2 className="mt-5 text-3xl font-black leading-none tracking-[-0.04em] md:text-4xl">Escopos que exigem desenvolvimento especializado.</h2>
-            <ul className="mt-8 space-y-4 text-sm leading-6 text-black/55">
-              <li className="border-l-2 border-black/15 pl-4">Lojas virtuais, sistemas ou áreas de acesso.</li>
-              <li className="border-l-2 border-black/15 pl-4">Projetos totalmente personalizados e feitos sob demanda.</li>
-              <li className="border-l-2 border-black/15 pl-4">Acompanhamento individual de implementação.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <section id="como-funciona" className="scroll-mt-20 bg-[#F6F8FA]"><div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">Como funciona</p><h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-5xl">Três etapas entre a ideia e a página publicada.</h2><div className="mt-14 grid gap-5 lg:grid-cols-3">{journey.map((item) => <article key={item.step} className="reveal rounded-[1.75rem] border border-[#DCE3EA] bg-white p-7 sm:p-8"><div className="flex items-center justify-between"><span className="text-sm font-semibold text-[#246FBF]">{item.step}</span><span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#98A2B3]">{item.eyebrow}</span></div><h3 className="mt-12 text-xl font-semibold text-[#0A1F3B]">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#667085]">{item.text}</p></article>)}</div></div></section>
 
-      <section className="bg-white text-[#050505]">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-10">
-          <div>
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Publicação e custos</span></div>
-            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Hospedagem sem mensalidade para projetos compatíveis<span className="text-[#7C003E]">.</span></h2>
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">O curso utiliza o GitHub Pages, serviço que permite hospedar gratuitamente páginas estáticas. Um domínio próprio é opcional e, se escolhido, é contratado separadamente.</p>
-          </div>
-          <dl className="border border-[#D9D9D9] bg-[#F5F5F3]">
-            <div className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-[#D9D9D9] p-6"><dt className="text-sm font-bold">GitHub Pages</dt><dd className="col-start-1 mt-2 text-sm leading-6 text-black/60">Hospedagem da página estática ensinada no curso.</dd><dd className="col-start-2 row-span-2 row-start-1 self-start text-[10px] font-semibold uppercase tracking-[0.16em] text-[#7C003E]">Sem mensalidade</dd></div>
-            <div className="grid grid-cols-[1fr_auto] gap-x-6 p-6"><dt className="text-sm font-bold">Domínio próprio</dt><dd className="col-start-1 mt-2 text-sm leading-6 text-black/60">Pode ser conectado depois, conforme sua preferência.</dd><dd className="col-start-2 row-span-2 row-start-1 self-start text-[10px] font-semibold uppercase tracking-[0.16em] text-black/60">Opcional</dd></div>
-          </dl>
-        </div>
-      </section>
+      <section id="para-quem" className="scroll-mt-20 bg-white"><div className="mx-auto grid max-w-7xl gap-5 px-6 py-24 lg:grid-cols-2 lg:px-10 lg:py-28"><article className="rounded-[2rem] bg-[linear-gradient(135deg,#EAF4FF_0%,#F6FAFF_48%,#DCEEFF_100%)] p-8 sm:p-10"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">Faz sentido para você se</p><h2 className="mt-6 text-3xl font-semibold leading-[1.04] tracking-[-0.04em] text-[#0A1F3B] md:text-4xl">Quer uma primeira presença profissional com mais autonomia.</h2><ul className="mt-8 space-y-4 text-sm leading-6 text-[#475467]">{["É MEI, profissional autônomo ou freelancer.", "Precisa apresentar serviços e contato em uma página própria.", "Está disposto a editar um template seguindo as aulas.", "Quer começar com uma estrutura simples e funcional."].map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#246FBF]" />{item}</li>)}</ul></article><article className="rounded-[2rem] border border-[#DCE3EA] bg-[#F6F8FA] p-8 sm:p-10"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#667085]">Não é a solução indicada se</p><h2 className="mt-6 text-3xl font-semibold leading-[1.04] tracking-[-0.04em] text-[#0A1F3B] md:text-4xl">Seu projeto exige desenvolvimento personalizado.</h2><ul className="mt-8 space-y-4 text-sm leading-6 text-[#667085]">{["Precisa de loja virtual, sistema ou área de acesso.", "Busca um site totalmente desenvolvido sob demanda.", "Espera acompanhamento individual de implementação.", "Não pretende editar ou publicar o próprio projeto."].map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#98A2B3]" />{item}</li>)}</ul></article></div></section>
 
-      <section id="inscricao" className="relative scroll-mt-20 overflow-hidden border-t border-white/10 bg-[#050505]">
-        <div className="absolute left-1/2 top-0 h-px w-40 -translate-x-1/2 bg-[#7C003E]" />
-        <div className="relative mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-white/60">Compra processada pela Hotmart</p>
-          <h2 className="mt-6 text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-6xl">Pronto para construir sua primeira página profissional<span className="text-[#7C003E]">?</span></h2>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/55 md:text-base">Acesse o Base Digital INVD, acompanhe as aulas e transforme um dos templates em uma página que apresente seu trabalho com clareza.</p>
-          <div className="mt-10"><CheckoutButton location="cta_final" label="Acessar o checkout do curso" /></div>
-          <p className="mt-4 text-[11px] text-white/60">Garantia de 7 dias · Pagamento processado pela Hotmart</p>
-        </div>
-      </section>
+      <section className="bg-[#F6F8FA]"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-10 lg:py-28"><div><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">Uma estrutura que cabe no começo</p><h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-5xl">Publique sem adicionar uma nova mensalidade à operação.</h2><p className="mt-6 max-w-2xl text-base leading-7 text-[#667085]">O curso utiliza o GitHub Pages para hospedar páginas estáticas compatíveis. Se quiser usar um domínio próprio, ele pode ser conectado depois e é contratado separadamente.</p></div><dl className="overflow-hidden rounded-[1.75rem] border border-[#DCE3EA] bg-white"><div className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-[#E7ECF1] p-6"><dt className="font-semibold text-[#0A1F3B]">GitHub Pages</dt><dd className="col-start-1 mt-2 text-sm leading-6 text-[#667085]">Hospedagem da página estática ensinada no curso.</dd><dd className="col-start-2 row-span-2 row-start-1 self-start text-[10px] font-semibold uppercase tracking-[0.16em] text-[#246FBF]">Sem mensalidade</dd></div><div className="grid grid-cols-[1fr_auto] gap-x-6 p-6"><dt className="font-semibold text-[#0A1F3B]">Domínio próprio</dt><dd className="col-start-1 mt-2 text-sm leading-6 text-[#667085]">Use quando fizer sentido para a sua marca.</dd><dd className="col-start-2 row-span-2 row-start-1 self-start text-[10px] font-semibold uppercase tracking-[0.16em] text-[#667085]">Opcional</dd></div></dl></div></section>
 
-      <footer className="border-t border-white/5 bg-[#050505]">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-10 text-center sm:flex-row sm:text-left lg:px-10">
-          <div><Link href="/" aria-label="Voltar para a página inicial da INVD" className="inline-flex"><BrandLogo className="opacity-60" small /></Link><p className="mt-3 text-xs text-white/60">© 2026 INVD Group — Inteligência em Vendas no Digital.</p></div>
-          <Link href="/" className="text-xs font-semibold text-white/60 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conhecer a INVD Group →</Link>
-        </div>
-      </footer>
+      <section id="oferta" className="scroll-mt-20 bg-white"><div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28"><div className="relative overflow-hidden rounded-[2.5rem] bg-[#071A31] px-6 py-14 text-white sm:px-10 lg:grid lg:grid-cols-[1fr_0.72fr] lg:gap-16 lg:px-14 lg:py-16"><div className="pointer-events-none absolute -bottom-56 -right-40 h-[34rem] w-[34rem] rounded-full bg-[#1674C7]/25 blur-[120px]" /><div className="relative z-10"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#7CC4FF]">Acesso ao Base Digital</p><h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-5xl">Comece com uma estrutura pronta. Termine com a sua página publicada.</h2><p className="mt-6 max-w-2xl text-base leading-7 text-white/65">Aulas práticas, templates editáveis e um caminho direto para construir seu primeiro endereço profissional.</p><div className="mt-9"><CheckoutButton location="oferta" label="Quero acessar o Base Digital" /></div><p className="mt-4 text-xs text-white/45">Pagamento processado pela Hotmart</p></div><aside className="relative z-10 mt-10 rounded-[1.5rem] border border-white/12 bg-white/[0.05] p-6 lg:mt-0"><p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/45">Incluído no acesso</p><ul className="mt-5 divide-y divide-white/10">{["Aulas passo a passo", "3 templates prontos", "Publicação com GitHub Pages", "Bônus: formulário de contato"].map((item) => <li key={item} className="flex items-center gap-3 py-4 text-sm text-white/75"><span className="text-[#7CC4FF]">✓</span>{item}</li>)}</ul><div className="mt-5 rounded-xl bg-white/[0.06] px-4 py-4"><p className="text-xs font-semibold text-white">Garantia de 7 dias</p><p className="mt-1 text-xs leading-5 text-white/45">Conforme as condições apresentadas no checkout da Hotmart.</p></div></aside></div></div></section>
+
+      <section id="duvidas" className="scroll-mt-20 bg-[#F6F8FA]"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[0.72fr_1.28fr] lg:px-10 lg:py-28"><div><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">Dúvidas frequentes</p><h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-5xl">Antes de começar.</h2><p className="mt-6 max-w-sm text-sm leading-7 text-[#667085]">Informações objetivas para você entender se o Base Digital combina com o momento do seu projeto.</p></div><div className="divide-y divide-[#DCE3EA] border-y border-[#DCE3EA]">{faqs.map((item) => <details key={item.question} className="group py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-base font-semibold text-[#0A1F3B]"><span>{item.question}</span><span className="text-xl font-normal text-[#246FBF] transition group-open:rotate-45">+</span></summary><p className="mt-4 max-w-3xl pr-10 text-sm leading-7 text-[#667085]">{item.answer}</p></details>)}</div></div></section>
+
+      <section className="bg-white"><div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28"><div className="rounded-[2.5rem] bg-[linear-gradient(135deg,#EAF4FF_0%,#F6FAFF_48%,#DCEEFF_100%)] px-6 py-16 text-center sm:px-12 lg:py-20"><p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#246FBF]">Seu próximo passo</p><h2 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0A1F3B] md:text-6xl">Seu trabalho já existe. Agora ele pode ter um endereço próprio.</h2><p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#475467]">Escolha um template, siga as aulas e construa uma página que apresente seu negócio com mais clareza.</p><div className="mt-9"><CheckoutButton location="cta_final" label="Quero criar minha página profissional" /></div><p className="mt-4 text-xs text-[#667085]">Compra segura pela Hotmart · Garantia de 7 dias</p></div></div></section>
+
+      <footer className="border-t border-[#E7ECF1] bg-[#F6F8FA]"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 text-center sm:flex-row sm:text-left lg:px-10"><div><Link href="/" aria-label="Voltar para a página inicial da INVD" className="inline-flex"><BrandLogo className="brand-logo--navy" small /></Link><p className="mt-3 text-xs text-[#667085]">© 2026 INVD Group — Inteligência em Vendas no Digital.</p></div><Link href="/" className="text-xs font-semibold text-[#667085] transition hover:text-[#246FBF]">Conhecer a INVD Group →</Link></div></footer>
     </main>
   );
 }

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Base Digital: crie e publique sua página profissional",
+  title: "Base Digital: sua página profissional no ar",
   description:
-    "Curso prático para criar, personalizar e publicar uma página profissional usando templates prontos e GitHub Pages.",
+    "Curso prático para personalizar um template, apresentar seus serviços e publicar sua página profissional com GitHub Pages.",
   alternates: {
     canonical: "/base-digital",
   },
   openGraph: {
-    title: "Base Digital INVD — Crie e publique sua página profissional",
+    title: "Base Digital INVD — Sua página profissional no ar",
     description:
-      "Aprenda a personalizar templates e publicar uma página profissional com GitHub Pages.",
+      "Use templates prontos, apresente seus serviços e publique sua página profissional com GitHub Pages.",
     url: "/base-digital",
     siteName: "INVD Group",
     locale: "pt_BR",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Base Digital INVD — Crie e publique sua página profissional",
+    title: "Base Digital INVD — Sua página profissional no ar",
     description:
-      "Aprenda a personalizar templates e publicar uma página profissional com GitHub Pages.",
+      "Use templates prontos, apresente seus serviços e publique sua página profissional com GitHub Pages.",
     images: ["/logo-invd.png"],
   },
 };
