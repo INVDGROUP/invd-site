@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import BrandLogo from "./components/brand-logo";
 import CasesCarousel, { type CaseItem } from "./components/cases-carousel";
 import { BackToTopButton, RevealObserver, WhatsAppLink } from "./components/conversion-elements";
@@ -67,11 +68,12 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <a href="#conteudo" aria-label="INVD Group — início" className="flex items-center gap-3"><BrandLogo /></a>
-          <nav aria-label="Navegação principal" className="hidden items-center gap-7 text-[11px] text-white/70 md:flex">
+          <nav aria-label="Navegação principal" className="hidden items-center gap-5 text-[11px] text-white/70 md:flex">
             <a href="#problemas" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Desafios</a>
             <a href="#servicos" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">O que fazemos</a>
             <a href="#cases" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Cases</a>
             <a href="#metodo" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Método INVD</a>
+            <a href="#diagnostico" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Diagnóstico</a>
             <a href="#como-comecar" className="transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Como começar</a>
           </nav>
           <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="header" className="rounded-sm bg-[#7C003E] px-5 py-2.5 text-[11px] font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5F5F3]">Fale com a INVD</WhatsAppLink>
@@ -88,7 +90,7 @@ export default function Home() {
             <p className="reveal reveal-delay-1 mt-7 max-w-2xl text-sm leading-7 text-[#A1A1A1] md:text-base">Estruturamos e gerenciamos campanhas de aquisição com foco em atrair potenciais clientes, acompanhar a qualidade dos leads e melhorar continuamente os resultados.</p>
             <div className="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
               <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="hero" className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conversar sobre meu negócio <span className="ml-2">→</span></WhatsAppLink>
-              <a href="#metodo" className="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/25 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conhecer o Método INVD</a>
+              <Link href="/diagnostico" className="inline-flex min-h-12 items-center justify-center rounded-sm border border-white/25 px-7 py-4 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Fazer diagnóstico gratuito</Link>
             </div>
           </div>
           <aside className="border-y border-white/10 py-7 lg:border-l lg:border-y-0 lg:py-4 lg:pl-7" aria-label="Perfil de empresa atendida">
@@ -105,11 +107,11 @@ export default function Home() {
       <section id="problemas" className="scroll-mt-20 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Problemas reais de aquisição</span></div>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Problemas reais de aquisição</span></div>
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Quando investir em mídia não é suficiente para entender o que funciona<span className="text-[#7C003E]">.</span></h2>
           </div>
           <div className="mt-14 grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] lg:grid-cols-3">
-            {acquisitionProblems.map((problem) => <article key={problem.number} className="reveal bg-white p-7 sm:p-9"><span className="text-4xl font-black tracking-[-0.08em] text-[#7C003E]/25">{problem.number}</span><h3 className="mt-7 text-xl font-black leading-tight text-black">{problem.title}</h3><p className="mt-4 text-sm leading-7 text-black/55">{problem.text}</p></article>)}
+            {acquisitionProblems.map((problem) => <article key={problem.number} className="reveal bg-white p-7 sm:p-9"><span className="text-4xl font-black tracking-[-0.08em] text-[#7C003E]/70">{problem.number}</span><h3 className="mt-7 text-xl font-black leading-tight text-black">{problem.title}</h3><p className="mt-4 text-sm leading-7 text-black/55">{problem.text}</p></article>)}
           </div>
           <p className="mt-9 max-w-3xl border-l-2 border-[#7C003E] pl-5 text-sm leading-7 text-black/60 md:text-base">A INVD conecta planejamento, execução e leitura de dados para transformar o investimento em mídia em uma operação de aquisição mais compreensível e evolutiva.</p>
         </div>
@@ -118,12 +120,12 @@ export default function Home() {
       <section id="servicos" className="scroll-mt-20 bg-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/45">O que fazemos</span><span className="h-px w-10 bg-[#7C003E]" /></div>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-white/60">O que fazemos</span><span className="h-px w-10 bg-[#7C003E]" /></div>
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Gestão de tráfego com estratégia, execução e <span className="text-[#7C003E]">análise.</span></h2>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55 md:text-base">Uma solução central de gestão estratégica de tráfego pago, organizada em três frentes que funcionam de forma integrada.</p>
           </div>
           <div className="mt-14 flex flex-col">
-            {services.map((service) => <article key={service.number} className="reveal group grid gap-5 border-t border-white/15 px-1 py-8 transition hover:border-[#7C003E] sm:grid-cols-[4rem_1fr] sm:items-start sm:gap-8 sm:px-4 lg:grid-cols-[4rem_18rem_1fr]"><span className="text-5xl font-black tracking-[-0.05em] text-white/10 transition group-hover:text-[#7C003E]/60">{service.number}</span><h3 className="text-xl font-bold text-white">{service.title}</h3><p className="max-w-2xl text-sm leading-7 text-white/50 sm:col-start-2 lg:col-start-3">{service.text}</p></article>)}
+            {services.map((service) => <article key={service.number} className="reveal group grid gap-5 border-t border-white/15 px-1 py-8 transition hover:border-[#7C003E] sm:grid-cols-[4rem_1fr] sm:items-start sm:gap-8 sm:px-4 lg:grid-cols-[4rem_18rem_1fr]"><span className="text-5xl font-black tracking-[-0.05em] text-white/50 transition group-hover:text-[#D85A99]">{service.number}</span><h3 className="text-xl font-bold text-white">{service.title}</h3><p className="max-w-2xl text-sm leading-7 text-white/60 sm:col-start-2 lg:col-start-3">{service.text}</p></article>)}
           </div>
         </div>
       </section>
@@ -133,7 +135,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-[#7C003E]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-white/45">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-white/60">
                 Case
               </span>
               <span className="h-px w-10 bg-[#7C003E]" />
@@ -154,7 +156,7 @@ export default function Home() {
       <section id="metodo" className="scroll-mt-20 border-t border-white/10 bg-[#F5F5F3] text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Método INVD</span><span className="h-px w-10 bg-[#7C003E]" /></div>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Método INVD</span><span className="h-px w-10 bg-[#7C003E]" /></div>
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Método INVD: decisões orientadas pelo que realmente limita os <span className="text-[#7C003E]">resultados.</span></h2>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">Uma lógica contínua para identificar o ponto limitante, ajustar prioridades, validar mudanças e desenvolver a operação a partir do que os dados demonstram.</p>
           </div>
@@ -162,15 +164,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="diagnostico" className="scroll-mt-20 border-y border-white/10 bg-[#050505]">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-10">
+          <div className="max-w-3xl">
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white/60">Diagnóstico gratuito</span></div>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Entenda o nível atual da sua <span className="text-[#D85A99]">aquisição digital.</span></h2>
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-white/60 md:text-base">Responda a cinco perguntas sobre mídia, públicos, mensuração e processo comercial. Ao final, você recebe uma leitura inicial dos pontos que merecem mais atenção.</p>
+            <Link href="/diagnostico" className="mt-9 inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Iniciar diagnóstico gratuito <span className="ml-2" aria-hidden="true">→</span></Link>
+          </div>
+          <aside className="border-l border-[#7C003E] pl-7" aria-label="Como funciona o diagnóstico">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/60">Em poucos minutos</p>
+            <ol className="mt-6 space-y-5 text-sm leading-7 text-white/70">
+              <li><span className="mr-3 font-bold text-[#D85A99]">01</span>Responda cinco perguntas objetivas.</li>
+              <li><span className="mr-3 font-bold text-[#D85A99]">02</span>Veja os principais gargalos identificados.</li>
+              <li><span className="mr-3 font-bold text-[#D85A99]">03</span>Entenda qual pode ser o próximo passo.</li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
       <section id="como-comecar" className="scroll-mt-20 bg-white text-[#050505]">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
           <div className="mb-12 max-w-3xl">
-            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/45">Como começar</span></div>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-10 bg-[#7C003E]" /><span className="text-[10px] uppercase tracking-[0.35em] text-black/60">Como começar</span></div>
             <h2 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] md:text-5xl">Três passos para iniciar a <span className="text-[#7C003E]">contratação.</span></h2>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-black/55 md:text-base">Depois do primeiro contato, a conversa avança com escopo, responsabilidades e próximos passos claros.</p>
           </div>
           <div className="grid gap-px overflow-hidden border border-[#D9D9D9] bg-[#D9D9D9] lg:grid-cols-3">
-            {implementationSteps.map((item) => <article key={item.step} className="reveal group bg-white p-7 transition hover:bg-[#050505] sm:p-9"><div className="flex items-center justify-between"><span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Passo {item.step}</span><span className="text-4xl font-black tracking-[-0.08em] text-black/10 transition group-hover:text-white/10">{item.step}</span></div><h3 className="mt-7 text-xl font-black text-black transition group-hover:text-white">{item.title}</h3><p className="mt-4 text-sm leading-7 text-black/55 transition group-hover:text-white/55">{item.text}</p><div className="mt-8 border-t border-black/10 pt-5 transition group-hover:border-white/10"><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40 transition group-hover:text-white/40">{item.detail}</p></div></article>)}
+            {implementationSteps.map((item) => <article key={item.step} className="reveal group bg-white p-7 transition hover:bg-[#050505] sm:p-9"><div className="flex items-center justify-between"><span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C003E]">Passo {item.step}</span><span className="text-4xl font-black tracking-[-0.08em] text-black/50 transition group-hover:text-white/50">{item.step}</span></div><h3 className="mt-7 text-xl font-black text-black transition group-hover:text-white">{item.title}</h3><p className="mt-4 text-sm leading-7 text-black/60 transition group-hover:text-white/60">{item.text}</p><div className="mt-8 border-t border-black/10 pt-5 transition group-hover:border-white/10"><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/60 transition group-hover:text-white/60">{item.detail}</p></div></article>)}
           </div>
         </div>
       </section>
@@ -184,7 +205,7 @@ export default function Home() {
             <WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="cta_final" className="mt-10 inline-flex min-h-12 items-center justify-center rounded-sm bg-[#7C003E] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#92004A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Conversar sobre meu negócio <span className="ml-2">→</span></WhatsAppLink>
           </div>
           <div className="mt-24 text-center">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-white/35">Parceiros</p>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-white/60">Parceiros</p>
             <div className="mx-auto mt-8 grid w-full max-w-xl gap-5 sm:grid-cols-2">
               <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4"><Image src="/partners/google-partner.png" alt="Google Partner" width={600} height={600} unoptimized className="h-28 w-auto object-contain" /></div>
               <div className="flex h-36 items-center justify-center overflow-hidden border border-white/15 bg-white p-4"><Image src="/partners/kommo-partner.png" alt="Kommo Partner" width={1920} height={1080} unoptimized className="h-full w-full object-contain" /></div>
@@ -198,26 +219,26 @@ export default function Home() {
           <div className="grid gap-12 md:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
             <div>
               <a href="#conteudo" aria-label="INVD Group — início" className="inline-flex items-center"><BrandLogo /></a>
-              <p className="mt-4 max-w-xs text-sm leading-7 text-white/45">Inteligência em Vendas no Digital. Gestão estratégica de tráfego pago para aquisição de clientes.</p>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-white/60">Inteligência em Vendas no Digital. Gestão estratégica de tráfego pago para aquisição de clientes.</p>
               <div className="mt-6 flex items-center gap-3">
                 <a href="https://www.instagram.com/invdgroup/" target="_blank" rel="noreferrer" aria-label="INVD Group no Instagram" className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
                 <a href="https://www.linkedin.com/company/invdgroup" target="_blank" rel="noreferrer" aria-label="INVD Group no LinkedIn" className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/50 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
               </div>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Navegação</p>
-              <div className="mt-5 space-y-3 text-sm text-white/65"><a href="#problemas" className="block transition hover:text-white">Desafios</a><a href="#servicos" className="block transition hover:text-white">O que fazemos</a><a href="#cases" className="block transition hover:text-white">Cases</a><a href="#metodo" className="block transition hover:text-white">Método INVD</a><a href="#como-comecar" className="block transition hover:text-white">Como começar</a></div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60">Navegação</p>
+              <div className="mt-5 space-y-3 text-sm text-white/65"><a href="#problemas" className="block transition hover:text-white">Desafios</a><a href="#servicos" className="block transition hover:text-white">O que fazemos</a><a href="#cases" className="block transition hover:text-white">Cases</a><a href="#metodo" className="block transition hover:text-white">Método INVD</a><Link href="/diagnostico" className="block transition hover:text-white">Diagnóstico gratuito</Link><a href="#como-comecar" className="block transition hover:text-white">Como começar</a></div>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Atuação</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60">Atuação</p>
               <div className="mt-5 space-y-3 text-sm text-white/65"><span className="block">Estratégia de aquisição</span><span className="block">Gestão de tráfego pago</span><span className="block">Análise de performance</span><span className="block">Meta Ads e Google Ads</span></div>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/35">Contato</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60">Contato</p>
               <div className="mt-5"><WhatsAppLink href={whatsappLink} target="_blank" rel="noreferrer" location="footer" className="inline-flex min-h-11 items-center border border-white/15 px-4 py-2 text-sm text-white/75 transition hover:border-[#7C003E] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">WhatsApp</WhatsAppLink></div>
             </div>
           </div>
-          <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/30 md:flex-row md:items-center md:justify-between"><p>© 2026 INVD Group — Marketing Digital e Publicidade · Todos os direitos reservados.</p><BackToTopButton /></div>
+          <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/60 md:flex-row md:items-center md:justify-between"><p>© 2026 INVD Group — Marketing Digital e Publicidade · Todos os direitos reservados.</p><BackToTopButton /></div>
         </div>
       </footer>
 

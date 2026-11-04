@@ -122,12 +122,12 @@ const questions = [
 
         {step === 0 && (
           <div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Análise de aquisição</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#E06AA5]">Análise de aquisição</span>
             <h1 className="mt-4 text-4xl font-black leading-[1.05] tracking-[-0.04em]">
               Como está sua<br />
-              <span className="text-[#7C003E]">aquisição digital?</span>
+              <span className="text-[#E06AA5]">aquisição digital?</span>
             </h1>
-            <p className="mt-5 text-sm leading-7 text-white/50">
+            <p className="mt-5 text-sm leading-7 text-white/70">
               5 perguntas para avaliar a estrutura atual de mídia e geração de oportunidades.
             </p>
             <button
@@ -146,7 +146,7 @@ const questions = [
                 <div key={i} className={`h-[3px] flex-1 rounded-full transition-all ${i < step ? "bg-[#7C003E]" : "bg-white/10"}`} />
               ))}
             </div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Pergunta {step} de 5</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#E06AA5]">Pergunta {step} de 5</span>
             <h2 className="mt-4 text-xl font-bold leading-snug mb-8">{currentQ.text}</h2>
             <div className="flex flex-col gap-3 mb-8">
               {currentQ.options.map((opt, i) => (
@@ -175,22 +175,22 @@ const questions = [
 
         {step === 6 && (
           <div>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#7C003E]">Sua análise</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#E06AA5]">Sua análise</span>
             <div className="mt-6 flex items-center gap-5 mb-8">
               <div className="flex-shrink-0 w-20 h-20 rounded-full border-2 border-[#7C003E] flex items-center justify-center">
-                <span className="text-2xl font-black text-[#7C003E]">{pct}%</span>
+                <span className="text-2xl font-black text-[#E06AA5]">{pct}%</span>
               </div>
               <div>
                 <p className="font-bold text-white text-base">{titles[tier]}</p>
-                <p className="text-sm text-white/50 mt-1">{descs[tier]}</p>
+                <p className="text-sm text-white/70 mt-1">{descs[tier]}</p>
               </div>
             </div>
 
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/30 mb-4">Principais gargalos identificados</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60 mb-4">Principais gargalos identificados</p>
             <div className="flex flex-col gap-3 mb-8">
               {gargalos[tier].map((g, i) => (
                 <div key={i} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                  <p className="text-sm font-bold text-[#7C003E] mb-2">{g.t}</p>
+                  <p className="text-sm font-bold text-[#E06AA5] mb-2">{g.t}</p>
                   <p className="text-sm text-white/55 leading-relaxed">{g.d}</p>
                 </div>
               ))}
@@ -214,7 +214,7 @@ const questions = [
 
             <button
               onClick={() => { setStep(0); setAnswers({}); setSelected(null); }}
-              className="w-full text-center text-xs text-white/25 hover:text-white/50 transition mt-2"
+              className="w-full text-center text-xs text-white/60 hover:text-white transition mt-2"
             >
               Reiniciar diagnóstico
             </button>
@@ -222,7 +222,7 @@ const questions = [
         )}
 
         <footer className="mt-16 pt-6 border-t border-white/5">
-          <div className="flex flex-col gap-2 text-xs text-white/25 text-center">
+          <div className="flex flex-col gap-2 text-xs text-white/60 text-center">
             <p>© 2026 INVD — Todos os direitos reservados.</p>
             <p>Inteligência em Vendas no Digital</p>
           </div>
